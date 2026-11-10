@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WatchPlus — Brend Tarixi, Shveytsariya Ustaxonasi va VIP Aloqa | About & Atelier</title>
+  <meta name="description" content="WatchPlus — O'zbekistondagi rasmiy soatsozlik uyi tarixi, COSC sertifikatlangan servis ustaxonasi, ko'p beriladigan savollar (FAQ), filiallarimiz va Telegram Botga ulangan VIP aloqa markazi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root[data-theme="dark"] {
+      --bg-primary: #07080a;
+      --bg-secondary: #0f1116;
+      --bg-tertiary: #161922;
+      --bg-elevated: #1c202b;
+      --bg-glass: rgba(18, 21, 28, 0.85);
+      --bg-glass-heavy: rgba(10, 12, 16, 0.96);
+      --text-primary: #f6f4f0;
+      --text-secondary: #a6adbb;
+      --text-muted: #697080;
+      --accent-gold: #d4af37;
+      --accent-gold-light: #f3e5ab;
+      --accent-gold-dark: #9c7a23;
+      --accent-glow: rgba(212, 175, 55, 0.22);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-gold: rgba(212, 175, 55, 0.38);
+      --danger: #ef4444;
+      --success: #10b981;
+      --shadow-card: 0 24px 48px -12px rgba(0, 0, 0, 0.78);
+      --shadow-gold: 0 12px 32px -8px rgba(212, 175, 55, 0.32);
+      --gradient-hero: radial-gradient(circle at 70% 25%, rgba(212, 175, 55, 0.16) 0%, rgba(7, 8, 10, 0) 65%);
+      --gradient-gold: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #9c7a23 100%);
+      --card-surface: linear-gradient(160deg, rgba(26, 30, 41, 0.82) 0%, rgba(13, 15, 20, 0.95) 100%);
+    }
+
+    :root[data-theme="light"] {
+      --bg-primary: #faf8f5;
+      --bg-secondary: #f1ede6;
+      --bg-tertiary: #e6dfd5;
+      --bg-elevated: #ffffff;
+      --bg-glass: rgba(250, 248, 245, 0.88);
+      --bg-glass-heavy: rgba(255, 255, 255, 0.97);
+      --text-primary: #121316;
+      --text-secondary: #4d5360;
+      --text-muted: #7f8694;
+      --accent-gold: #b08926;
+      --accent-gold-light: #d4af37;
+      --accent-gold-dark: #7d5f14;
+      --accent-glow: rgba(176, 137, 38, 0.16);
+      --border-subtle: rgba(18, 19, 22, 0.09);
+      --border-gold: rgba(176, 137, 38, 0.35);
+      --danger: #dc2626;
+      --success: #059669;
+      --shadow-card: 0 20px 40px -15px rgba(18, 19, 22, 0.09);
+      --shadow-gold: 0 12px 28px -6px rgba(176, 137, 38, 0.22);
+      --gradient-hero: radial-gradient(circle at 70% 25%, rgba(212, 175, 55, 0.18) 0%, rgba(250, 248, 245, 0) 65%);
+      --gradient-gold: linear-gradient(135deg, #d4af37 0%, #b08926 55%, #7d5f14 100%);
+      --card-surface: linear-gradient(160deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 237, 229, 0.92) 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background-color 0.35s ease, color 0.35s ease;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .serif-font {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: -0.01em;
+    }
+
+    .mono-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      border: none;
+      outline: none;
+      background: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* Custom Luxury Cursor */
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent-gold);
+      box-shadow: 0 0 10px var(--accent-gold);
+    }
+
+    .cursor-ring {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border-gold);
+      transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+    }
+
+    .cursor-ring.hovered {
+      width: 54px;
+      height: 54px;
+      background-color: var(--accent-glow);
+      border-color: var(--accent-gold);
+    }
+
+    @media (max-width: 992px) {
+      .cursor-dot, .cursor-ring {
+        display: none;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-gold-dark);
+      border-radius: 4px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Topbar */
+    .topbar {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 12px;
+      padding: 8px 0;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--text-secondary);
+    }
+
+    .topbar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-gold);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: var(--bg-tertiary);
+      padding: 3px;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .lang-btn {
+      padding: 3px 9px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+      color: var(--text-secondary);
+      transition: all 0.25s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--gradient-gold);
+      color: #090a0d;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      gap: 24px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #090a0f;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .brand-logo span {
+      color: var(--accent-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--text-primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      transition: all 0.25s ease;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    .badge-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      min-width: 19px;
+      height: 19px;
+      padding: 0 5px;
+      border-radius: 10px;
+      background: var(--gradient-gold);
+      color: #08090c;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 28px;
+      border-radius: 100px;
+      background: var(--gradient-gold);
+      color: #090a0f;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-gold);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px -6px rgba(212, 175, 55, 0.45);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 100px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-glow);
+      border-color: var(--accent-gold);
+    }
+
+    /* Hero Section */
+    .about-hero {
+      padding: 72px 0 84px;
+      background-image: var(--gradient-hero);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .about-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: 100px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      color: var(--accent-gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(38px, 5vw, 66px);
+      line-height: 1.06;
+      margin-bottom: 20px;
+    }
+
+    .gold-italic {
+      font-style: italic;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-hero p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      max-width: 600px;
+      line-height: 1.75;
+    }
+
+    .heritage-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .metric-card {
+      padding: 18px;
+      border-radius: 20px;
+      background: var(--card-surface);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .metric-card strong {
+      font-size: 28px;
+      color: var(--accent-gold);
+      display: block;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .metric-card span {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .atelier-showcase-card {
+      background: var(--card-surface);
+      border: 1px solid var(--border-gold);
+      border-radius: 32px;
+      padding: 30px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+
+    .atelier-showcase-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 22px;
+      border: 2px solid var(--border-gold);
+      margin-bottom: 18px;
+    }
+
+    /* Section Generic */
+    .section {
+      padding: 84px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 44px;
+    }
+
+    .section-eyebrow {
+      color: var(--accent-gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 3.8vw, 48px);
+      line-height: 1.12;
+    }
+
+    /* Timeline Cards */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .timeline-card {
+      padding: 28px;
+      border-radius: 24px;
+      background: var(--card-surface);
+      border: 1px solid var(--border-subtle);
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-gold);
+    }
+
+    .timeline-year {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .timeline-card h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Interactive Swiss Watch Atelier & Service Calculator + Serial Checker */
+    .atelier-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 32px;
+    }
+
+    .interactive-panel {
+      background: var(--card-surface);
+      border: 1px solid var(--border-gold);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .service-options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .srv-option {
+      padding: 14px;
+      border-radius: 16px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .srv-option.active,
+    .srv-option:hover {
+      border-color: var(--accent-gold);
+      background: var(--accent-glow);
+    }
+
+    .srv-option strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .srv-option span {
+      font-size: 12px;
+      color: var(--accent-gold);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .serial-result-box {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      font-size: 13px;
+      display: none;
+    }
+
+    /* Interactive FAQ Accordion */
+    .faq-container {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      border-radius: 20px;
+      background: var(--card-surface);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+
+    .faq-item.open {
+      border-color: var(--accent-gold);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 22px 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .faq-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      background: var(--gradient-gold);
+      color: #090a0f;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      padding: 0 26px;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 260px;
+      padding-bottom: 22px;
+    }
+
+    /* Boutiques & Contact Section */
+    .contact-boutiques-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .boutique-card {
+      padding: 24px;
+      border-radius: 22px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+      transition: border-color 0.25s ease;
+    }
+
+    .boutique-card:hover {
+      border-color: var(--accent-gold);
+    }
+
+    .boutique-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: var(--accent-glow);
+      color: var(--accent-gold);
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 14px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 14px;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-gold);
+    }
+
+    /* Drawers & Toast */
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.74);
+      backdrop-filter: blur(6px);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 430px;
+      height: 100vh;
+      background: var(--bg-secondary);
+      border-left: 1px solid var(--border-gold);
+      z-index: 201;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .drawer-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 16px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .drawer-item img {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--accent-gold);
+    }
+
+    .drawer-footer {
+      padding: 24px;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-primary);
+    }
+
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      padding: 14px 20px;
+      border-radius: 14px;
+      background: var(--bg-glass-heavy);
+      border: 1px solid var(--accent-gold);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-subtle);
+      padding: 72px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 36px;
+      margin-bottom: 44px;
+    }
+
+    .footer-col h4 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: var(--accent-gold);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 1024px) {
+      .about-hero-grid,
+      .timeline-grid,
+      .atelier-grid,
+      .contact-boutiques-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .heritage-metrics {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Custom Luxury Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <span class="topbar-badge">
+          <span>✦</span>
+          <span data-i18n="top_swiss">WatchPlus Swiss Atelier • Rasmiy Servis va Ekspertiza Markazi</span>
+        </span>
+        <span data-i18n="top_delivery">Toshkent, Samarqand va Buxoroda VIP Lounge filiallari</span>
+      </div>
+      <div class="topbar-right">
+        <a href="tel:+998712007788" class="mono-font">+998 (71) 200-77-88</a>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="uz">UZB</button>
+          <button class="lang-btn" data-lang="ru">RUS</button>
+          <button class="lang-btn" data-lang="en">ENG</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-logo-mark">W+</div>
+        <div>Watch<span>Plus</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link" data-i18n="nav_home">Bosh sahifa</a></li>
+        <li><a href="catalog.html" class="nav-link" data-i18n="nav_catalog">Katalog (320+)</a></li>
+        <li><a href="product.html?id=wp-101" class="nav-link" data-i18n="nav_flagship">Flagman Model</a></li>
+        <li><a href="checkout.html" class="nav-link" data-i18n="nav_checkout">Buyurtma & Savat</a></li>
+        <li><a href="about.html" class="nav-link active" data-i18n="nav_about">Brend & Servis</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggleBtn" title="Dark / Light Mode">
+          <span id="themeIcon">☀</span>
+        </button>
+        <button class="icon-btn" id="openWishlistBtn" title="Sevimlilar">
+          <span>♡</span>
+          <span class="badge-count" id="wishlistCountBadge">0</span>
+        </button>
+        <button class="icon-btn" id="openCartBtn" title="Savatcha">
+          <span>👜</span>
+          <span class="badge-count" id="cartCountBadge">0</span>
+        </button>
+        <a href="#vipContactSection" class="btn-primary" style="padding: 10px 18px; font-size: 12px;" data-i18n="btn_contact_us">
+          Bog'lanish
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="container about-hero-grid">
+      <div>
+        <div class="eyebrow-pill">
+          <span>⌚</span>
+          <span data-i18n="ab_eyebrow">EST. 2018 • GENEVA – TASHKENT HOROLOGY HOUSE</span>
+        </div>
+        <h1>
+          <span data-i18n="ab_title_1">Soatsozlik san'ati va</span>
+          <span class="gold-italic" data-i18n="ab_title_2">mutlaq ishonch</span>
+          <span data-i18n="ab_title_3">falsafasi.</span>
+        </h1>
+        <p data-i18n="ab_subtitle">
+          WatchPlus shunchaki soat do'koni emas — bu O'zbekiston kolleksionerlari uchun Shveytsariya va Yaponiyaning oliy soatsozlik merosini yetkazuvchi rasmiy markaz, sertifikatlangan ustaxona va yopiq VIP klubdir.
+        </p>
+
+        <div class="heritage-metrics mono-font">
+          <div class="metric-card">
+            <strong>8+ Yil</strong>
+            <span data-i18n="m_exp">Bozordagi tajriba</span>
+          </div>
+          <div class="metric-card">
+            <strong>320+</strong>
+            <span data-i18n="m_models">Ombordagi modellar</span>
+          </div>
+          <div class="metric-card">
+            <strong>100%</strong>
+            <span data-i18n="m_auth">COSC Ekspertiza</span>
+          </div>
+          <div class="metric-card">
+            <strong>3 ta</strong>
+            <span data-i18n="m_lounges">VIP Lounge Butik</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="atelier-showcase-card">
+        <img
+          src="https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?auto=format&fit=crop&w=1000&q=85"
+          alt="WatchPlus Master Watchmaker Atelier"
+        />
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+          <div>
+            <span class="mono-font" style="font-size:11px; color:var(--accent-gold);">SWISS CERTIFIED ATELIER</span>
+            <h3 style="font-size:24px;" data-i18n="atelier_card_title">Toshkentdagi Shveytsariya Ustaxonamiz</h3>
+          </div>
+          <a href="#atelierServiceSection" class="btn-outline" style="padding:10px 18px; font-size:12px;" data-i18n="btn_calc_service">
+            Servis Kalkulyatori →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WatchPlus Heritage Timeline -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow" data-i18n="tl_eyebrow">BIZNING TARIX</span>
+          <h2 class="section-title" data-i18n="tl_title">WatchPlus Rivojlanish Bosqichlari</h2>
+        </div>
+      </div>
+
+      <div class="timeline-grid">
+        <div class="timeline-card">
+          <span class="timeline-year mono-font">2018</span>
+          <h3 data-i18n="tl_1_title">Ilk Butik va Asos Solinishi</h3>
+          <p data-i18n="tl_1_desc">Toshkent markazida Shveytsariya va Yaponiya soatlari ixlosmandlari uchun ilk ixtisoslashgan shou-rum ochildi.</p>
+        </div>
+
+        <div class="timeline-card">
+          <span class="timeline-year mono-font">2021</span>
+          <h3 data-i18n="tl_2_title">Shveytsariya Servis Ustaxonasi</h3>
+          <p data-i18n="tl_2_desc">Witschi va Bergeon uskunalari bilan jihozlangan, mexanik kalibrlarni diagnostika qiluvchi rasmiy ustaxona ishga tushdi.</p>
+        </div>
+
+        <div class="timeline-card">
+          <span class="timeline-year mono-font">2024</span>
+          <h3 data-i18n="tl_3_title">Samarqand va Buxoro Lounge</h3>
+          <p data-i18n="tl_3_desc">Mintaqaviy kolleksionerlar uchun Samarqand va Buxoroda VIP ko'rik zallari hamda 24 soatlik zirhli yetkazish yo'lga qo'yildi.</p>
+        </div>
+
+        <div class="timeline-card">
+          <span class="timeline-year mono-font">2026</span>
+          <h3 data-i18n="tl_4_title">320+ Flagman va Raqamli Ekotizim</h3>
+          <p data-i18n="tl_4_desc">O'zbekistondagi eng yirik 320+ sertifikatlangan modellar bazasi va 1-Click Telegram Concierge tizimi joriy etildi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Swiss Atelier Calculator & Authenticity Serial Verifier -->
+  <section class="section" id="atelierServiceSection" style="padding-top: 10px;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow" data-i18n="srv_eyebrow">SWISS ATELIER & COSC VERIFICATION</span>
+          <h2 class="section-title" data-i18n="srv_title">Soat Ustaxonasi va Originallik Ekspertizasi</h2>
+        </div>
+      </div>
+
+      <div class="atelier-grid">
+        <!-- Left: Interactive Service Cost & Booking Calculator -->
+        <div class="interactive-panel">
+          <span class="mono-font" style="font-size:11px; color:var(--accent-gold);">BERGEON SWISS LAB • TASHKENT</span>
+          <h3 style="font-size:28px; margin:4px 0 10px;" data-i18n="calc_title">Interaktiv Ustaxona Kalkulyatori</h3>
+          <p style="font-size:13px; color:var(--text-secondary);">
+            Soatingizga kerakli profilaktika yoki ta'mirlash xizmatlarini belgilang va usta qabuliga to'g'ridan-to'g'ri Telegram orqali yoziling:
+          </p>
+
+          <div class="service-options-grid" id="serviceOptionsGrid">
+            <div class="srv-option active" data-srv="Ultratovushli Tozalash & Germetik Test" data-cost="45">
+              <strong>Ultratovushli Tozalash</strong>
+              <span>$45 • 1 soatda</span>
+            </div>
+            <div class="srv-option" data-srv="Korpus va Braslet Lazer Polirovkasi" data-cost="90">
+              <strong>Lazer Polirovka (316L / Oltin)</strong>
+              <span>$90 • 1 kunda</span>
+            </div>
+            <div class="srv-option" data-srv="Mexanik Kalibr To'liq Repassaji (Moylash)" data-cost="180">
+              <strong>Mexanik Kalibr Repassaji</strong>
+              <span>$180 • 3 kunda</span>
+            </div>
+            <div class="srv-option" data-srv="COSC Ekspertiza va Originallik Sertifikati" data-cost="60">
+              <strong>Originallik Ekspertizasi</strong>
+              <span>$60 • Rasmiy Hujjat</span>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:16px 20px; border-radius:18px; background:var(--bg-secondary); border:1px solid var(--border-gold); margin-bottom:16px;">
+            <div>
+              <span style="font-size:11px; color:var(--text-muted); display:block;">TANLANGAN XIZMAT BAHOSI:</span>
+              <strong class="mono-font" style="font-size:24px; color:var(--accent-gold);" id="serviceTotalDisplay">$45</strong>
+            </div>
+            <button type="button" class="btn-primary" id="bookAtelierBtn" style="padding:12px 20px; font-size:12px;">
+              Usta Qabuliga Yozilish →
+            </button>
+          </div>
+          <p style="font-size:12px; color:var(--success);">
+            ✦ WatchPlus do'konidan xarid qilingan soatlar uchun 5 yil davomida barcha xizmatlar BEPUL!
+          </p>
+        </div>
+
+        <!-- Right: Interactive COSC Serial / Reference Checker -->
+        <div class="interactive-panel">
+          <span class="mono-font" style="font-size:11px; color:var(--accent-gold);">COSC REGISTRY & SERIAL CHECK</span>
+          <h3 style="font-size:28px; margin:4px 0 10px;" data-i18n="verify_title">Soat Seriya yoki Ref. Raqamini Tekshirish</h3>
+          <p style="font-size:13px; color:var(--text-secondary); margin-bottom:18px;">
+            WatchPlus bazasidagi soatning seriya raqami yoki model kodini (masalan: <strong class="mono-font">WP-101</strong>, <strong class="mono-font">WP-105</strong> yoki <strong class="mono-font">884920</strong>) kiriting:
+          </p>
+
+          <form id="serialVerifyForm" style="display:flex; gap:10px;">
+            <input
+              type="text"
+              class="form-control mono-font"
+              id="serialInput"
+              placeholder="Masalan: WP-101 yoki 884920"
+              required
+            />
+            <button type="submit" class="btn-primary" style="white-space:nowrap;">Tekshirish</button>
+          </form>
+
+          <div class="serial-result-box mono-font" id="serialResultBox"></div>
+
+          <div style="margin-top:22px; padding-top:18px; border-top:1px solid var(--border-subtle); display:grid; grid-template-columns:1fr 1fr; gap:12px; font-size:12px; color:var(--text-secondary);">
+            <div>✔ Witschi Chrono-Scope G3 sinovi</div>
+            <div>✔ 30 ATM vakuum suv bosimi testi</div>
+            <div>✔ Xalqaro NFC kafolat kartasi</div>
+            <div>✔ Shveytsariya original ehtiyot qismlari</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive FAQ Accordion -->
+  <section class="section" style="padding-top: 10px;">
+    <div class="container">
+      <div class="section-header" style="justify-content:center; text-align:center;">
+        <div>
+          <span class="section-eyebrow" data-i18n="faq_eyebrow">KO'P BERILADIGAN SAVOLLAR</span>
+          <h2 class="section-title" data-i18n="faq_title">Xaridorlar va Kolleksionerlar Uchun Ma'lumot</h2>
+        </div>
+      </div>
+
+      <div class="faq-container" id="faqAccordion">
+        <div class="faq-item open">
+          <button class="faq-question" type="button">
+            <span>1. Soatlarning 100% original ekanligini qanday tekshirish mumkin?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Har bir soat xalqaro seriya raqami, COSC xronometr sertifikati va original qutisi bilan taqdim etiladi. Xarid paytida soatni bizning Toshkentdagi Shveytsariya ustaxonamizda yoki o'zingiz istagan mustaqil soat ustasida ochtirib, kalibrini tekshirtirib olishingiz mumkin.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>2. Yetkazib berish qancha vaqt oladi va to'lov qanday amalga oshiriladi?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Toshkent shahri bo'ylab VIP kuryerimiz maxsus zirhli keysda 2 soat ichida bepul yetkazib beradi. Viloyatlarga (Samarqand, Buxoro, Farg'ona va boshqalar) 24 soat ichida sug'urtalangan kuryer orqali yetkaziladi. Soatni qo'lingizga taqib ko'rgandan so'ng naqd, Uzcard/Humo, Visa yoki USDT orqali to'lov qilishingiz mumkin.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>3. 5 yillik rasmiy servis kafolatiga nimalar kiradi?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            5 yillik WatchPlus VIP kafolati doirasida mexanizmning aniqligini sozlash, har yili 1 marta bepul ultratovushli tozalash, germetiklik (suv o'tkazmaslik) testidan o'tkazish va kvars modellarida original Shveytsariya Renata batareyasini bepul almashtirish xizmatlari taqdim etiladi.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>4. Bo'lib to'lash (Rassrochka) va Trade-In xizmati bormi?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Ha, 12 oygacha boshlang'ich to'lovsiz va 0% foizsiz bo'lib to'lash imkoniyati mavjud. Shuningdek, Trade-In dasturi orqali o'zingizdagi eski original Shveytsariya soatini baholatib, farqini to'lagan holda yangi modelga almashtirishingiz mumkin.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>5. Katalogda yo'q bo'lgan noyob (Limited Edition) soatga buyurtma bersa bo'ladimi?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Albatta! WatchPlus Jeneva, Dubay va Tokiodagi rasmiy dilerlik kimoshdi savdolari bilan to'g'ridan-to'g'ri ishlaydi. Istalgan eksklyuziv modelni 5–7 ish kuni ichida shaxsan siz uchun keltirib beramiz.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Boutiques & Direct Telegram Contact Form -->
+  <section class="section" id="vipContactSection" style="padding-top: 10px;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow" data-i18n="cnt_eyebrow">FILIALLAR VA QAYTA ALOQA</span>
+          <h2 class="section-title" data-i18n="cnt_title">WatchPlus VIP Lounge Manzillari va Aloqa</h2>
+        </div>
+      </div>
+
+      <div class="contact-boutiques-grid">
+        <!-- Left: 3 Official VIP Lounge Locations -->
+        <div>
+          <div class="boutique-card">
+            <span class="boutique-tag">FLAGSHIP BOUTIQUE & SWISS ATELIER</span>
+            <h3 style="font-size:24px; margin-bottom:6px;">Toshkent — WatchPlus VIP Lounge</h3>
+            <p style="font-size:13px; color:var(--text-secondary); margin-bottom:8px;">
+              📍 Toshkent sh., Yunusobod tumani, Amir Temur shoh ko'chasi, 107B (Xalqaro Biznes Markazi ro'parasida)
+            </p>
+            <div class="mono-font" style="font-size:12px; color:var(--accent-gold);">
+              📞 +998 (71) 200-77-88 • Ish vaqti: 09:00 – 22:00 (Har kuni)
+            </div>
+          </div>
+
+          <div class="boutique-card">
+            <span class="boutique-tag">REGIONAL COLLECTOR LOUNGE</span>
+            <h3 style="font-size:24px; margin-bottom:6px;">Samarqand — Family Park & Boulevard</h3>
+            <p style="font-size:13px; color:var(--text-secondary); margin-bottom:8px;">
+              📍 Samarqand sh., Mirzo Ulug'bek ko'chasi, 45-uy (VIP Showroom, 1-qavat)
+            </p>
+            <div class="mono-font" style="font-size:12px; color:var(--accent-gold);">
+              📞 +998 (66) 230-77-88 • Ish vaqti: 10:00 – 21:00
+            </div>
+          </div>
+
+          <div class="boutique-card">
+            <span class="boutique-tag">HERITAGE SHOWROOM</span>
+            <h3 style="font-size:24px; margin-bottom:6px;">Buxoro — Buxoro City Mall</h3>
+            <p style="font-size:13px; color:var(--text-secondary); margin-bottom:8px;">
+              📍 Buxoro sh., Islom Karimov ko'chasi, Buxoro City savdo majmuasi, A-12 pavilyon
+            </p>
+            <div class="mono-font" style="font-size:12px; color:var(--accent-gold);">
+              📞 +998 (65) 220-77-88 • Ish vaqti: 10:00 – 21:00
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Direct Telegram Contact / Service Request Form -->
+        <div class="interactive-panel">
+          <span class="mono-font" style="font-size:11px; color:var(--accent-gold);">DIRECT TELEGRAM CONCIERGE</span>
+          <h3 style="font-size:28px; margin:4px 0 14px;" data-i18n="form_heading">Ekspert Maslahati yoki Usta Qabuliga Yozilish</h3>
+
+          <form id="aboutContactTelegramForm">
+            <div class="form-group">
+              <label data-i18n="lbl_name">Ism va Familiyangiz *</label>
+              <input type="text" class="form-control" id="cntName" placeholder="Masalan: Ibrohim Alimov" required />
+            </div>
+
+            <div class="form-group">
+              <label data-i18n="lbl_phone">Telefon raqamingiz *</label>
+              <input type="tel" class="form-control mono-font" id="cntPhone" placeholder="+998 90 123 45 67" required />
+            </div>
+
+            <div class="form-group">
+              <label data-i18n="lbl_topic">Murojaat yo'nalishi</label>
+              <select class="form-control" id="cntTopic">
+                <option value="Soat tanlash bo'yicha VIP konsultatsiya">Soat tanlash bo'yicha VIP konsultatsiya</option>
+                <option value="Shveytsariya ustaxonasi (Servis / Polirovka)">Shveytsariya ustaxonasi (Servis / Polirovka)</option>
+                <option value="Trade-In (Eski soatni yangisiga almashtirish)">Trade-In (Eski soatni almashtirish)</option>
+                <option value="Maxsus Limited Edition modelga buyurtma">Maxsus Limited Edition modelga buyurtma</option>
+                <option value="Hamkorlik va Korporativ sovg'alar">Hamkorlik va Korporativ sovg'alar</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label data-i18n="lbl_msg">Xabaringiz yoki soat modeli *</label>
+              <textarea
+                class="form-control"
+                id="cntMessage"
+                rows="3"
+                placeholder="Savolingiz, soat modeli yoki ustaxona xizmatini yozing..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" id="cntSubmitBtn" style="width:100%; padding:16px;">
+              <span>🚀</span>
+              <span id="cntSubmitText" data-i18n="btn_send_contact">Murojaatni Telegram Botga Yuborish</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom:14px;">
+            <div class="brand-logo-mark">W+</div>
+            <div>Watch<span>Plus</span></div>
+          </a>
+          <p style="font-size:14px; color:var(--text-secondary);">
+            WatchPlus — O'zbekistondagi premium soatlar markazi va sertifikatlangan Shveytsariya ustaxonasi.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Barcha Sahifalar</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">1. Bosh sahifa (index.html)</a></li>
+            <li><a href="catalog.html">2. Katalog 320+ (catalog.html)</a></li>
+            <li><a href="product.html?id=wp-101">3. 3D Mahsulot (product.html)</a></li>
+            <li><a href="checkout.html">4. Savat va To'lov (checkout.html)</a></li>
+            <li><a href="about.html">5. Brend va Servis (about.html)</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Xizmatlar</h4>
+          <ul class="footer-links">
+            <li><a href="#atelierServiceSection">COSC Ekspertiza</a></li>
+            <li><a href="#atelierServiceSection">Lazer Polirovka</a></li>
+            <li><a href="#atelierServiceSection">Kalibr Repassaji</a></li>
+            <li><a href="checkout.html">VIP Zirhli Kuryer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Aloqa Markazi</h4>
+          <p class="mono-font" style="color:var(--accent-gold); margin-bottom:8px;">+998 (71) 200-77-88</p>
+          <p style="font-size:13px; color:var(--text-secondary);">Toshkent • Samarqand • Buxoro</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 WatchPlus Uzbekistan. Complete 5-Page Multi-Page E-Commerce Platform.</span>
+        <span>SWISS HOROLOGY • TELEGRAM BOT INTEGRATED</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared Backdrop -->
+  <div class="backdrop" id="globalBackdrop"></div>
+
+  <!-- Cart Drawer -->
+  <aside class="drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3 style="font-size:24px;">Savatchangiz</h3>
+      <button class="icon-btn" id="closeCartBtn">✕</button>
+    </div>
+    <div class="drawer-body" id="cartDrawerItems"></div>
+    <div class="drawer-footer">
+      <div style="display:flex; justify-content:space-between; margin-bottom:16px; font-weight:700;">
+        <span>Jami summa:</span>
+        <span class="mono-font" style="color:var(--accent-gold); font-size:20px;" id="cartDrawerTotal">$0</span>
+      </div>
+      <a href="checkout.html" class="btn-primary" style="width:100%; text-align:center;">Rasmiylashtirishga o'tish →</a>
+    </div>
+  </aside>
+
+  <!-- Wishlist Drawer -->
+  <aside class="drawer" id="wishlistDrawer">
+    <div class="drawer-header">
+      <h3 style="font-size:24px;">Sevimli Soatlar</h3>
+      <button class="icon-btn" id="closeWishlistBtn">✕</button>
+    </div>
+    <div class="drawer-body" id="wishlistDrawerItems"></div>
+  </aside>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    // =========================================================================
+    // 1. TELEGRAM BOT API CONFIGURATION
+    // =========================================================================
+    const TELEGRAM_BOT_TOKEN = "9161395610:AAHG3T2Ajp9cbMNvUcQHdlM4-I-Jxh3t-Fg";
+    const TELEGRAM_CHAT_ID = "5749960020";
+
+    // =========================================================================
+    // 2. MULTI-LANGUAGE DICTIONARY (UZB, RUS, ENG)
+    // =========================================================================
+    const I18N = {
+      uz: {
+        top_swiss: "WatchPlus Swiss Atelier • Rasmiy Servis va Ekspertiza Markazi",
+        top_delivery: "Toshkent, Samarqand va Buxoroda VIP Lounge filiallari",
+        nav_home: "Bosh sahifa",
+        nav_catalog: "Katalog (320+)",
+        nav_flagship: "Flagman Model",
+        nav_checkout: "Buyurtma & Savat",
+        nav_about: "Brend & Servis",
+        btn_contact_us: "Bog'lanish",
+        ab_eyebrow: "EST. 2018 • GENEVA – TASHKENT HOROLOGY HOUSE",
+        ab_title_1: "Soatsozlik san'ati va",
+        ab_title_2: "mutlaq ishonch",
+        ab_title_3: "falsafasi.",
+        ab_subtitle: "WatchPlus shunchaki soat do'koni emas — bu O'zbekiston kolleksionerlari uchun Shveytsariya va Yaponiyaning oliy soatsozlik merosini yetkazuvchi rasmiy markaz, sertifikatlangan ustaxona va yopiq VIP klubdir.",
+        m_exp: "Bozordagi tajriba",
+        m_models: "Ombordagi modellar",
+        m_auth: "COSC Ekspertiza",
+        m_lounges: "VIP Lounge Butik",
+        atelier_card_title: "Toshkentdagi Shveytsariya Ustaxonamiz",
+        btn_calc_service: "Servis Kalkulyatori →",
+        tl_eyebrow: "BIZNING TARIX",
+        tl_title: "WatchPlus Rivojlanish Bosqichlari",
+        srv_eyebrow: "SWISS ATELIER & COSC VERIFICATION",
+        srv_title: "Soat Ustaxonasi va Originallik Ekspertizasi",
+        calc_title: "Interaktiv Ustaxona Kalkulyatori",
+        verify_title: "Soat Seriya yoki Ref. Raqamini Tekshirish",
+        faq_eyebrow: "KO'P BERILADIGAN SAVOLLAR",
+        faq_title: "Xaridorlar va Kolleksionerlar Uchun Ma'lumot",
+        cnt_eyebrow: "FILIALLAR VA QAYTA ALOQA",
+        cnt_title: "WatchPlus VIP Lounge Manzillari va Aloqa",
+        form_heading: "Ekspert Maslahati yoki Usta Qabuliga Yozilish",
+        lbl_name: "Ism va Familiyangiz *",
+        lbl_phone: "Telefon raqamingiz *",
+        lbl_topic: "Murojaat yo'nalishi",
+        lbl_msg: "Xabaringiz yoki soat modeli *",
+        btn_send_contact: "Murojaatni Telegram Botga Yuborish"
+      },
+      ru: {
+        top_swiss: "WatchPlus Swiss Atelier • Официальный Сервис и Центр Экспертизы",
+        top_delivery: "VIP Lounge бутики в Ташкенте, Самарканде и Бухаре",
+        nav_home: "Главная",
+        nav_catalog: "Каталог (320+)",
+        nav_flagship: "Флагман",
+        nav_checkout: "Корзина и Заказ",
+        nav_about: "О бренде и Сервис",
+        btn_contact_us: "Связаться",
+        ab_eyebrow: "EST. 2018 • GENEVA – TASHKENT HOROLOGY HOUSE",
+        ab_title_1: "Часовое искусство и",
+        ab_title_2: "абсолютное доверие",
+        ab_title_3: "в каждой детали.",
+        ab_subtitle: "WatchPlus — это официальный центр швейцарского и японского часового наследия в Узбекистане, сертифицированная мастерская и закрытый клуб коллекционеров.",
+        m_exp: "Лет на рынке",
+        m_models: "Моделей в наличии",
+        m_auth: "Экспертиза COSC",
+        m_lounges: "VIP Бутика",
+        atelier_card_title: "Швейцарская Мастерская в Ташкенте",
+        btn_calc_service: "Калькулятор Сервиса →",
+        tl_eyebrow: "НАША ИСТОРИЯ",
+        tl_title: "Этапы Развития WatchPlus",
+        srv_eyebrow: "SWISS ATELIER & COSC VERIFICATION",
+        srv_title: "Часовая Мастерская и Проверка Подлинности",
+        calc_title: "Интерактивный Калькулятор Сервиса",
+        verify_title: "Проверка Серийного Номера или Ref.",
+        faq_eyebrow: "ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ",
+        faq_title: "Информация для Покупателей и Коллекционеров",
+        cnt_eyebrow: "БУТИКИ И ОБРАТНАЯ СВЯЗЬ",
+        cnt_title: "Адреса WatchPlus VIP Lounge и Контакты",
+        form_heading: "Консультация Эксперта или Запись к Мастеру",
+        lbl_name: "Ваше Имя и Фамилия *",
+        lbl_phone: "Номер телефона *",
+        lbl_topic: "Тема обращения",
+        lbl_msg: "Ваше сообщение или модель часов *",
+        btn_send_contact: "Отправить Заявку в Telegram Бот"
+      },
+      en: {
+        top_swiss: "WatchPlus Swiss Atelier • Official Service & Authentication Center",
+        top_delivery: "VIP Collector Lounges in Tashkent, Samarkand & Bukhara",
+        nav_home: "Home",
+        nav_catalog: "Catalog (320+)",
+        nav_flagship: "Flagship",
+        nav_checkout: "Cart & Checkout",
+        nav_about: "Brand & Service",
+        btn_contact_us: "Contact Us",
+        ab_eyebrow: "EST. 2018 • GENEVA – TASHKENT HOROLOGY HOUSE",
+        ab_title_1: "Fine horology and",
+        ab_title_2: "absolute provenance",
+        ab_title_3: "in every second.",
+        ab_subtitle: "WatchPlus is Uzbekistan's premier destination for certified Swiss and Japanese timepieces, featuring an in-house Bergeon-equipped atelier and private VIP lounges.",
+        m_exp: "Years of Excellence",
+        m_models: "Models in Vault",
+        m_auth: "COSC Verified",
+        m_lounges: "VIP Boutiques",
+        atelier_card_title: "Our Swiss Atelier in Tashkent",
+        btn_calc_service: "Service Calculator →",
+        tl_eyebrow: "OUR HERITAGE",
+        tl_title: "WatchPlus Milestones",
+        srv_eyebrow: "SWISS ATELIER & COSC VERIFICATION",
+        srv_title: "Horology Workshop & Serial Registry",
+        calc_title: "Interactive Atelier Estimator",
+        verify_title: "Verify Watch Serial or Ref. Code",
+        faq_eyebrow: "FREQUENTLY ASKED QUESTIONS",
+        faq_title: "Collector & Client Guide",
+        cnt_eyebrow: "BOUTIQUES & CONCIERGE",
+        cnt_title: "WatchPlus VIP Lounges & Direct Contact",
+        form_heading: "Book a Private Viewing or Atelier Service",
+        lbl_name: "Full Name *",
+        lbl_phone: "Phone Number *",
+        lbl_topic: "Inquiry Type",
+        lbl_msg: "Your Message or Watch Model *",
+        btn_send_contact: "Dispatch Inquiry to Telegram Bot"
+      }
+    };
+
+    // =========================================================================
+    // 3. STATE MANAGEMENT (CART, WISHLIST, THEME, LANGUAGE)
+    // =========================================================================
+    let currentLang = localStorage.getItem("watchplus_lang") || "uz";
+    let currentTheme = localStorage.getItem("watchplus_theme") || "dark";
+    let cart = JSON.parse(localStorage.getItem("watchplus_cart") || "[]");
+    let wishlist = JSON.parse(localStorage.getItem("watchplus_wishlist") || "[]");
+    const catalog = JSON.parse(localStorage.getItem("watchplus_catalog") || "[]");
+
+    function showToast(msg) {
+      const container = document.getElementById("toastContainer");
+      const toast = document.createElement("div");
+      toast.className = "toast";
+      toast.innerHTML = `<span style="color:var(--accent-gold);">✦</span> <span>${msg}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 3200);
+    }
+
+    function updateBadgesAndDrawers() {
+      const totalCount = cart.reduce((s, i) => s + i.qty, 0);
+      const totalPrice = cart.reduce((s, i) => s + i.price * i.qty, 0);
+
+      document.getElementById("cartCountBadge").textContent = totalCount;
+      document.getElementById("wishlistCountBadge").textContent = wishlist.length;
+      document.getElementById("cartDrawerTotal").textContent = `$${totalPrice.toLocaleString()}`;
+
+      const cartEl = document.getElementById("cartDrawerItems");
+      if (cart.length === 0) {
+        cartEl.innerHTML = `<p style="color:var(--text-muted); text-align:center; margin-top:40px;">Savatchangiz bo'sh.</p>`;
+      } else {
+        cartEl.innerHTML = cart.map((item) => `
+          <div class="drawer-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div style="flex:1;">
+              <strong style="font-size:13px; display:block;">${item.name}</strong>
+              <span class="mono-font" style="color:var(--accent-gold); font-size:13px;">$${item.price.toLocaleString()} × ${item.qty}</span>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      const wishEl = document.getElementById("wishlistDrawerItems");
+      if (wishlist.length === 0) {
+        wishEl.innerHTML = `<p style="color:var(--text-muted); text-align:center; margin-top:40px;">Sevimlilar ro'yxati bo'sh.</p>`;
+      } else {
+        wishEl.innerHTML = wishlist.map((id) => {
+          const item = catalog.find((p) => p.id === id);
+          if (!item) return "";
+          return `
+            <div class="drawer-item">
+              <img src="${item.image}" alt="${item.name}" />
+              <div style="flex:1;">
+                <a href="product.html?id=${item.id}" style="font-weight:700; font-size:13px; display:block;">${item.name}</a>
+                <span class="mono-font" style="color:var(--accent-gold); font-size:12px;">$${item.price.toLocaleString()}</span>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+    }
+
+    // =========================================================================
+    // 4. INTERACTIVE SERVICE CALCULATOR & SERIAL VERIFIER
+    // =========================================================================
+    const serviceOptions = document.querySelectorAll("#serviceOptionsGrid .srv-option");
+
+    function recalcServiceTotal() {
+      let total = 0;
+      const chosenNames = [];
+      serviceOptions.forEach((opt) => {
+        if (opt.classList.contains("active")) {
+          total += Number(opt.dataset.cost) || 0;
+          chosenNames.push(opt.dataset.srv);
+        }
+      });
+      document.getElementById("serviceTotalDisplay").textContent = `$${total}`;
+      return { total, chosenNames };
+    }
+
+    serviceOptions.forEach((opt) => {
+      opt.addEventListener("click", () => {
+        opt.classList.toggle("active");
+        recalcServiceTotal();
+      });
+    });
+
+    document.getElementById("bookAtelierBtn").addEventListener("click", () => {
+      const { total, chosenNames } = recalcServiceTotal();
+      document.getElementById("cntTopic").value = "Shveytsariya ustaxonasi (Servis / Polirovka)";
+      document.getElementById("cntMessage").value =
+        `Tanlangan ustaxona xizmatlari: ${chosenNames.join(", ") || "Diagnostika"} — Taxminiy summa: $${total}`;
+      document.getElementById("vipContactSection").scrollIntoView({ behavior: "smooth" });
+      document.getElementById("cntName").focus();
+      showToast("Tanlangan xizmatlar aloqa formasiga kiritildi!");
+    });
+
+    document.getElementById("serialVerifyForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const code = document.getElementById("serialInput").value.trim().toLowerCase();
+      const box = document.getElementById("serialResultBox");
+      box.style.display = "block";
+
+      const match = catalog.find((p) => p.id.toLowerCase() === code || p.name.toLowerCase().includes(code));
+      if (match || code === "884920" || code.startsWith("wp-")) {
+        const modelTitle = match ? `${match.brand} — ${match.name}` : "Rolex Submariner Date 41mm (Ref. WP-101)";
+        box.style.borderColor = "var(--success)";
+        box.innerHTML = `
+          <div style="color:var(--success); font-weight:700; margin-bottom:6px;">✔ 100% ORIGINAL COSC VERIFIED</div>
+          <div><strong>Model:</strong> ${modelTitle}</div>
+          <div><strong>Status:</strong> Rasmiy WatchPlus reestrida ro'yxatdan o'tgan</div>
+          <div><strong>Kafolat:</strong> 5 Yillik VIP Servis Faol (2026–2031)</div>
+        `;
+      } else {
+        box.style.borderColor = "var(--accent-gold)";
+        box.innerHTML = `
+          <div style="color:var(--accent-gold); font-weight:700; margin-bottom:6px;">ℹ️ INDIVIDUAL EKSPERTIZA TALAB ETILADI</div>
+          <div>Ushbu kod bo'yicha tezkor tekshiruv uchun soatni Toshkentdagi ustaxonamizga olib keling yoki pastdagi forma orqali mutaxassisga yuboring.</div>
+        `;
+      }
+    });
+
+    // =========================================================================
+    // 5. FAQ ACCORDION INTERACTION
+    // =========================================================================
+    document.querySelectorAll("#faqAccordion .faq-question").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains("open");
+        document.querySelectorAll("#faqAccordion .faq-item").forEach((el) => el.classList.remove("open"));
+        if (!isOpen) item.classList.add("open");
+      });
+    });
+
+    // =========================================================================
+    // 6. TELEGRAM BOT API CONTACT / SERVICE REQUEST SUBMISSION
+    // =========================================================================
+    async function sendContactToTelegram(payload) {
+      const reqId = "WP-SRV-" + Math.floor(100000 + Math.random() * 900000);
+      const text =
+        `🏛 <b>WATCHPLUS — YANGI MUROJAAT / SERVIS ARIZASI!</b>\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `🆔 <b>Murojaat raqami:</b> #${reqId}\n` +
+        `👤 <b>Mijoz:</b> ${payload.name}\n` +
+        `📞 <b>Telefon:</b> ${payload.phone}\n` +
+        `📌 <b>Yo'nalish:</b> ${payload.topic}\n` +
+        `💬 <b>Xabar / Model:</b>\n${payload.message}\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `🌐 <b>Sahifa:</b> about.html (${currentLang.toUpperCase()})`;
+
+      const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text,
+          parse_mode: "HTML"
+        })
+      });
+      return res.ok;
+    }
+
+    document.getElementById("aboutContactTelegramForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById("cntSubmitBtn");
+      const txt = document.getElementById("cntSubmitText");
+      const orig = txt.textContent;
+
+      btn.disabled = true;
+      txt.textContent = "Telegram Botga yuborilmoqda...";
+
+      try {
+        const ok = await sendContactToTelegram({
+          name: document.getElementById("cntName").value.trim(),
+          phone: document.getElementById("cntPhone").value.trim(),
+          topic: document.getElementById("cntTopic").value,
+          message: document.getElementById("cntMessage").value.trim()
+        });
+
+        if (ok) {
+          showToast("Murojaatingiz WatchPlus Telegram Botiga muvaffaqiyatli yuborildi!");
+          document.getElementById("aboutContactTelegramForm").reset();
+        } else {
+          showToast("Xatolik yuz berdi. Qayta urinib ko'ring.");
+        }
+      } catch (err) {
+        showToast("Tarmoq xatoligi yuz berdi.");
+      } finally {
+        btn.disabled = false;
+        txt.textContent = orig;
+      }
+    });
+
+    // =========================================================================
+    // 7. DRAWERS, THEME, LANGUAGE & CUSTOM CURSOR
+    // =========================================================================
+    const backdrop = document.getElementById("globalBackdrop");
+    const cartDrawer = document.getElementById("cartDrawer");
+    const wishlistDrawer = document.getElementById("wishlistDrawer");
+
+    function closeDrawers() {
+      backdrop.classList.remove("open");
+      cartDrawer.classList.remove("open");
+      wishlistDrawer.classList.remove("open");
+    }
+
+    document.getElementById("openCartBtn").addEventListener("click", () => {
+      backdrop.classList.add("open");
+      cartDrawer.classList.add("open");
+    });
+
+    document.getElementById("openWishlistBtn").addEventListener("click", () => {
+      backdrop.classList.add("open");
+      wishlistDrawer.classList.add("open");
+    });
+
+    document.getElementById("closeCartBtn").addEventListener("click", closeDrawers);
+    document.getElementById("closeWishlistBtn").addEventListener("click", closeDrawers);
+    backdrop.addEventListener("click", closeDrawers);
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("watchplus_theme", theme);
+      document.getElementById("themeIcon").textContent = theme === "dark" ? "☀" : "☾";
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem("watchplus_lang", lang);
+      document.querySelectorAll(".lang-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.lang === lang);
+      });
+      const dict = I18N[lang] || I18N.uz;
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const k = el.getAttribute("data-i18n");
+        if (dict[k]) el.textContent = dict[k];
+      });
+      updateBadgesAndDrawers();
+    }
+
+    document.getElementById("themeToggleBtn").addEventListener("click", () => {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
+      applyTheme(currentTheme);
+    });
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+    });
+
+    const cursorDot = document.getElementById("cursorDot");
+    const cursorRing = document.getElementById("cursorRing");
+    window.addEventListener("mousemove", (e) => {
+      cursorDot.style.left = `${e.clientX}px`;
+      cursorDot.style.top = `${e.clientY}px`;
+      cursorRing.style.left = `${e.clientX}px`;
+      cursorRing.style.top = `${e.clientY}px`;
+    });
+
+    // Init
+    applyTheme(currentTheme);
+    applyLanguage(currentLang);
+  </script>
+</body>
+</html>

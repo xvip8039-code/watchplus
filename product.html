@@ -1,0 +1,2529 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WatchPlus — Mahsulot Tahlili va Konfigurator | 3D Horology Inspect</title>
+  <meta name="description" content="WatchPlus — tanlangan original soat modelining 360° optik lupali galereyasi, korpus va tasma konfiguratori, COSC xronometr pasporti va 1-Click Telegram buyurtma sahifasi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root[data-theme="dark"] {
+      --bg-primary: #07080a;
+      --bg-secondary: #0f1116;
+      --bg-tertiary: #161922;
+      --bg-elevated: #1d222e;
+      --bg-glass: rgba(18, 21, 28, 0.84);
+      --bg-glass-heavy: rgba(10, 12, 16, 0.96);
+      --text-primary: #f6f4f0;
+      --text-secondary: #a6adbb;
+      --text-muted: #697080;
+      --accent-gold: #d4af37;
+      --accent-gold-light: #f3e5ab;
+      --accent-gold-dark: #9c7a23;
+      --accent-glow: rgba(212, 175, 55, 0.22);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-gold: rgba(212, 175, 55, 0.38);
+      --danger: #ef4444;
+      --success: #10b981;
+      --shadow-card: 0 24px 48px -12px rgba(0, 0, 0, 0.78);
+      --shadow-gold: 0 12px 32px -8px rgba(212, 175, 55, 0.32);
+      --gradient-hero: radial-gradient(circle at 30% 25%, rgba(212, 175, 55, 0.14) 0%, rgba(7, 8, 10, 0) 65%);
+      --gradient-gold: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #9c7a23 100%);
+      --card-surface: linear-gradient(160deg, rgba(26, 30, 41, 0.82) 0%, rgba(13, 15, 20, 0.95) 100%);
+    }
+
+    :root[data-theme="light"] {
+      --bg-primary: #faf8f5;
+      --bg-secondary: #f1ede6;
+      --bg-tertiary: #e6dfd5;
+      --bg-elevated: #ffffff;
+      --bg-glass: rgba(250, 248, 245, 0.88);
+      --bg-glass-heavy: rgba(255, 255, 255, 0.97);
+      --text-primary: #121316;
+      --text-secondary: #4d5360;
+      --text-muted: #7f8694;
+      --accent-gold: #b08926;
+      --accent-gold-light: #d4af37;
+      --accent-gold-dark: #7d5f14;
+      --accent-glow: rgba(176, 137, 38, 0.16);
+      --border-subtle: rgba(18, 19, 22, 0.09);
+      --border-gold: rgba(176, 137, 38, 0.35);
+      --danger: #dc2626;
+      --success: #059669;
+      --shadow-card: 0 20px 40px -15px rgba(18, 19, 22, 0.09);
+      --shadow-gold: 0 12px 28px -6px rgba(176, 137, 38, 0.22);
+      --gradient-hero: radial-gradient(circle at 30% 25%, rgba(212, 175, 55, 0.18) 0%, rgba(250, 248, 245, 0) 65%);
+      --gradient-gold: linear-gradient(135deg, #d4af37 0%, #b08926 55%, #7d5f14 100%);
+      --card-surface: linear-gradient(160deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 237, 229, 0.92) 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background-color 0.35s ease, color 0.35s ease;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .serif-font {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: -0.01em;
+    }
+
+    .mono-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      border: none;
+      outline: none;
+      background: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* Custom Luxury Cursor */
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent-gold);
+      box-shadow: 0 0 10px var(--accent-gold);
+    }
+
+    .cursor-ring {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border-gold);
+      transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+    }
+
+    .cursor-ring.hovered {
+      width: 54px;
+      height: 54px;
+      background-color: var(--accent-glow);
+      border-color: var(--accent-gold);
+    }
+
+    @media (max-width: 992px) {
+      .cursor-dot, .cursor-ring {
+        display: none;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-gold-dark);
+      border-radius: 4px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Topbar */
+    .topbar {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 12px;
+      padding: 8px 0;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--text-secondary);
+    }
+
+    .topbar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-gold);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: var(--bg-tertiary);
+      padding: 3px;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .lang-btn {
+      padding: 3px 9px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+      color: var(--text-secondary);
+      transition: all 0.25s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--gradient-gold);
+      color: #090a0d;
+    }
+
+    /* Sticky Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      gap: 24px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #090a0f;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .brand-logo span {
+      color: var(--accent-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--text-primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      transition: all 0.25s ease;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    .badge-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      min-width: 19px;
+      height: 19px;
+      padding: 0 5px;
+      border-radius: 10px;
+      background: var(--gradient-gold);
+      color: #08090c;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 28px;
+      border-radius: 100px;
+      background: var(--gradient-gold);
+      color: #090a0f;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-gold);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px -6px rgba(212, 175, 55, 0.45);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border-radius: 100px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-glow);
+      border-color: var(--accent-gold);
+    }
+
+    /* Breadcrumb & Model Switcher Subbar */
+    .product-subbar {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 14px 0;
+    }
+
+    .subbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .breadcrumb {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .breadcrumb .gold {
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .model-selector-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .model-selector-wrap label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .model-select {
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-gold);
+      color: var(--text-primary);
+      font-size: 12px;
+      max-width: 310px;
+      cursor: pointer;
+    }
+
+    /* Main Product Showcase Grid */
+    .product-showcase-section {
+      padding: 48px 0 72px;
+      background-image: var(--gradient-hero);
+    }
+
+    .product-main-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 52px;
+      align-items: start;
+    }
+
+    /* Left Column: Interactive Loupe Zoom Stage & Gallery */
+    .gallery-sticky {
+      position: sticky;
+      top: 104px;
+    }
+
+    .zoom-stage-card {
+      position: relative;
+      background: var(--card-surface);
+      border: 1px solid var(--border-gold);
+      border-radius: 32px;
+      height: 510px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 18px;
+      cursor: crosshair;
+    }
+
+    .stage-top-badges {
+      position: absolute;
+      top: 22px;
+      left: 24px;
+      right: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .badge-origin {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      background: var(--accent-glow);
+      color: var(--accent-gold);
+      border: 1px solid var(--border-gold);
+    }
+
+    .cosc-verified-pill {
+      font-size: 11px;
+      padding: 6px 12px;
+      border-radius: 100px;
+      background: var(--bg-glass-heavy);
+      border: 1px solid var(--border-subtle);
+      color: var(--success);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .main-watch-visual {
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--accent-gold);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.75);
+      transition: transform 0.4s ease, filter 0.35s ease;
+      z-index: 2;
+    }
+
+    /* Optical Magnifier Loupe Lens */
+    .magnifier-lens {
+      position: absolute;
+      width: 175px;
+      height: 175px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-gold);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.85), inset 0 0 18px rgba(212, 175, 55, 0.35);
+      pointer-events: none;
+      opacity: 0;
+      z-index: 10;
+      background-repeat: no-repeat;
+      transition: opacity 0.2s ease;
+    }
+
+    .zoom-stage-card:hover .magnifier-lens {
+      opacity: 1;
+    }
+
+    .stage-bottom-bar {
+      position: absolute;
+      bottom: 20px;
+      left: 24px;
+      right: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 4;
+    }
+
+    .lume-toggle-btn {
+      padding: 8px 16px;
+      border-radius: 100px;
+      background: var(--bg-glass-heavy);
+      border: 1px solid var(--border-gold);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.25s ease;
+    }
+
+    .lume-toggle-btn.lume-on {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: #10b981;
+      color: #34d399;
+      box-shadow: 0 0 22px rgba(16, 185, 129, 0.45);
+    }
+
+    .zoom-stage-card.night-lume {
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, #030507 75%);
+    }
+
+    .zoom-stage-card.night-lume .main-watch-visual {
+      border-color: #10b981;
+      box-shadow: 0 0 48px rgba(16, 185, 129, 0.65);
+      filter: contrast(1.18) saturate(1.25) hue-rotate(25deg);
+    }
+
+    .zoom-hint {
+      font-size: 11px;
+      color: var(--text-secondary);
+      background: var(--bg-glass-heavy);
+      padding: 6px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .thumbs-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-thumb {
+      height: 92px;
+      border-radius: 18px;
+      background: var(--bg-secondary);
+      border: 2px solid var(--border-subtle);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .gallery-thumb.active,
+    .gallery-thumb:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-3px);
+    }
+
+    .gallery-thumb img {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border-gold);
+    }
+
+    .thumb-caption {
+      position: absolute;
+      bottom: 4px;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      background: var(--bg-glass-heavy);
+      padding: 1px 6px;
+      border-radius: 6px;
+    }
+
+    /* Right Column: Watch Details & Bespoke Configurator */
+    .product-info-panel {
+      background: var(--card-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 32px;
+      padding: 36px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .info-brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .info-brand {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+    }
+
+    .info-ref {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .info-title {
+      font-size: clamp(30px, 3.4vw, 44px);
+      line-height: 1.12;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .rating-strip {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 22px;
+    }
+
+    .stars-gold {
+      color: var(--accent-gold);
+      letter-spacing: 2px;
+    }
+
+    .stock-pill {
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: rgba(16, 185, 129, 0.14);
+      color: var(--success);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .price-block {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 26px;
+      padding: 18px 22px;
+      border-radius: 20px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+    }
+
+    .main-price {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1;
+    }
+
+    .old-price {
+      font-size: 15px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-left: 10px;
+    }
+
+    .installment-badge {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-align: right;
+    }
+
+    .installment-badge strong {
+      color: var(--text-primary);
+      display: block;
+      font-size: 14px;
+    }
+
+    /* Configurator Options */
+    .config-section {
+      margin-bottom: 22px;
+    }
+
+    .config-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    .config-label span.selected-val {
+      color: var(--accent-gold);
+    }
+
+    .option-pills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+      gap: 10px;
+    }
+
+    .opt-btn {
+      padding: 11px 14px;
+      border-radius: 14px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .opt-btn:hover,
+    .opt-btn.active {
+      border-color: var(--accent-gold);
+      background: var(--accent-glow);
+      color: var(--text-primary);
+    }
+
+    .color-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.4);
+      flex-shrink: 0;
+    }
+
+    .engraving-box {
+      margin-bottom: 24px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: var(--bg-secondary);
+      border: 1px dashed var(--border-gold);
+    }
+
+    .engraving-box input {
+      width: 100%;
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 13px;
+    }
+
+    /* Action Buttons Row */
+    .purchase-actions {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .qty-control {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 100px;
+      padding: 0 14px;
+      height: 52px;
+    }
+
+    .qty-control button {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      width: 28px;
+      height: 28px;
+    }
+
+    .secondary-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .trust-Perks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .perk-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .perk-item span.icon {
+      color: var(--accent-gold);
+      font-size: 15px;
+    }
+
+    /* Detailed Horology Tabs (Specs, Warranty, Reviews) */
+    .details-tabs-section {
+      padding: 20px 0 80px;
+    }
+
+    .tabs-header {
+      display: flex;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 16px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .detail-tab-btn {
+      padding: 12px 26px;
+      border-radius: 100px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+    }
+
+    .detail-tab-btn.active,
+    .detail-tab-btn:hover {
+      background: var(--gradient-gold);
+      color: #090a0f;
+      border-color: transparent;
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    .specs-grid-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .spec-card {
+      background: var(--card-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 30px;
+    }
+
+    .spec-card h3 {
+      font-size: 26px;
+      color: var(--accent-gold);
+      margin-bottom: 18px;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .spec-table tr {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .spec-table td {
+      padding: 12px 0;
+      font-size: 14px;
+    }
+
+    .spec-table td:first-child {
+      color: var(--text-secondary);
+    }
+
+    .spec-table td:last-child {
+      text-align: right;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Reviews List & Form */
+    .reviews-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+    }
+
+    .review-item {
+      padding: 24px;
+      border-radius: 20px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+    }
+
+    /* Related Products Grid */
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--card-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 22px;
+      padding: 20px;
+      transition: all 0.28s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-gold);
+      box-shadow: var(--shadow-card);
+    }
+
+    .card-img-wrap {
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      border-radius: 16px;
+      background: radial-gradient(circle, var(--bg-tertiary) 0%, transparent 75%);
+    }
+
+    .card-img-wrap img {
+      width: 155px;
+      height: 155px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border-gold);
+    }
+
+    /* Drawers & Modals */
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.74);
+      backdrop-filter: blur(6px);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 430px;
+      height: 100vh;
+      background: var(--bg-secondary);
+      border-left: 1px solid var(--border-gold);
+      z-index: 201;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .drawer-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 16px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .drawer-item img {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--accent-gold);
+    }
+
+    .drawer-footer {
+      padding: 24px;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-primary);
+    }
+
+    .modal-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: 210;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-wrap.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      border-radius: 28px;
+      max-width: 580px;
+      width: 100%;
+      padding: 34px;
+      box-shadow: var(--shadow-card);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 15px;
+      border-radius: 12px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 14px;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-gold);
+    }
+
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      padding: 14px 20px;
+      border-radius: 14px;
+      background: var(--bg-glass-heavy);
+      border: 1px solid var(--accent-gold);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-subtle);
+      padding: 72px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 36px;
+      margin-bottom: 44px;
+    }
+
+    .footer-col h4 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: var(--accent-gold);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 1024px) {
+      .product-main-grid,
+      .specs-grid-layout,
+      .reviews-layout,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-sticky {
+        position: static;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Custom Luxury Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <span class="topbar-badge">
+          <span>✦</span>
+          <span data-i18n="top_swiss">COSC Xronometr Sertifikati va 5 Yillik Rasmiy Kafolat</span>
+        </span>
+        <span data-i18n="top_delivery">Toshkent bo'ylab 2 soatda zirhli keysda yetkazib berish</span>
+      </div>
+      <div class="topbar-right">
+        <a href="tel:+998712007788" class="mono-font">+998 (71) 200-77-88</a>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="uz">UZB</button>
+          <button class="lang-btn" data-lang="ru">RUS</button>
+          <button class="lang-btn" data-lang="en">ENG</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-logo-mark">W+</div>
+        <div>Watch<span>Plus</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link" data-i18n="nav_home">Bosh sahifa</a></li>
+        <li><a href="catalog.html" class="nav-link" data-i18n="nav_catalog">Katalog (320+)</a></li>
+        <li><a href="product.html?id=wp-101" class="nav-link active" data-i18n="nav_flagship">Mahsulot Tahlili</a></li>
+        <li><a href="checkout.html" class="nav-link" data-i18n="nav_checkout">Buyurtma & Savat</a></li>
+        <li><a href="about.html" class="nav-link" data-i18n="nav_about">Brend & Servis</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggleBtn" title="Dark / Light Mode">
+          <span id="themeIcon">☀</span>
+        </button>
+        <button class="icon-btn" id="openWishlistBtn" title="Sevimlilar">
+          <span>♡</span>
+          <span class="badge-count" id="wishlistCountBadge">0</span>
+        </button>
+        <button class="icon-btn" id="openCartBtn" title="Savatcha">
+          <span>👜</span>
+          <span class="badge-count" id="cartCountBadge">0</span>
+        </button>
+        <button class="btn-primary" id="openVipModalBtn" style="padding: 10px 18px; font-size: 12px;" data-i18n="btn_instant_order">
+          Tezkor Buyurtma
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subbar with Breadcrumb & Quick Model Switcher -->
+  <div class="product-subbar">
+    <div class="container subbar-inner">
+      <div class="breadcrumb">
+        <a href="index.html" data-i18n="nav_home">Bosh sahifa</a>
+        <span>/</span>
+        <a href="catalog.html" data-i18n="nav_catalog">Katalog</a>
+        <span>/</span>
+        <span class="gold" id="breadcrumbModelName">Rolex Submariner Date 41mm</span>
+      </div>
+
+      <div class="model-selector-wrap">
+        <label for="quickModelSelector" data-i18n="lbl_switch_model">Modelni almashtirish:</label>
+        <select id="quickModelSelector" class="model-select mono-font"></select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Product Showcase & Bespoke Configurator -->
+  <section class="product-showcase-section">
+    <div class="container product-main-grid">
+      <!-- Left: Optical Loupe Zoom Stage + 4 Angle Thumbnails -->
+      <div class="gallery-sticky">
+        <div class="zoom-stage-card" id="zoomStage">
+          <div class="stage-top-badges">
+            <span class="badge-origin" id="pdOriginBadge">SWISS MADE</span>
+            <span class="cosc-verified-pill mono-font">
+              <span>✔</span>
+              <span>COSC -2/+2 sec/day</span>
+            </span>
+          </div>
+
+          <img
+            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=85"
+            alt="WatchPlus Main Visual"
+            class="main-watch-visual"
+            id="pdMainImage"
+          />
+          <div class="magnifier-lens" id="magnifierLens"></div>
+
+          <div class="stage-bottom-bar">
+            <button class="lume-toggle-btn" id="lumeToggleBtn">
+              <span>✦</span>
+              <span data-i18n="btn_lume_mode">Super-LumiNova® Tun rejimi</span>
+            </button>
+            <span class="zoom-hint" data-i18n="lbl_zoom_hint">🔍 Kursor orqali 2.5x optik lupa</span>
+          </div>
+        </div>
+
+        <div class="thumbs-row" id="pdThumbsRow"></div>
+      </div>
+
+      <!-- Right: Product Info, Customizer & Direct Telegram Purchase -->
+      <div class="product-info-panel">
+        <div class="info-brand-row mono-font">
+          <span class="info-brand" id="pdBrand">ROLEX</span>
+          <span class="info-ref" id="pdRefCode">REF. WP-101 • SERIAL #884920</span>
+        </div>
+
+        <h1 class="info-title" id="pdTitle">Rolex Submariner Date 41mm</h1>
+
+        <div class="rating-strip">
+          <span class="stars-gold">★★★★★</span>
+          <strong class="mono-font" id="pdRating">5.0</strong>
+          <span data-i18n="lbl_verified_reviews">(48 ta tasdiqlangan kolleksioner sharhi)</span>
+          <span class="stock-pill" data-i18n="lbl_in_stock">● Toshkent VIP omborida mavjud</span>
+        </div>
+
+        <div class="price-block mono-font">
+          <div>
+            <span style="font-size:11px; color:var(--text-muted); display:block; text-transform:uppercase;" data-i18n="lbl_total_price">Konfiguratsiya narxi:</span>
+            <span class="main-price" id="pdCurrentPrice">$14,850</span>
+            <span class="old-price" id="pdOldPrice">$16,200</span>
+          </div>
+          <div class="installment-badge">
+            <span data-i18n="lbl_installment">0% Bo'lib to'lash (12 oy):</span>
+            <strong id="pdMonthlyPrice">$1,238 / oyiga</strong>
+          </div>
+        </div>
+
+        <!-- 1. Dial Color Selector -->
+        <div class="config-section">
+          <div class="config-label">
+            <span data-i18n="cfg_dial">1. Siferblat rangi (Dial Finish):</span>
+            <span class="selected-val" id="selectedDialLabel">Onyx Black</span>
+          </div>
+          <div class="option-pills" id="dialOptions">
+            <button class="opt-btn active" data-dial="Onyx Black" data-add="0">
+              <span>Onyx Black</span>
+              <span class="color-dot" style="background:#101216;"></span>
+            </button>
+            <button class="opt-btn" data-dial="Geneva Royal Blue" data-add="350">
+              <span>Royal Blue (+$350)</span>
+              <span class="color-dot" style="background:#1d4ed8;"></span>
+            </button>
+            <button class="opt-btn" data-dial="Emerald Green" data-add="550">
+              <span>Emerald (+$550)</span>
+              <span class="color-dot" style="background:#047857;"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Strap / Bracelet Material Selector -->
+        <div class="config-section">
+          <div class="config-label">
+            <span data-i18n="cfg_strap">2. Braslet va Tasma (Bracelet):</span>
+            <span class="selected-val" id="selectedStrapLabel">Oyster Metal Bracelet</span>
+          </div>
+          <div class="option-pills" id="strapOptions">
+            <button class="opt-btn active" data-strap="Oyster Metal Bracelet" data-add="0">
+              <span>Oyster Metal</span>
+              <span class="mono-font" style="font-size:11px; color:var(--accent-gold);">+$0</span>
+            </button>
+            <button class="opt-btn" data-strap="Hand-Stitched Alligator" data-add="450">
+              <span>Alligator Charm</span>
+              <span class="mono-font" style="font-size:11px; color:var(--accent-gold);">+$450</span>
+            </button>
+            <button class="opt-btn" data-strap="18k Gold Jubilee Link" data-add="1400">
+              <span>18k Gold Link</span>
+              <span class="mono-font" style="font-size:11px; color:var(--accent-gold);">+$1,400</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Case Size Selector -->
+        <div class="config-section">
+          <div class="config-label">
+            <span data-i18n="cfg_size">3. Korpus O'lchami (Case Diameter):</span>
+            <span class="selected-val" id="selectedSizeLabel">41 mm (Standart)</span>
+          </div>
+          <div class="option-pills" id="sizeOptions">
+            <button class="opt-btn" data-size="39 mm (Classic)">
+              <span>39 mm</span>
+              <span style="font-size:10px; color:var(--text-muted);">Unisex</span>
+            </button>
+            <button class="opt-btn active" data-size="41 mm (Standart)">
+              <span>41 mm</span>
+              <span style="font-size:10px; color:var(--accent-gold);">Flagship</span>
+            </button>
+            <button class="opt-btn" data-size="43 mm (Pro XL)">
+              <span>43 mm</span>
+              <span style="font-size:10px; color:var(--text-muted);">Bold</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. Complimentary Laser Engraving -->
+        <div class="engraving-box">
+          <div style="display:flex; justify-content:space-between; font-size:12px; font-weight:700;">
+            <span style="color:var(--accent-gold);" data-i18n="cfg_engraving">✒ BEPUL LAZER GRAVIROVKA (ORQA QOPQOQQA)</span>
+            <span class="mono-font" style="color:var(--success);">FREE VIP SERVICE</span>
+          </div>
+          <input
+            type="text"
+            id="engravingInput"
+            maxlength="32"
+            placeholder="Masalan: Ibrohim • 2026 yoki maxsus tilak (ixtiyoriy)"
+          />
+        </div>
+
+        <!-- Quantity & Add to Cart -->
+        <div class="purchase-actions">
+          <div class="qty-control mono-font">
+            <button type="button" id="decQtyBtn">−</button>
+            <span id="pdQtyValue">1</span>
+            <button type="button" id="incQtyBtn">+</button>
+          </div>
+          <button type="button" class="btn-primary" id="pdAddToCartBtn">
+            <span>👜</span>
+            <span data-i18n="btn_add_configured">Konfiguratsiyani Savatga Qo'shish</span>
+          </button>
+        </div>
+
+        <!-- 1-Click Telegram Buy & Wishlist -->
+        <div class="secondary-actions">
+          <button type="button" class="btn-outline" id="pdInstantTelegramBtn" style="border-color:var(--accent-gold);">
+            <span>🚀</span>
+            <span data-i18n="btn_buy_1click_tg">1-Click Telegram orqali VIP Xarid</span>
+          </button>
+          <button type="button" class="icon-btn" id="pdWishlistToggleBtn" style="width:50px; height:50px; font-size:18px;" title="Sevimlilarga qo'shish">
+            ♡
+          </button>
+        </div>
+
+        <div class="trust-Perks">
+          <div class="perk-item">
+            <span class="icon">🛡</span>
+            <span data-i18n="perk_1">5 yil xalqaro rasmiy servis kafolati</span>
+          </div>
+          <div class="perk-item">
+            <span class="icon">📦</span>
+            <span data-i18n="perk_2">Original yog'och laklangan quti va pasport</span>
+          </div>
+          <div class="perk-item">
+            <span class="icon">🔍</span>
+            <span data-i18n="perk_3">To'lovdan oldin qo'lda taqib tekshirish</span>
+          </div>
+          <div class="perk-item">
+            <span class="icon">🔄</span>
+            <span data-i18n="perk_4">14 kun ichida almashtirish huquqi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horology Technical Specifications, Authenticity & Reviews Tabs -->
+  <section class="details-tabs-section">
+    <div class="container">
+      <div class="tabs-header" id="detailTabsHeader">
+        <button class="detail-tab-btn active" data-tab="specs" data-i18n="tab_specs">Texnik Xususiyatlar & Kalibr</button>
+        <button class="detail-tab-btn" data-tab="warranty" data-i18n="tab_warranty">Sertifikat, Komplekt va Kafolat</button>
+        <button class="detail-tab-btn" data-tab="reviews" data-i18n="tab_reviews">Mijozlar Baholari (3)</button>
+      </div>
+
+      <!-- TAB 1: Technical Specs -->
+      <div class="tab-pane active" id="pane-specs">
+        <div class="specs-grid-layout">
+          <div class="spec-card">
+            <h3 data-i18n="spec_group_calibre">Kalibr va Mexanizm Arxitekturasi</h3>
+            <table class="spec-table">
+              <tr><td data-i18n="sp_movement">Harakat turi (Kalibr)</td><td class="mono-font" id="specMovement">Calibre 3235 Automatic</td></tr>
+              <tr><td data-i18n="sp_accuracy">COSC Aniqlik darajasi</td><td class="mono-font">-2 / +2 soniya / sutka</td></tr>
+              <tr><td data-i18n="sp_power">Quvvat zaxirasi (Power Reserve)</td><td class="mono-font">70 soat uzluksiz</td></tr>
+              <tr><td data-i18n="sp_freq">Balans chastotasi</td><td class="mono-font">28,800 vph (4 Hz) • 31 Jewels</td></tr>
+              <tr><td data-i18n="sp_origin">Ishlab chiqarilgan davlat</td><td class="mono-font" id="specOrigin">SWISS MADE (Geneva)</td></tr>
+            </table>
+          </div>
+
+          <div class="spec-card">
+            <h3 data-i18n="spec_group_case">Korpus, Oyna va Germetiklik</h3>
+            <table class="spec-table">
+              <tr><td data-i18n="sp_material">Korpus materiali</td><td class="mono-font" id="specMaterial">Oystersteel & 18k Gold</td></tr>
+              <tr><td data-i18n="sp_glass">Oyna (Crystal)</td><td class="mono-font">Tirnalmaydigan Sapfir (Anti-Reflective)</td></tr>
+              <tr><td data-i18n="sp_water">Suvga chidamlilik</td><td class="mono-font" id="specWater">300m / 30 ATM</td></tr>
+              <tr><td data-i18n="sp_lume">Fosfor qoplamasi</td><td class="mono-font">Chromalight / Super-LumiNova®</td></tr>
+              <tr><td data-i18n="sp_warranty">WatchPlus Rasmiy Kafolati</td><td class="mono-font" style="color:var(--accent-gold);">5 Yil VIP Servis</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Authenticity & Packaging -->
+      <div class="tab-pane" id="pane-warranty">
+        <div class="specs-grid-layout">
+          <div class="spec-card">
+            <h3>100% Original Provenans & COSC Pasport</h3>
+            <p style="color:var(--text-secondary); margin-bottom:16px;">
+              WatchPlus butigidagi har bir soat to'g'ridan-to'g'ri Shveytsariya va Yaponiya dilerlik tarmog'idan keltiriladi. Xarid vaqtida soatning individual seriya raqami xalqaro reestr orqali tekshirib beriladi.
+            </p>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; font-size:14px;">
+              <li>✦ Xalqaro NFC / QR plastik kafolat kartasi</li>
+              <li>✦ Eman yog'ochidan tayyorlangan kolleksioner qutisi</li>
+              <li>✦ Toshkentdagi WatchPlus ustaxonasida 5 yil bepul ultratovushli tozalash</li>
+            </ul>
+          </div>
+          <div class="spec-card">
+            <h3>VIP Yetkazib Berish va Taqib Ko'rish</h3>
+            <p style="color:var(--text-secondary); margin-bottom:16px;">
+              Toshkent shahrida buyurtmalar maxsus zirhli keysda 2 soat ichida yetkaziladi. Kuryer sizning xohishingizga ko'ra braslet bo'g'inlarini qo'lingiz o'lchamiga moslab beradi.
+            </p>
+            <div class="mono-font" style="padding:16px; border-radius:16px; background:var(--bg-secondary); border:1px solid var(--border-gold); color:var(--accent-gold);">
+              VIP Concierge: +998 (71) 200-77-88 • Har kuni 09:00 – 23:00
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: Collector Reviews & Interactive Review Submission -->
+      <div class="tab-pane" id="pane-reviews">
+        <div class="reviews-layout">
+          <div id="reviewsListContainer">
+            <div class="review-item">
+              <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                <strong>Jahongir Usmonov</strong>
+                <span class="stars-gold">★★★★★</span>
+              </div>
+              <p style="font-size:14px; color:var(--text-secondary);">
+                "Soatni qo'lga olgandayoq og'irligi va sapfir oynasining tiniqligidan haqiqiy Shveytsariya asari ekani bilinadi. Lazer gravirovka ham juda nafis chiqdi."
+              </p>
+            </div>
+            <div class="review-item">
+              <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                <strong>Bekzod Mirzayev</strong>
+                <span class="stars-gold">★★★★★</span>
+              </div>
+              <p style="font-size:14px; color:var(--text-secondary);">
+                "1-Click Telegram orqali yozdim, 15 daqiqada menejer bog'landi va 2 soatda ofisimga olib kelishdi. Servis darajasi a'lo."
+              </p>
+            </div>
+          </div>
+
+          <div class="spec-card">
+            <h3 style="font-size:22px;">Fikr Qoldirish</h3>
+            <form id="addReviewForm">
+              <div class="form-group">
+                <label>Ismingiz *</label>
+                <input type="text" class="form-control" id="revAuthor" required placeholder="Ism va Familiya" />
+              </div>
+              <div class="form-group">
+                <label>Baho</label>
+                <select class="form-control" id="revStars">
+                  <option value="★★★★★">★★★★★ (5/5 Mukammal)</option>
+                  <option value="★★★★☆">★★★★☆ (4/5 Yaxshi)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Sharhingiz *</label>
+                <textarea class="form-control" id="revText" rows="3" required placeholder="Soat haqidagi taassurotingiz..."></textarea>
+              </div>
+              <button type="submit" class="btn-primary" style="width:100%;">Sharhni Joylashtirish</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Timepieces Carousel Grid -->
+  <section style="padding-bottom: 88px;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:32px; flex-wrap:wrap; gap:16px;">
+        <div>
+          <span style="color:var(--accent-gold); font-size:12px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase;" data-i18n="rel_eyebrow">O'XSHASH MODELLAR</span>
+          <h2 style="font-size:36px;" data-i18n="rel_title">Sizga manzur bo'lishi mumkin</h2>
+        </div>
+        <a href="catalog.html" class="btn-outline" data-i18n="btn_back_catalog">Barcha 320+ soatlar →</a>
+      </div>
+
+      <div class="related-grid" id="relatedProductsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom:14px;">
+            <div class="brand-logo-mark">W+</div>
+            <div>Watch<span>Plus</span></div>
+          </a>
+          <p style="font-size:14px; color:var(--text-secondary);">
+            WatchPlus — Shveytsariya va Yaponiyaning sertifikatlangan original soatlari rasmiy butigi.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Sahifalar</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Bosh sahifa</a></li>
+            <li><a href="catalog.html">Katalog (320+ Soat)</a></li>
+            <li><a href="product.html?id=wp-101">Mahsulot Tahlili</a></li>
+            <li><a href="checkout.html">Savatcha va To'lov</a></li>
+            <li><a href="about.html">Brend & Servis</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kafolat va Servis</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">COSC Sertifikatsiya</a></li>
+            <li><a href="about.html">5 Yillik Servis Markazi</a></li>
+            <li><a href="about.html">Lazer Gravirovka</a></li>
+            <li><a href="checkout.html">0% Bo'lib To'lash</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>WatchPlus VIP Lounge</h4>
+          <p class="mono-font" style="color:var(--accent-gold); margin-bottom:8px;">+998 (71) 200-77-88</p>
+          <p style="font-size:13px; color:var(--text-secondary);">Toshkent sh., Amir Temur shoh ko'chasi, 107B</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 WatchPlus Uzbekistan. All Rights Reserved.</span>
+        <span>AUTHENTIC SWISS & JAPAN HOROLOGY</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared Backdrop -->
+  <div class="backdrop" id="globalBackdrop"></div>
+
+  <!-- Cart Drawer -->
+  <aside class="drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3 style="font-size:24px;" data-i18n="drawer_cart_title">Savatchangiz</h3>
+      <button class="icon-btn" id="closeCartBtn">✕</button>
+    </div>
+    <div class="drawer-body" id="cartDrawerItems"></div>
+    <div class="drawer-footer">
+      <div style="display:flex; justify-content:space-between; margin-bottom:16px; font-weight:700;">
+        <span data-i18n="lbl_total">Jami summa:</span>
+        <span class="mono-font" style="color:var(--accent-gold); font-size:20px;" id="cartDrawerTotal">$0</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        <a href="checkout.html" class="btn-primary" style="padding:14px 10px; font-size:12px; text-align:center;" data-i18n="btn_go_checkout">
+          Rasmiylashtirish
+        </a>
+        <button class="btn-outline" id="cartInstantTelegramBtn" style="padding:14px 10px; font-size:12px;">
+          1-Click Telegram
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Wishlist Drawer -->
+  <aside class="drawer" id="wishlistDrawer">
+    <div class="drawer-header">
+      <h3 style="font-size:24px;" data-i18n="drawer_wish_title">Sevimli Soatlar</h3>
+      <button class="icon-btn" id="closeWishlistBtn">✕</button>
+    </div>
+    <div class="drawer-body" id="wishlistDrawerItems"></div>
+  </aside>
+
+  <!-- Instant Telegram VIP Order Modal -->
+  <div class="modal-wrap" id="vipOrderModal">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+        <div>
+          <span style="font-size:11px; color:var(--accent-gold); font-weight:700; letter-spacing:0.12em;">TELEGRAM BOT API</span>
+          <h3 style="font-size:26px;" data-i18n="modal_order_title">Maxsus Konfiguratsiya Buyurtmasi</h3>
+        </div>
+        <button class="icon-btn" id="closeVipModalBtn">✕</button>
+      </div>
+      <form id="instantTelegramForm">
+        <div class="form-group">
+          <label data-i18n="form_name">Ism va Familiyangiz *</label>
+          <input type="text" class="form-control" id="tgClientName" placeholder="Sardorbek Alimov" required />
+        </div>
+        <div class="form-group">
+          <label data-i18n="form_phone">Telefon raqamingiz *</label>
+          <input type="tel" class="form-control" id="tgClientPhone" placeholder="+998 90 123 45 67" required />
+        </div>
+        <div class="form-group">
+          <label data-i18n="form_model">Tanlangan model va konfiguratsiya</label>
+          <textarea class="form-control" id="tgWatchConfig" rows="3" readonly></textarea>
+        </div>
+        <div class="form-group">
+          <label data-i18n="form_address">Yetkazib berish manzili *</label>
+          <input type="text" class="form-control" id="tgClientAddress" placeholder="Toshkent sh., Yunusobod tumani..." required />
+        </div>
+        <div class="form-group">
+          <label data-i18n="form_payment">To'lov turi</label>
+          <select class="form-control" id="tgPaymentMethod">
+            <option value="Naqd (Kuryer yetkazganda)">Naqd (Kuryer yetkazganda)</option>
+            <option value="Uzcard / Humo">Uzcard / Humo</option>
+            <option value="Visa / Mastercard">Visa / Mastercard</option>
+            <option value="0% Bo'lib to'lash (12 oy)">0% Bo'lib to'lash (12 oy)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary" id="tgSubmitBtn" style="width:100%; margin-top:8px;">
+          <span id="tgSubmitText" data-i18n="btn_send_telegram">Buyurtmani Telegram Botga Yuborish</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    // =========================================================================
+    // 1. TELEGRAM BOT API CREDENTIALS
+    // =========================================================================
+    const TELEGRAM_BOT_TOKEN = "9161395610:AAHG3T2Ajp9cbMNvUcQHdlM4-I-Jxh3t-Fg";
+    const TELEGRAM_CHAT_ID = "5749960020";
+
+    // =========================================================================
+    // 2. LOAD CATALOG FROM LOCALSTORAGE OR FALLBACK TO CORE MODELS
+    // =========================================================================
+    const DEFAULT_MODELS = [
+      {
+        id: "wp-101",
+        name: "Rolex Submariner Date 41mm",
+        brand: "Rolex",
+        category: "luxury",
+        price: 14850,
+        oldPrice: 16200,
+        origin: "SWISS MADE",
+        movement: "Calibre 3235 Automatic",
+        caseMaterial: "Oystersteel & 18k Gold",
+        waterResistance: "300m",
+        dialColor: "Onyx Black",
+        caseSize: "41 mm",
+        rating: 5.0,
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=85"
+      },
+      {
+        id: "wp-102",
+        name: "Patek Philippe Nautilus 5711/1R",
+        brand: "Patek Philippe",
+        category: "luxury",
+        price: 37900,
+        oldPrice: 42500,
+        origin: "GENEVA SEAL",
+        movement: "Calibre 26-330 S C",
+        caseMaterial: "18k Rose Gold",
+        waterResistance: "120m",
+        dialColor: "Chocolate Sunburst",
+        caseSize: "40 mm",
+        rating: 5.0,
+        image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1000&q=85"
+      },
+      {
+        id: "wp-103",
+        name: "Omega Speedmaster Moonwatch",
+        brand: "Omega",
+        category: "mechanical",
+        price: 7400,
+        oldPrice: 8100,
+        origin: "SWISS CO-AXIAL",
+        movement: "Calibre 3861 Manual",
+        caseMaterial: "316L Stainless Steel",
+        waterResistance: "50m",
+        dialColor: "Step Matte Black",
+        caseSize: "42 mm",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
+      },
+      {
+        id: "wp-104",
+        name: "Audemars Piguet Royal Oak 41",
+        brand: "Audemars Piguet",
+        category: "luxury",
+        price: 29500,
+        oldPrice: 32000,
+        origin: "LE BRASSUS",
+        movement: "Calibre 4302 Automatic",
+        caseMaterial: "Grade-5 Titanium",
+        waterResistance: "50m",
+        dialColor: "Grande Tapisserie Blue",
+        caseSize: "41 mm",
+        rating: 5.0,
+        image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=1000&q=85"
+      },
+      {
+        id: "wp-105",
+        name: "Tissot PRX Powermatic 80",
+        brand: "Tissot",
+        category: "mechanical",
+        price: 745,
+        oldPrice: 850,
+        origin: "SWISS 1853",
+        movement: "Powermatic 80.111",
+        caseMaterial: "316L Stainless Steel",
+        waterResistance: "100m",
+        dialColor: "Ice Blue Waffle",
+        caseSize: "40 mm",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=85"
+      },
+      {
+        id: "wp-106",
+        name: "Cartier Santos Medium Gold",
+        brand: "Cartier",
+        category: "luxury",
+        price: 11200,
+        oldPrice: 12000,
+        origin: "PARIS / SWISS",
+        movement: "Calibre 1847 MC",
+        caseMaterial: "Oystersteel & 18k Gold",
+        waterResistance: "100m",
+        dialColor: "Roman Silver Opaline",
+        caseSize: "39.8 mm",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1539874754764-5a96559165b0?auto=format&fit=crop&w=1000&q=85"
+      }
+    ];
+
+    const savedCatalog = JSON.parse(localStorage.getItem("watchplus_catalog") || "null");
+    const CATALOG = Array.isArray(savedCatalog) && savedCatalog.length > 0 ? savedCatalog : DEFAULT_MODELS;
+
+    // =========================================================================
+    // 3. MULTI-LANGUAGE DICTIONARY (UZB, RUS, ENG)
+    // =========================================================================
+    const I18N = {
+      uz: {
+        top_swiss: "COSC Xronometr Sertifikati va 5 Yillik Rasmiy Kafolat",
+        top_delivery: "Toshkent bo'ylab 2 soatda zirhli keysda yetkazib berish",
+        nav_home: "Bosh sahifa",
+        nav_catalog: "Katalog (320+)",
+        nav_flagship: "Mahsulot Tahlili",
+        nav_checkout: "Buyurtma & Savat",
+        nav_about: "Brend & Servis",
+        btn_instant_order: "Tezkor Buyurtma",
+        lbl_switch_model: "Modelni almashtirish:",
+        btn_lume_mode: "Super-LumiNova® Tun rejimi",
+        lbl_zoom_hint: "🔍 Kursor orqali 2.5x optik lupa",
+        lbl_verified_reviews: "(48 ta tasdiqlangan kolleksioner sharhi)",
+        lbl_in_stock: "● Toshkent VIP omborida mavjud",
+        lbl_total_price: "Konfiguratsiya narxi:",
+        lbl_installment: "0% Bo'lib to'lash (12 oy):",
+        cfg_dial: "1. Siferblat rangi (Dial Finish):",
+        cfg_strap: "2. Braslet va Tasma (Bracelet):",
+        cfg_size: "3. Korpus O'lchami (Case Diameter):",
+        cfg_engraving: "✒ BEPUL LAZER GRAVIROVKA (ORQA QOPQOQQA)",
+        btn_add_configured: "Konfiguratsiyani Savatga Qo'shish",
+        btn_buy_1click_tg: "1-Click Telegram orqali VIP Xarid",
+        perk_1: "5 yil xalqaro rasmiy servis kafolati",
+        perk_2: "Original yog'och laklangan quti va pasport",
+        perk_3: "To'lovdan oldin qo'lda taqib tekshirish",
+        perk_4: "14 kun ichida almashtirish huquqi",
+        tab_specs: "Texnik Xususiyatlar & Kalibr",
+        tab_warranty: "Sertifikat, Komplekt va Kafolat",
+        tab_reviews: "Mijozlar Baholari",
+        spec_group_calibre: "Kalibr va Mexanizm Arxitekturasi",
+        spec_group_case: "Korpus, Oyna va Germetiklik",
+        rel_eyebrow: "O'XSHASH MODELLAR",
+        rel_title: "Sizga manzur bo'lishi mumkin",
+        btn_back_catalog: "Barcha 320+ soatlar →",
+        drawer_cart_title: "Savatchangiz",
+        drawer_wish_title: "Sevimli Soatlar",
+        lbl_total: "Jami summa:",
+        btn_go_checkout: "Rasmiylashtirish",
+        modal_order_title: "Maxsus Konfiguratsiya Buyurtmasi",
+        form_name: "Ism va Familiyangiz *",
+        form_phone: "Telefon raqamingiz *",
+        form_model: "Tanlangan model va konfiguratsiya",
+        form_address: "Yetkazib berish manzili *",
+        form_payment: "To'lov turi",
+        btn_send_telegram: "Buyurtmani Telegram Botga Yuborish"
+      },
+      ru: {
+        top_swiss: "Сертификат Хронометра COSC и 5 Лет Официальной Гарантии",
+        top_delivery: "Доставка в бронированном кейсе по Ташкенту за 2 часа",
+        nav_home: "Главная",
+        nav_catalog: "Каталог (320+)",
+        nav_flagship: "Обзор Модели",
+        nav_checkout: "Корзина и Заказ",
+        nav_about: "О бренде и Сервис",
+        btn_instant_order: "Быстрый заказ",
+        lbl_switch_model: "Выбрать модель:",
+        btn_lume_mode: "Super-LumiNova® Ночной режим",
+        lbl_zoom_hint: "🔍 Оптическая лупа 2.5x при наведении",
+        lbl_verified_reviews: "(48 проверенных отзывов коллекционеров)",
+        lbl_in_stock: "● В наличии в VIP-хранилище Ташкента",
+        lbl_total_price: "Стоимость конфигурации:",
+        lbl_installment: "Рассрочка 0% (12 мес):",
+        cfg_dial: "1. Цвет циферблата (Dial Finish):",
+        cfg_strap: "2. Браслет и Ремешок (Bracelet):",
+        cfg_size: "3. Диаметр корпуса (Case Size):",
+        cfg_engraving: "✒ БЕСПЛАТНАЯ ЛАЗЕРНАЯ ГРАВИРОВКА",
+        btn_add_configured: "Добавить конфигурацию в корзину",
+        btn_buy_1click_tg: "VIP Покупка в 1-Click через Telegram",
+        perk_1: "5 лет международной сервисной гарантии",
+        perk_2: "Оригинальный лакированный бокс и паспорт",
+        perk_3: "Примерка на запястье перед оплатой",
+        perk_4: "Право обмена в течение 14 дней",
+        tab_specs: "Технические Характеристики и Калибр",
+        tab_warranty: "Сертификат, Комплект и Гарантия",
+        tab_reviews: "Отзывы коллекционеров",
+        spec_group_calibre: "Архитектура Калибра и Механизма",
+        spec_group_case: "Корпус, Сапфир и Герметичность",
+        rel_eyebrow: "ПОХОЖИЕ ЧАСЫ",
+        rel_title: "Рекомендации для вашей коллекции",
+        btn_back_catalog: "Все 320+ часов →",
+        drawer_cart_title: "Ваша корзина",
+        drawer_wish_title: "Избранные часы",
+        lbl_total: "Итого:",
+        btn_go_checkout: "Оформить заказ",
+        modal_order_title: "Заказ Индивидуальной Конфигурации",
+        form_name: "Ваше Имя и Фамилия *",
+        form_phone: "Номер телефона *",
+        form_model: "Выбранная модель и конфигурация",
+        form_address: "Адрес доставки *",
+        form_payment: "Способ оплаты",
+        btn_send_telegram: "Отправить заказ в Telegram Бот"
+      },
+      en: {
+        top_swiss: "COSC Chronometer Certified & 5-Year Official Warranty",
+        top_delivery: "2-Hour Armored Courier Delivery across Tashkent",
+        nav_home: "Home",
+        nav_catalog: "Catalog (320+)",
+        nav_flagship: "3D Inspect",
+        nav_checkout: "Cart & Checkout",
+        nav_about: "Brand & Service",
+        btn_instant_order: "Instant Order",
+        lbl_switch_model: "Switch Timepiece:",
+        btn_lume_mode: "Super-LumiNova® Night Lume",
+        lbl_zoom_hint: "🔍 Hover for 2.5x Optical Loupe",
+        lbl_verified_reviews: "(48 verified collector reviews)",
+        lbl_in_stock: "● In Stock at Tashkent VIP Vault",
+        lbl_total_price: "Configured Price:",
+        lbl_installment: "0% Installment Plan (12 mo):",
+        cfg_dial: "1. Dial Finish:",
+        cfg_strap: "2. Bracelet & Strap:",
+        cfg_size: "3. Case Diameter:",
+        cfg_engraving: "✒ COMPLIMENTARY CASEBACK LASER ENGRAVING",
+        btn_add_configured: "Add Configured Watch to Bag",
+        btn_buy_1click_tg: "1-Click Telegram VIP Acquisition",
+        perk_1: "5-year international official service warranty",
+        perk_2: "Original lacquered wooden box & papers",
+        perk_3: "Wrist inspection prior to payment",
+        perk_4: "14-day privilege exchange policy",
+        tab_specs: "Technical Calibre Specifications",
+        tab_warranty: "Provenance, Box & Warranty",
+        tab_reviews: "Collector Reviews",
+        spec_group_calibre: "Calibre & Movement Architecture",
+        spec_group_case: "Case, Sapphire & Water Resistance",
+        rel_eyebrow: "SIMILAR TIMEPIECES",
+        rel_title: "Curated for your collection",
+        btn_back_catalog: "Explore All 320+ Models →",
+        drawer_cart_title: "Your Shopping Bag",
+        drawer_wish_title: "Saved Timepieces",
+        lbl_total: "Total Amount:",
+        btn_go_checkout: "Proceed to Checkout",
+        modal_order_title: "Bespoke Configuration Order",
+        form_name: "Full Name *",
+        form_phone: "Phone Number *",
+        form_model: "Selected Watch & Configuration",
+        form_address: "Delivery Address *",
+        form_payment: "Payment Method",
+        btn_send_telegram: "Send Order to Telegram Bot"
+      }
+    };
+
+    // =========================================================================
+    // 4. STATE & ACTIVE PRODUCT CONFIGURATION
+    // =========================================================================
+    let currentLang = localStorage.getItem("watchplus_lang") || "uz";
+    let currentTheme = localStorage.getItem("watchplus_theme") || "dark";
+    let cart = JSON.parse(localStorage.getItem("watchplus_cart") || "[]");
+    let wishlist = JSON.parse(localStorage.getItem("watchplus_wishlist") || "[]");
+
+    const params = new URLSearchParams(window.location.search);
+    const requestedId = params.get("id") || "wp-101";
+    let activeProduct = CATALOG.find((p) => p.id === requestedId) || CATALOG[0];
+
+    let configState = {
+      dial: "Onyx Black",
+      dialExtra: 0,
+      strap: "Oyster Metal Bracelet",
+      strapExtra: 0,
+      size: "41 mm (Standart)",
+      engraving: "",
+      qty: 1
+    };
+
+    function getUnitConfiguredPrice() {
+      return activeProduct.price + configState.dialExtra + configState.strapExtra;
+    }
+
+    // =========================================================================
+    // 5. POPULATE PRODUCT PAGE & GALLERY
+    // =========================================================================
+    const ANGLE_GALLERY = [
+      { label: "Siferblat", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=85" },
+      { label: "Profil", img: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1000&q=85" },
+      { label: "Kalibr", img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85" },
+      { label: "Bilakda", img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=1000&q=85" }
+    ];
+
+    function initModelSelector() {
+      const sel = document.getElementById("quickModelSelector");
+      const topSlice = CATALOG.slice(0, 50);
+      sel.innerHTML = topSlice.map((m) => `
+        <option value="${m.id}" ${m.id === activeProduct.id ? "selected" : ""}>
+          ${m.brand} — ${m.name} ($${m.price.toLocaleString()})
+        </option>
+      `).join("");
+
+      sel.addEventListener("change", (e) => {
+        const chosen = CATALOG.find((p) => p.id === e.target.value);
+        if (chosen) {
+          activeProduct = chosen;
+          window.history.replaceState({}, "", `product.html?id=${chosen.id}`);
+          loadProductIntoDOM();
+        }
+      });
+    }
+
+    function loadProductIntoDOM() {
+      document.title = `WatchPlus — ${activeProduct.name} | 3D Tahlil`;
+      document.getElementById("breadcrumbModelName").textContent = activeProduct.name;
+      document.getElementById("pdOriginBadge").textContent = activeProduct.origin || "SWISS MADE";
+      document.getElementById("pdBrand").textContent = activeProduct.brand;
+      document.getElementById("pdRefCode").textContent = `REF. ${activeProduct.id.toUpperCase()} • COSC CERTIFIED`;
+      document.getElementById("pdTitle").textContent = activeProduct.name;
+      document.getElementById("pdRating").textContent = (activeProduct.rating || 5.0).toFixed(1);
+
+      const mainImgEl = document.getElementById("pdMainImage");
+      mainImgEl.src = activeProduct.image;
+
+      // Build 4 thumbnails with active product image first
+      const thumbs = [
+        { label: "Asosiy", img: activeProduct.image },
+        ANGLE_GALLERY[1],
+        ANGLE_GALLERY[2],
+        ANGLE_GALLERY[3]
+      ];
+
+      const thumbsRow = document.getElementById("pdThumbsRow");
+      thumbsRow.innerHTML = thumbs.map((t, i) => `
+        <div class="gallery-thumb ${i === 0 ? "active" : ""}" data-src="${t.img}">
+          <img src="${t.img}" alt="${t.label}" />
+          <span class="thumb-caption">${t.label}</span>
+        </div>
+      `).join("");
+
+      thumbsRow.querySelectorAll(".gallery-thumb").forEach((thumb) => {
+        thumb.addEventListener("click", () => {
+          thumbsRow.querySelectorAll(".gallery-thumb").forEach((el) => el.classList.remove("active"));
+          thumb.classList.add("active");
+          mainImgEl.src = thumb.getAttribute("data-src");
+        });
+      });
+
+      // Technical Table
+      document.getElementById("specMovement").textContent = activeProduct.movement || "Swiss Automatic";
+      document.getElementById("specOrigin").textContent = activeProduct.origin || "SWISS MADE";
+      document.getElementById("specMaterial").textContent = activeProduct.caseMaterial || "316L Stainless Steel";
+      document.getElementById("specWater").textContent = activeProduct.waterResistance || "100m";
+
+      // Wishlist button state
+      const wishBtn = document.getElementById("pdWishlistToggleBtn");
+      const isWished = wishlist.includes(activeProduct.id);
+      wishBtn.textContent = isWished ? "♥" : "♡";
+      wishBtn.style.color = isWished ? "var(--danger)" : "var(--text-primary)";
+
+      updatePriceDisplay();
+      renderRelatedWatches();
+    }
+
+    function updatePriceDisplay() {
+      const unitPrice = getUnitConfiguredPrice();
+      const totalPrice = unitPrice * configState.qty;
+      const oldPrice = (activeProduct.oldPrice || Math.round(activeProduct.price * 1.12)) + configState.dialExtra + configState.strapExtra;
+      const monthly = Math.round(totalPrice / 12);
+
+      document.getElementById("pdCurrentPrice").textContent = `$${totalPrice.toLocaleString()}`;
+      document.getElementById("pdOldPrice").textContent = `$${(oldPrice * configState.qty).toLocaleString()}`;
+      document.getElementById("pdMonthlyPrice").textContent = `$${monthly.toLocaleString()} / oyiga`;
+      document.getElementById("pdQtyValue").textContent = configState.qty;
+    }
+
+    function renderRelatedWatches() {
+      const grid = document.getElementById("relatedProductsGrid");
+      const related = CATALOG.filter((p) => p.id !== activeProduct.id && (p.brand === activeProduct.brand || p.category === activeProduct.category)).slice(0, 4);
+      const list = related.length >= 4 ? related : CATALOG.filter((p) => p.id !== activeProduct.id).slice(0, 4);
+
+      grid.innerHTML = list.map((item) => `
+        <article class="product-card">
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+              <span class="badge-origin" style="font-size:9px; padding:3px 9px;">${item.origin}</span>
+              <span class="mono-font" style="font-size:11px; color:var(--text-muted);">Ref. ${item.id.toUpperCase()}</span>
+            </div>
+            <div class="card-img-wrap">
+              <img src="${item.image}" alt="${item.name}" loading="lazy" />
+            </div>
+            <div style="font-size:11px; font-weight:700; color:var(--accent-gold); text-transform:uppercase;">${item.brand}</div>
+            <a href="product.html?id=${item.id}" class="serif-font" style="font-size:20px; font-weight:600; display:block; margin:4px 0 12px;">${item.name}</a>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding-top:12px; border-top:1px solid var(--border-subtle);">
+            <span class="mono-font" style="font-size:17px; font-weight:700; color:var(--accent-gold);">$${item.price.toLocaleString()}</span>
+            <a href="product.html?id=${item.id}" class="btn-outline" style="padding:8px 14px; font-size:11px;">Ko'rish →</a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    // =========================================================================
+    // 6. OPTICAL LOUPE ZOOM & SUPER-LUMINOVA NIGHT MODE
+    // =========================================================================
+    const zoomStage = document.getElementById("zoomStage");
+    const mainImage = document.getElementById("pdMainImage");
+    const lens = document.getElementById("magnifierLens");
+
+    zoomStage.addEventListener("mousemove", (e) => {
+      const rect = zoomStage.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      lens.style.left = `${x - lens.offsetWidth / 2}px`;
+      lens.style.top = `${y - lens.offsetHeight / 2}px`;
+      lens.style.backgroundImage = `url('${mainImage.src}')`;
+      lens.style.backgroundSize = `${rect.width * 2.2}px ${rect.height * 2.2}px`;
+
+      const bgX = (x / rect.width) * 100;
+      const bgY = (y / rect.height) * 100;
+      lens.style.backgroundPosition = `${bgX}% ${bgY}%`;
+    });
+
+    document.getElementById("lumeToggleBtn").addEventListener("click", (e) => {
+      const btn = e.currentTarget;
+      btn.classList.toggle("lume-on");
+      zoomStage.classList.toggle("night-lume");
+    });
+
+    // =========================================================================
+    // 7. CONFIGURATOR INTERACTIONS
+    // =========================================================================
+    document.querySelectorAll("#dialOptions .opt-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#dialOptions .opt-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        configState.dial = btn.dataset.dial;
+        configState.dialExtra = Number(btn.dataset.add) || 0;
+        document.getElementById("selectedDialLabel").textContent = configState.dial;
+        updatePriceDisplay();
+      });
+    });
+
+    document.querySelectorAll("#strapOptions .opt-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#strapOptions .opt-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        configState.strap = btn.dataset.strap;
+        configState.strapExtra = Number(btn.dataset.add) || 0;
+        document.getElementById("selectedStrapLabel").textContent = configState.strap;
+        updatePriceDisplay();
+      });
+    });
+
+    document.querySelectorAll("#sizeOptions .opt-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#sizeOptions .opt-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        configState.size = btn.dataset.size;
+        document.getElementById("selectedSizeLabel").textContent = configState.size;
+      });
+    });
+
+    document.getElementById("decQtyBtn").addEventListener("click", () => {
+      if (configState.qty > 1) {
+        configState.qty--;
+        updatePriceDisplay();
+      }
+    });
+
+    document.getElementById("incQtyBtn").addEventListener("click", () => {
+      configState.qty++;
+      updatePriceDisplay();
+    });
+
+    // =========================================================================
+    // 8. CART, WISHLIST & TELEGRAM BOT SUBMISSION
+    // =========================================================================
+    function saveState() {
+      localStorage.setItem("watchplus_cart", JSON.stringify(cart));
+      localStorage.setItem("watchplus_wishlist", JSON.stringify(wishlist));
+      updateBadgesAndDrawers();
+    }
+
+    function showToast(msg) {
+      const container = document.getElementById("toastContainer");
+      const toast = document.createElement("div");
+      toast.className = "toast";
+      toast.innerHTML = `<span style="color:var(--accent-gold);">✦</span> <span>${msg}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 3200);
+    }
+
+    document.getElementById("pdAddToCartBtn").addEventListener("click", () => {
+      configState.engraving = document.getElementById("engravingInput").value.trim();
+      const unitPrice = getUnitConfiguredPrice();
+      const customName = `${activeProduct.name} [${configState.dial} • ${configState.strap} • ${configState.size}${configState.engraving ? " • Gravirovka: " + configState.engraving : ""}]`;
+
+      const existing = cart.find((c) => c.id === activeProduct.id && c.name === customName);
+      if (existing) {
+        existing.qty += configState.qty;
+      } else {
+        cart.push({
+          id: activeProduct.id,
+          name: customName,
+          brand: activeProduct.brand,
+          price: unitPrice,
+          image: activeProduct.image,
+          qty: configState.qty
+        });
+      }
+      saveState();
+      showToast(`${activeProduct.name} (${configState.qty} dona) savatchaga qo'shildi!`);
+    });
+
+    document.getElementById("pdWishlistToggleBtn").addEventListener("click", () => {
+      const idx = wishlist.indexOf(activeProduct.id);
+      if (idx > -1) {
+        wishlist.splice(idx, 1);
+        showToast("Sevimlilardan olib tashlandi");
+      } else {
+        wishlist.push(activeProduct.id);
+        showToast("Sevimlilarga saqlandi ♥");
+      }
+      saveState();
+      loadProductIntoDOM();
+    });
+
+    window.changeCartQty = function(index, delta) {
+      if (!cart[index]) return;
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) cart.splice(index, 1);
+      saveState();
+    };
+
+    function updateBadgesAndDrawers() {
+      const totalCount = cart.reduce((s, i) => s + i.qty, 0);
+      const totalPrice = cart.reduce((s, i) => s + i.price * i.qty, 0);
+
+      document.getElementById("cartCountBadge").textContent = totalCount;
+      document.getElementById("wishlistCountBadge").textContent = wishlist.length;
+      document.getElementById("cartDrawerTotal").textContent = `$${totalPrice.toLocaleString()}`;
+
+      const cartEl = document.getElementById("cartDrawerItems");
+      if (cart.length === 0) {
+        cartEl.innerHTML = `<p style="color:var(--text-muted); text-align:center; margin-top:40px;">Savatchangiz bo'sh.</p>`;
+      } else {
+        cartEl.innerHTML = cart.map((item, idx) => `
+          <div class="drawer-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div style="flex:1;">
+              <strong style="font-size:13px; display:block;">${item.name}</strong>
+              <span class="mono-font" style="color:var(--accent-gold); font-size:13px;">$${item.price.toLocaleString()}</span>
+              <div style="display:flex; align-items:center; gap:8px; margin-top:6px;">
+                <button class="icon-btn" style="width:25px; height:25px;" onclick="changeCartQty(${idx}, -1)">-</button>
+                <span class="mono-font" style="font-size:12px;">${item.qty}</span>
+                <button class="icon-btn" style="width:25px; height:25px;" onclick="changeCartQty(${idx}, 1)">+</button>
+              </div>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      const wishEl = document.getElementById("wishlistDrawerItems");
+      if (wishlist.length === 0) {
+        wishEl.innerHTML = `<p style="color:var(--text-muted); text-align:center; margin-top:40px;">Sevimlilar ro'yxati bo'sh.</p>`;
+      } else {
+        wishEl.innerHTML = wishlist.map((id) => {
+          const item = CATALOG.find((p) => p.id === id);
+          if (!item) return "";
+          return `
+            <div class="drawer-item">
+              <img src="${item.image}" alt="${item.name}" />
+              <div style="flex:1;">
+                <a href="product.html?id=${item.id}" style="font-weight:700; font-size:13px; display:block;">${item.name}</a>
+                <span class="mono-font" style="color:var(--accent-gold); font-size:12px;">$${item.price.toLocaleString()}</span>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+    }
+
+    async function sendConfiguredWatchToTelegram(payload) {
+      const orderId = "WP-3D-" + Math.floor(100000 + Math.random() * 900000);
+      const message =
+        `⌚ <b>WATCHPLUS — KONFIGURATOR BUYURTMASI!</b>\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `🆔 <b>Buyurtma raqami:</b> #${orderId}\n` +
+        `👤 <b>Mijoz:</b> ${payload.name}\n` +
+        `📞 <b>Telefon:</b> ${payload.phone}\n` +
+        `📍 <b>Manzil:</b> ${payload.address}\n` +
+        `💳 <b>To'lov turi:</b> ${payload.payment}\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `⚙️ <b>Konfiguratsiya:</b>\n${payload.configText}\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `💰 <b>Umumiy summa:</b> $${payload.totalPrice.toLocaleString()}\n` +
+        `🌐 <b>Sahifa:</b> product.html?id=${activeProduct.id}`;
+
+      const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: message,
+          parse_mode: "HTML"
+        })
+      });
+      return res.ok;
+    }
+
+    function openVipModalWithConfig() {
+      configState.engraving = document.getElementById("engravingInput").value.trim();
+      const unitPrice = getUnitConfiguredPrice();
+      const total = unitPrice * configState.qty;
+
+      const summary =
+        `${activeProduct.name} (Ref. ${activeProduct.id.toUpperCase()})\n` +
+        `• Siferblat: ${configState.dial} | Braslet: ${configState.strap} | O'lcham: ${configState.size}\n` +
+        `• Gravirovka: ${configState.engraving || "Yo'q"} | Soni: ${configState.qty} dona — Jami: $${total.toLocaleString()}`;
+
+      document.getElementById("tgWatchConfig").value = summary;
+      document.getElementById("globalBackdrop").classList.add("open");
+      document.getElementById("vipOrderModal").classList.add("open");
+    }
+
+    document.getElementById("pdInstantTelegramBtn").addEventListener("click", openVipModalWithConfig);
+    document.getElementById("openVipModalBtn").addEventListener("click", openVipModalWithConfig);
+
+    document.getElementById("instantTelegramForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById("tgSubmitBtn");
+      const txt = document.getElementById("tgSubmitText");
+      const orig = txt.textContent;
+      btn.disabled = true;
+      txt.textContent = "Yuborilmoqda...";
+
+      try {
+        const ok = await sendConfiguredWatchToTelegram({
+          name: document.getElementById("tgClientName").value.trim(),
+          phone: document.getElementById("tgClientPhone").value.trim(),
+          address: document.getElementById("tgClientAddress").value.trim(),
+          payment: document.getElementById("tgPaymentMethod").value,
+          configText: document.getElementById("tgWatchConfig").value,
+          totalPrice: getUnitConfiguredPrice() * configState.qty
+        });
+
+        if (ok) {
+          showToast("Buyurtmangiz Telegram Botga muvaffaqiyatli yuborildi!");
+          document.getElementById("instantTelegramForm").reset();
+          closeAllModals();
+        } else {
+          showToast("Xatolik yuz berdi. Qayta urinib ko'ring.");
+        }
+      } catch (err) {
+        showToast("Tarmoq xatoligi yuz berdi.");
+      } finally {
+        btn.disabled = false;
+        txt.textContent = orig;
+      }
+    });
+
+    // =========================================================================
+    // 9. TABS, REVIEWS, DRAWERS, THEME & CURSOR
+    // =========================================================================
+    document.querySelectorAll("#detailTabsHeader .detail-tab-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#detailTabsHeader .detail-tab-btn").forEach((b) => b.classList.remove("active"));
+        document.querySelectorAll(".tab-pane").forEach((p) => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(`pane-${btn.dataset.tab}`).classList.add("active");
+      });
+    });
+
+    document.getElementById("addReviewForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const author = document.getElementById("revAuthor").value.trim();
+      const stars = document.getElementById("revStars").value;
+      const text = document.getElementById("revText").value.trim();
+      if (!author || !text) return;
+
+      const list = document.getElementById("reviewsListContainer");
+      const div = document.createElement("div");
+      div.className = "review-item";
+      div.innerHTML = `
+        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+          <strong>${author}</strong>
+          <span class="stars-gold">${stars}</span>
+        </div>
+        <p style="font-size:14px; color:var(--text-secondary);">"${text}"</p>
+      `;
+      list.prepend(div);
+      document.getElementById("addReviewForm").reset();
+      showToast("Sharhingiz muvaffaqiyatli qo'shildi!");
+    });
+
+    const backdrop = document.getElementById("globalBackdrop");
+    const cartDrawer = document.getElementById("cartDrawer");
+    const wishlistDrawer = document.getElementById("wishlistDrawer");
+    const vipModal = document.getElementById("vipOrderModal");
+
+    function closeAllModals() {
+      backdrop.classList.remove("open");
+      cartDrawer.classList.remove("open");
+      wishlistDrawer.classList.remove("open");
+      vipModal.classList.remove("open");
+    }
+
+    document.getElementById("openCartBtn").addEventListener("click", () => {
+      backdrop.classList.add("open");
+      cartDrawer.classList.add("open");
+    });
+    document.getElementById("openWishlistBtn").addEventListener("click", () => {
+      backdrop.classList.add("open");
+      wishlistDrawer.classList.add("open");
+    });
+    document.getElementById("cartInstantTelegramBtn").addEventListener("click", () => {
+      cartDrawer.classList.remove("open");
+      openVipModalWithConfig();
+    });
+
+    document.getElementById("closeCartBtn").addEventListener("click", closeAllModals);
+    document.getElementById("closeWishlistBtn").addEventListener("click", closeAllModals);
+    document.getElementById("closeVipModalBtn").addEventListener("click", closeAllModals);
+    backdrop.addEventListener("click", closeAllModals);
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("watchplus_theme", theme);
+      document.getElementById("themeIcon").textContent = theme === "dark" ? "☀" : "☾";
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem("watchplus_lang", lang);
+      document.querySelectorAll(".lang-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.lang === lang);
+      });
+      const dict = I18N[lang] || I18N.uz;
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const k = el.getAttribute("data-i18n");
+        if (dict[k]) el.textContent = dict[k];
+      });
+      updateBadgesAndDrawers();
+    }
+
+    document.getElementById("themeToggleBtn").addEventListener("click", () => {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
+      applyTheme(currentTheme);
+    });
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+    });
+
+    // Custom Luxury Cursor
+    const cursorDot = document.getElementById("cursorDot");
+    const cursorRing = document.getElementById("cursorRing");
+    window.addEventListener("mousemove", (e) => {
+      cursorDot.style.left = `${e.clientX}px`;
+      cursorDot.style.top = `${e.clientY}px`;
+      cursorRing.style.left = `${e.clientX}px`;
+      cursorRing.style.top = `${e.clientY}px`;
+    });
+
+    // Initialize Page
+    initModelSelector();
+    loadProductIntoDOM();
+    applyTheme(currentTheme);
+    applyLanguage(currentLang);
+  </script>
+</body>
+</html>

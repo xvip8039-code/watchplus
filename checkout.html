@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WatchPlus — Savatcha va VIP Buyurtma Rasmiylashtirish | Checkout</title>
+  <meta name="description" content="WatchPlus — tanlangan original soatlarni rasmiylashtirish, promo-kod kiritish, VIP zirhli kuryer yetkazib berish va Telegram Bot orqali rasmiy buyurtma berish sahifasi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root[data-theme="dark"] {
+      --bg-primary: #07080a;
+      --bg-secondary: #0f1116;
+      --bg-tertiary: #161922;
+      --bg-elevated: #1c202b;
+      --bg-glass: rgba(18, 21, 28, 0.85);
+      --bg-glass-heavy: rgba(10, 12, 16, 0.96);
+      --text-primary: #f6f4f0;
+      --text-secondary: #a6adbb;
+      --text-muted: #697080;
+      --accent-gold: #d4af37;
+      --accent-gold-light: #f3e5ab;
+      --accent-gold-dark: #9c7a23;
+      --accent-glow: rgba(212, 175, 55, 0.22);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-gold: rgba(212, 175, 55, 0.38);
+      --danger: #ef4444;
+      --success: #10b981;
+      --shadow-card: 0 24px 48px -12px rgba(0, 0, 0, 0.78);
+      --shadow-gold: 0 12px 32px -8px rgba(212, 175, 55, 0.32);
+      --gradient-hero: radial-gradient(circle at 75% 15%, rgba(212, 175, 55, 0.14) 0%, rgba(7, 8, 10, 0) 65%);
+      --gradient-gold: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #9c7a23 100%);
+      --card-surface: linear-gradient(160deg, rgba(26, 30, 41, 0.82) 0%, rgba(13, 15, 20, 0.95) 100%);
+    }
+
+    :root[data-theme="light"] {
+      --bg-primary: #faf8f5;
+      --bg-secondary: #f1ede6;
+      --bg-tertiary: #e6dfd5;
+      --bg-elevated: #ffffff;
+      --bg-glass: rgba(250, 248, 245, 0.88);
+      --bg-glass-heavy: rgba(255, 255, 255, 0.97);
+      --text-primary: #121316;
+      --text-secondary: #4d5360;
+      --text-muted: #7f8694;
+      --accent-gold: #b08926;
+      --accent-gold-light: #d4af37;
+      --accent-gold-dark: #7d5f14;
+      --accent-glow: rgba(176, 137, 38, 0.16);
+      --border-subtle: rgba(18, 19, 22, 0.09);
+      --border-gold: rgba(176, 137, 38, 0.35);
+      --danger: #dc2626;
+      --success: #059669;
+      --shadow-card: 0 20px 40px -15px rgba(18, 19, 22, 0.09);
+      --shadow-gold: 0 12px 28px -6px rgba(176, 137, 38, 0.22);
+      --gradient-hero: radial-gradient(circle at 75% 15%, rgba(212, 175, 55, 0.18) 0%, rgba(250, 248, 245, 0) 65%);
+      --gradient-gold: linear-gradient(135deg, #d4af37 0%, #b08926 55%, #7d5f14 100%);
+      --card-surface: linear-gradient(160deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 237, 229, 0.92) 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background-color 0.35s ease, color 0.35s ease;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .serif-font {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: -0.01em;
+    }
+
+    .mono-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      border: none;
+      outline: none;
+      background: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* Custom Luxury Cursor */
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent-gold);
+      box-shadow: 0 0 10px var(--accent-gold);
+    }
+
+    .cursor-ring {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border-gold);
+      transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+    }
+
+    .cursor-ring.hovered {
+      width: 54px;
+      height: 54px;
+      background-color: var(--accent-glow);
+      border-color: var(--accent-gold);
+    }
+
+    @media (max-width: 992px) {
+      .cursor-dot, .cursor-ring {
+        display: none;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-gold-dark);
+      border-radius: 4px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Topbar */
+    .topbar {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 12px;
+      padding: 8px 0;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--text-secondary);
+    }
+
+    .topbar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-gold);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: var(--bg-tertiary);
+      padding: 3px;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .lang-btn {
+      padding: 3px 9px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+      color: var(--text-secondary);
+      transition: all 0.25s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--gradient-gold);
+      color: #090a0d;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      gap: 24px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #090a0f;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .brand-logo span {
+      color: var(--accent-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--text-primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      transition: all 0.25s ease;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    .badge-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      min-width: 19px;
+      height: 19px;
+      padding: 0 5px;
+      border-radius: 10px;
+      background: var(--gradient-gold);
+      color: #08090c;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 28px;
+      border-radius: 100px;
+      background: var(--gradient-gold);
+      color: #090a0f;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-gold);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px -6px rgba(212, 175, 55, 0.45);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 100px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 12px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-glow);
+      border-color: var(--accent-gold);
+    }
+
+    /* Checkout Progress Hero */
+    .checkout-header {
+      padding: 40px 0 30px;
+      background-image: var(--gradient-hero);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .checkout-steps {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .step-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 100px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .step-pill.active {
+      border-color: var(--accent-gold);
+      background: var(--accent-glow);
+      color: var(--text-primary);
+    }
+
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--gradient-gold);
+      color: #090a0f;
+      font-weight: 700;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Main Checkout Two-Column Grid */
+    .checkout-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      padding: 44px 0 88px;
+      align-items: start;
+    }
+
+    .checkout-panel {
+      background: var(--card-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 28px;
+    }
+
+    .panel-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .panel-title-row h2 {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    /* Cart Items List inside Checkout */
+    .cart-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .checkout-cart-item {
+      display: grid;
+      grid-template-columns: 84px 1fr auto;
+      gap: 18px;
+      align-items: center;
+      padding: 16px;
+      border-radius: 20px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      transition: border-color 0.25s ease;
+    }
+
+    .checkout-cart-item:hover {
+      border-color: var(--border-gold);
+    }
+
+    .checkout-cart-item img {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent-gold);
+    }
+
+    .item-brand {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+    }
+
+    .item-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 2px 0 6px;
+      display: block;
+    }
+
+    .item-unit-price {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .item-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .qty-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 12px;
+      border-radius: 100px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .qty-pill button {
+      font-weight: 700;
+      color: var(--accent-gold);
+      font-size: 16px;
+      width: 22px;
+      height: 22px;
+    }
+
+    .remove-item-btn {
+      font-size: 11px;
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    /* Quick Demo Fill Bar when Cart is Empty */
+    .empty-cart-box {
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 20px;
+      background: var(--bg-secondary);
+      border: 1px dashed var(--border-gold);
+    }
+
+    .quick-add-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .quick-add-card {
+      padding: 12px;
+      border-radius: 16px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .quick-add-card img {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--accent-gold);
+    }
+
+    /* Delivery & Payment Radio Cards */
+    .radio-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .radio-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      transition: all 0.22s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .radio-card:hover,
+    .radio-card.active {
+      border-color: var(--accent-gold);
+      background: var(--accent-glow);
+    }
+
+    .radio-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .radio-card-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* Customer Form Controls */
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 14px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 14px;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .form-control.invalid {
+      border-color: var(--danger);
+    }
+
+    /* Right Column: Sticky Order Summary & Promo Code */
+    .summary-sticky {
+      position: sticky;
+      top: 104px;
+    }
+
+    .promo-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 18px;
+      margin-bottom: 22px;
+    }
+
+    .promo-input-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .promo-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .promo-chip {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: var(--bg-tertiary);
+      border: 1px dashed var(--border-gold);
+      color: var(--accent-gold);
+      cursor: pointer;
+    }
+
+    .summary-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 18px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-secondary);
+    }
+
+    .summary-line.discount-line {
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    .summary-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 22px;
+    }
+
+    .summary-total-price {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+
+    /* Official Receipt Modal after Telegram Submission */
+    .modal-wrap {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(8px);
+      z-index: 220;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-wrap.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .receipt-card {
+      background: var(--bg-secondary);
+      border: 2px solid var(--accent-gold);
+      border-radius: 28px;
+      max-width: 560px;
+      width: 100%;
+      padding: 36px;
+      box-shadow: var(--shadow-card);
+      text-align: center;
+    }
+
+    .receipt-check-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.16);
+      border: 2px solid var(--success);
+      color: var(--success);
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+    }
+
+    .receipt-details-box {
+      text-align: left;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 18px;
+      margin: 20px 0;
+      font-size: 13px;
+    }
+
+    .receipt-details-box div {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .receipt-details-box div:last-child {
+      border-bottom: none;
+    }
+
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      padding: 14px 20px;
+      border-radius: 14px;
+      background: var(--bg-glass-heavy);
+      border: 1px solid var(--accent-gold);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-subtle);
+      padding: 64px 0 32px;
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 1024px) {
+      .checkout-layout,
+      .radio-cards-grid,
+      .form-grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .summary-sticky {
+        position: static;
+      }
+      .checkout-cart-item {
+        grid-template-columns: 64px 1fr;
+      }
+      .item-controls {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Custom Luxury Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <span class="topbar-badge">
+          <span>🔒</span>
+          <span data-i18n="top_secure">256-Bit SSL Himoyalangan VIP Checkout & Telegram Bot Tasdiqlash</span>
+        </span>
+        <span data-i18n="top_delivery">Qo'lingizga taqib ko'rgandan so'ng to'lov qilish imkoniyati</span>
+      </div>
+      <div class="topbar-right">
+        <a href="tel:+998712007788" class="mono-font">+998 (71) 200-77-88</a>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="uz">UZB</button>
+          <button class="lang-btn" data-lang="ru">RUS</button>
+          <button class="lang-btn" data-lang="en">ENG</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-logo-mark">W+</div>
+        <div>Watch<span>Plus</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link" data-i18n="nav_home">Bosh sahifa</a></li>
+        <li><a href="catalog.html" class="nav-link" data-i18n="nav_catalog">Katalog (320+)</a></li>
+        <li><a href="product.html?id=wp-101" class="nav-link" data-i18n="nav_flagship">Flagman Model</a></li>
+        <li><a href="checkout.html" class="nav-link active" data-i18n="nav_checkout">Buyurtma & Savat</a></li>
+        <li><a href="about.html" class="nav-link" data-i18n="nav_about">Brend & Servis</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggleBtn" title="Dark / Light Mode">
+          <span id="themeIcon">☀</span>
+        </button>
+        <a href="catalog.html" class="btn-outline" data-i18n="btn_continue_shopping">← Xaridni davom ettirish</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Checkout Progress Header -->
+  <section class="checkout-header">
+    <div class="container">
+      <span style="color:var(--accent-gold); font-size:12px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase;" data-i18n="chk_eyebrow">
+        WATCHPLUS VIP CONCIERGE DESK
+      </span>
+      <h1 style="font-size:clamp(32px, 4vw, 50px);" data-i18n="chk_title">Savatcha va Rasmiy Buyurtma</h1>
+
+      <div class="checkout-steps">
+        <div class="step-pill active">
+          <span class="step-num mono-font">1</span>
+          <span data-i18n="step_1">Soatlar va Konfiguratsiya</span>
+        </div>
+        <div class="step-pill active">
+          <span class="step-num mono-font">2</span>
+          <span data-i18n="step_2">Mijoz va Yetkazib Berish</span>
+        </div>
+        <div class="step-pill active">
+          <span class="step-num mono-font">3</span>
+          <span data-i18n="step_3">Telegram Bot Tasdiqlash & Chek</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Checkout Content -->
+  <main class="container checkout-layout">
+    <!-- Left Column: Cart Items + Delivery + Customer Details Form -->
+    <div>
+      <!-- 1. Shopping Bag Panel -->
+      <div class="checkout-panel">
+        <div class="panel-title-row">
+          <h2>
+            <span data-i18n="panel_bag_title">1. Tanlangan Soatlar</span>
+            <span class="mono-font" style="font-size:18px; color:var(--accent-gold);" id="bagHeaderCount">(0)</span>
+          </h2>
+          <button class="btn-outline" id="clearCartBtn" style="padding:8px 14px; font-size:11px;" data-i18n="btn_clear_bag">
+            Savatchani tozalash
+          </button>
+        </div>
+
+        <div id="checkoutCartContainer" class="cart-items-list"></div>
+      </div>
+
+      <!-- 2. Delivery Method Selection -->
+      <div class="checkout-panel">
+        <div class="panel-title-row">
+          <h2 data-i18n="panel_delivery_title">2. Yetkazib Berish Xizmati</h2>
+        </div>
+
+        <div class="radio-cards-grid" id="deliveryMethodsGrid">
+          <div class="radio-card active" data-delivery="VIP Zirhli Kuryer (Toshkent — 2 soatda)" data-fee="0">
+            <div class="radio-card-top">
+              <span>🚀 VIP Zirhli Kuryer (2 soatda)</span>
+              <span class="mono-font" style="color:var(--success);">BEPUL</span>
+            </div>
+            <p class="radio-card-desc">Maxsus zirhli keysda yetkaziladi. Brasletni qo'lingizga moslab berish xizmati bilan.</p>
+          </div>
+
+          <div class="radio-card" data-delivery="Viloyatlarga DHL / Maxsus Aviapochta (24 soat)" data-fee="35">
+            <div class="radio-card-top">
+              <span>✈️ Viloyatlarga VIP Express</span>
+              <span class="mono-font" style="color:var(--accent-gold);">+$35</span>
+            </div>
+            <p class="radio-card-desc">Samarqand, Buxoro, Farg'ona va barcha viloyatlarga sug'urtalangan yetkazib berish.</p>
+          </div>
+
+          <div class="radio-card" data-delivery="WatchPlus VIP Lounge Butigidan Olib Ketish" data-fee="0">
+            <div class="radio-card-top">
+              <span>🏛 VIP Lounge Butigidan Olish</span>
+              <span class="mono-font" style="color:var(--success);">BEPUL</span>
+            </div>
+            <p class="radio-card-desc">Toshkent sh., Amir Temur shoh ko'chasi, 107B. Shveytsariya qahvasi va shaxsiy ekspert.</p>
+          </div>
+
+          <div class="radio-card" data-delivery="Sovg'a Concierge (Maxsus Tabrik va Kuryer)" data-fee="50">
+            <div class="radio-card-top">
+              <span>🎁 Luxury Gift Concierge</span>
+              <span class="mono-font" style="color:var(--accent-gold);">+$50</span>
+            </div>
+            <p class="radio-card-desc">Qo'lda yozilgan kaligrafik tabriknoma, premium gul va tantanali topshirish.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Customer Information & Payment Method Form -->
+      <div class="checkout-panel">
+        <div class="panel-title-row">
+          <h2 data-i18n="panel_client_title">3. Xaridor Ma'lumotlari va To'lov</h2>
+        </div>
+
+        <form id="mainCheckoutForm" novalidate>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label data-i18n="lbl_fullname">Ism va Familiyangiz *</label>
+              <input type="text" class="form-control" id="chkFullName" placeholder="Masalan: Ibrohim Alimov" required />
+            </div>
+            <div class="form-group">
+              <label data-i18n="lbl_phone">Telefon raqamingiz (Telegram) *</label>
+              <input type="tel" class="form-control mono-font" id="chkPhone" placeholder="+998 90 123 45 67" required />
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label data-i18n="lbl_city">Shahar / Hudud *</label>
+              <select class="form-control" id="chkRegion">
+                <option value="Toshkent shahri">Toshkent shahri</option>
+                <option value="Samarqand">Samarqand viloyati</option>
+                <option value="Buxoro">Buxoro viloyati</option>
+                <option value="Farg'ona vodiysi">Farg'ona / Andijon / Namangan</option>
+                <option value="Qashqadaryo / Surxondaryo">Qashqadaryo / Surxondaryo</option>
+                <option value="Xorazm / Qoraqalpog'iston">Xorazm / Qoraqalpog'iston</option>
+                <option value="Boshqa hudud">Boshqa viloyat</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label data-i18n="lbl_time">Qulay yetkazib berish vaqti</label>
+              <select class="form-control" id="chkDeliveryTime">
+                <option value="Darhol (2 soat ichida)">Darhol (Tezkor 2 soat ichida)</option>
+                <option value="Bugun kechqurun (18:00 - 22:00)">Bugun kechqurun (18:00 – 22:00)</option>
+                <option value="Ertaga tushlikkacha (10:00 - 14:00)">Ertaga tushlikkacha (10:00 – 14:00)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="lbl_address">Aniq manzil va mo'ljal *</label>
+            <input type="text" class="form-control" id="chkAddress" placeholder="Ko'cha, uy raqami, ofis yoki mo'ljal..." required />
+          </div>
+
+          <!-- Payment Method Selection -->
+          <div class="form-group" style="margin-top:20px;">
+            <label data-i18n="lbl_payment_method">To'lov Usulini Tanlang *</label>
+            <div class="radio-cards-grid" id="paymentMethodsGrid" style="margin-top:8px;">
+              <div class="radio-card active" data-payment="Naqd / Kuryerga (Taqib ko'rgandan so'ng)">
+                <div class="radio-card-top">
+                  <span>💵 Naqd (Kuryer yetkazganda)</span>
+                </div>
+                <p class="radio-card-desc">Soatni tekshirib va qo'lingizga taqib ko'rib to'lov qilasiz.</p>
+              </div>
+
+              <div class="radio-card" data-payment="Uzcard / Humo / Payme / Click">
+                <div class="radio-card-top">
+                  <span>💳 Uzcard / Humo / Click</span>
+                </div>
+                <p class="radio-card-desc">Kuryer terminali yoki rasmiy elektron invoys orqali.</p>
+              </div>
+
+              <div class="radio-card" data-payment="Visa / Mastercard / USDT Crypto">
+                <div class="radio-card-top">
+                  <span>🌐 Visa / Mastercard / USDT</span>
+                </div>
+                <p class="radio-card-desc">Xalqaro valyuta kartalari va kripto-hamyon qabul qilinadi.</p>
+              </div>
+
+              <div class="radio-card" data-payment="0% Foizsiz Bo'lib To'lash (12 oy VIP Rassrochka)">
+                <div class="radio-card-top">
+                  <span>📅 0% Bo'lib To'lash (12 oy)</span>
+                </div>
+                <p class="radio-card-desc">Ortiqcha to'lovlarsiz pasport orqali 10 daqiqada rasmiylashtirish.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="lbl_notes">Buyurtmaga qo'shimcha izoh (Bilak o'lchami, sovg'a qutisi va h.k.)</label>
+            <textarea class="form-control" id="chkNotes" rows="2" placeholder="Masalan: Bilak aylanasi 18.5 sm, sovg'a sifatida o'rab bering..."></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Right Column: Sticky Order Summary, Promo Code & Telegram Submit -->
+    <aside class="summary-sticky">
+      <div class="checkout-panel">
+        <div class="panel-title-row">
+          <h2 data-i18n="summary_title">Buyurtma Xulosasi</h2>
+          <span class="mono-font" style="font-size:11px; color:var(--success);">● COSC VERIFIED</span>
+        </div>
+
+        <!-- Promo Code Box -->
+        <div class="promo-box">
+          <label style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-secondary);" data-i18n="lbl_promo">
+            VIP Promo-kod yoki Sertifikat
+          </label>
+          <div class="promo-input-row">
+            <input type="text" class="form-control mono-font" id="promoCodeInput" placeholder="WATCH10 yoki VIP20" style="padding:10px 14px; text-transform:uppercase;" />
+            <button type="button" class="btn-outline" id="applyPromoBtn" style="padding:10px 18px;" data-i18n="btn_apply">Qo'llash</button>
+          </div>
+          <div class="promo-badges mono-font">
+            <span class="promo-chip" onclick="quickApplyPromo('WATCH10')">WATCH10 (-10%)</span>
+            <span class="promo-chip" onclick="quickApplyPromo('VIP20')">VIP20 (-20%)</span>
+            <span class="promo-chip" onclick="quickApplyPromo('SWISS500')">SWISS500 (-$500)</span>
+          </div>
+          <div id="promoFeedback" style="font-size:12px; margin-top:8px; display:none;"></div>
+        </div>
+
+        <!-- Summary Breakdown -->
+        <div class="summary-rows mono-font">
+          <div class="summary-line">
+            <span data-i18n="sum_subtotal">Soatlar qiymati:</span>
+            <strong id="sumSubtotal">$0</strong>
+          </div>
+          <div class="summary-line discount-line" id="sumDiscountRow" style="display:none;">
+            <span id="sumDiscountLabel">Promo chegirma:</span>
+            <strong id="sumDiscountAmount">-$0</strong>
+          </div>
+          <div class="summary-line">
+            <span data-i18n="sum_delivery">Yetkazib berish:</span>
+            <strong id="sumDeliveryFee">BEPUL ($0)</strong>
+          </div>
+          <div class="summary-line">
+            <span data-i18n="sum_warranty">5 Yillik COSC Servis Pasporti:</span>
+            <strong style="color:var(--accent-gold);">INCLUDED</strong>
+          </div>
+        </div>
+
+        <div class="summary-total-row mono-font">
+          <div>
+            <span style="font-size:12px; color:var(--text-secondary); display:block; text-transform:uppercase;" data-i18n="sum_total_lbl">Jami To'lov Summasi:</span>
+            <span style="font-size:11px; color:var(--text-muted);" id="sumInstallmentHint">yoki 12 oyga $0 / oyiga</span>
+          </div>
+          <div class="summary-total-price" id="sumGrandTotal">$0</div>
+        </div>
+
+        <button type="button" class="btn-primary" id="submitOrderTelegramBtn" style="width:100%; padding:18px; font-size:14px;">
+          <span>🚀</span>
+          <span id="submitBtnLabel" data-i18n="btn_confirm_order">Buyurtmani Tasdiqlash (Telegram Bot)</span>
+        </button>
+
+        <p style="font-size:11px; color:var(--text-muted); text-align:center; margin-top:14px;">
+          Tugmani bosishingiz bilan buyurtmangiz rasmiy WatchPlus Telegram Botiga tushadi va VIP menejerimiz 10 daqiqada siz bilan bog'lanadi.
+        </p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Official Order Confirmation Receipt Modal -->
+  <div class="modal-wrap" id="receiptModal">
+    <div class="receipt-card">
+      <div class="receipt-check-icon">✓</div>
+      <span class="mono-font" style="font-size:11px; color:var(--accent-gold); letter-spacing:0.15em;">OFFICIAL HOROLOGY RECEIPT</span>
+      <h3 style="font-size:30px; margin:6px 0;" data-i18n="rcp_title">Buyurtmangiz Qabul Qilindi!</h3>
+      <p style="font-size:14px; color:var(--text-secondary);" data-i18n="rcp_subtitle">
+        Ma'lumotlar WatchPlus Telegram Botiga muvaffaqiyatli yuborildi.
+      </p>
+
+      <div class="receipt-details-box mono-font" id="receiptDetailsBox"></div>
+
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a href="index.html" class="btn-primary" style="padding:12px 24px;">Bosh sahifaga qaytish</a>
+        <button type="button" class="btn-outline" id="closeReceiptModalBtn">Yopish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 WatchPlus Uzbekistan. Official Checkout & Concierge Desk.</span>
+        <span>UZCARD • HUMO • VISA • MASTERCARD • USDT</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    // =========================================================================
+    // 1. TELEGRAM BOT API CONFIGURATION
+    // =========================================================================
+    const TELEGRAM_BOT_TOKEN = "9161395610:AAHG3T2Ajp9cbMNvUcQHdlM4-I-Jxh3t-Fg";
+    const TELEGRAM_CHAT_ID = "5749960020";
+
+    // =========================================================================
+    // 2. MULTI-LANGUAGE DICTIONARY (UZB, RUS, ENG)
+    // =========================================================================
+    const I18N = {
+      uz: {
+        top_secure: "256-Bit SSL Himoyalangan VIP Checkout & Telegram Bot Tasdiqlash",
+        top_delivery: "Qo'lingizga taqib ko'rgandan so'ng to'lov qilish imkoniyati",
+        nav_home: "Bosh sahifa",
+        nav_catalog: "Katalog (320+)",
+        nav_flagship: "Flagman Model",
+        nav_checkout: "Buyurtma & Savat",
+        nav_about: "Brend & Servis",
+        btn_continue_shopping: "← Xaridni davom ettirish",
+        chk_eyebrow: "WATCHPLUS VIP CONCIERGE DESK",
+        chk_title: "Savatcha va Rasmiy Buyurtma",
+        step_1: "Soatlar va Konfiguratsiya",
+        step_2: "Mijoz va Yetkazib Berish",
+        step_3: "Telegram Bot Tasdiqlash & Chek",
+        panel_bag_title: "1. Tanlangan Soatlar",
+        btn_clear_bag: "Savatchani tozalash",
+        panel_delivery_title: "2. Yetkazib Berish Xizmati",
+        panel_client_title: "3. Xaridor Ma'lumotlari va To'lov",
+        lbl_fullname: "Ism va Familiyangiz *",
+        lbl_phone: "Telefon raqamingiz (Telegram) *",
+        lbl_city: "Shahar / Hudud *",
+        lbl_time: "Qulay yetkazib berish vaqti",
+        lbl_address: "Aniq manzil va mo'ljal *",
+        lbl_payment_method: "To'lov Usulini Tanlang *",
+        lbl_notes: "Buyurtmaga qo'shimcha izoh",
+        summary_title: "Buyurtma Xulosasi",
+        lbl_promo: "VIP Promo-kod yoki Sertifikat",
+        btn_apply: "Qo'llash",
+        sum_subtotal: "Soatlar qiymati:",
+        sum_delivery: "Yetkazib berish:",
+        sum_warranty: "5 Yillik COSC Servis Pasporti:",
+        sum_total_lbl: "Jami To'lov Summasi:",
+        btn_confirm_order: "Buyurtmani Tasdiqlash (Telegram Bot)",
+        rcp_title: "Buyurtmangiz Qabul Qilindi!",
+        rcp_subtitle: "Ma'lumotlar WatchPlus Telegram Botiga muvaffaqiyatli yuborildi."
+      },
+      ru: {
+        top_secure: "256-Bit SSL Защищенный VIP Checkout и Подтверждение через Telegram Бот",
+        top_delivery: "Оплата после примерки часов на вашем запястье",
+        nav_home: "Главная",
+        nav_catalog: "Каталог (320+)",
+        nav_flagship: "Флагман",
+        nav_checkout: "Корзина и Заказ",
+        nav_about: "О бренде и Сервис",
+        btn_continue_shopping: "← Продолжить покупки",
+        chk_eyebrow: "WATCHPLUS VIP CONCIERGE DESK",
+        chk_title: "Корзина и Оформление Заказа",
+        step_1: "Часы и Конфигурация",
+        step_2: "Доставка и Контакты",
+        step_3: "Telegram Подтверждение и Чек",
+        panel_bag_title: "1. Выбранные Часы",
+        btn_clear_bag: "Очистить корзину",
+        panel_delivery_title: "2. Служба Доставки",
+        panel_client_title: "3. Данные Покупателя и Оплата",
+        lbl_fullname: "Ваше Имя и Фамилия *",
+        lbl_phone: "Номер телефона (Telegram) *",
+        lbl_city: "Город / Регион *",
+        lbl_time: "Удобное время доставки",
+        lbl_address: "Точный адрес и ориентир *",
+        lbl_payment_method: "Выберите Способ Оплаты *",
+        lbl_notes: "Комментарий к заказу",
+        summary_title: "Итог Заказа",
+        lbl_promo: "VIP Промокод или Сертификат",
+        btn_apply: "Применить",
+        sum_subtotal: "Стоимость часов:",
+        sum_delivery: "Доставка:",
+        sum_warranty: "5 Лет COSC Сервиса:",
+        sum_total_lbl: "Итого к Оплате:",
+        btn_confirm_order: "Подтвердить Заказ (Telegram Бот)",
+        rcp_title: "Ваш Заказ Принят!",
+        rcp_subtitle: "Данные успешно отправлены в Telegram Бот WatchPlus."
+      },
+      en: {
+        top_secure: "256-Bit SSL Encrypted VIP Checkout & Instant Telegram Bot Dispatch",
+        top_delivery: "Inspect and try the timepiece on your wrist prior to payment",
+        nav_home: "Home",
+        nav_catalog: "Catalog (320+)",
+        nav_flagship: "Flagship",
+        nav_checkout: "Cart & Checkout",
+        nav_about: "Brand & Service",
+        btn_continue_shopping: "← Continue Shopping",
+        chk_eyebrow: "WATCHPLUS VIP CONCIERGE DESK",
+        chk_title: "Shopping Bag & VIP Acquisition",
+        step_1: "Selected Timepieces",
+        step_2: "Concierge Delivery",
+        step_3: "Telegram Dispatch & Receipt",
+        panel_bag_title: "1. Selected Timepieces",
+        btn_clear_bag: "Clear Bag",
+        panel_delivery_title: "2. Delivery Service",
+        panel_client_title: "3. Collector Details & Payment",
+        lbl_fullname: "Full Name *",
+        lbl_phone: "Phone Number (Telegram) *",
+        lbl_city: "City / Region *",
+        lbl_time: "Preferred Delivery Window",
+        lbl_address: "Street Address & Landmark *",
+        lbl_payment_method: "Select Payment Method *",
+        lbl_notes: "Special Instructions (Wrist size, gift wrap)",
+        summary_title: "Acquisition Summary",
+        lbl_promo: "VIP Promo Code or Privilege Card",
+        btn_apply: "Apply",
+        sum_subtotal: "Timepieces Subtotal:",
+        sum_delivery: "Armored Delivery:",
+        sum_warranty: "5-Year COSC Warranty:",
+        sum_total_lbl: "Grand Total:",
+        btn_confirm_order: "Confirm & Dispatch to Telegram Bot",
+        rcp_title: "Acquisition Confirmed!",
+        rcp_subtitle: "Your order has been dispatched directly to the WatchPlus Telegram Bot."
+      }
+    };
+
+    // =========================================================================
+    // 3. STATE MANAGEMENT & DEMO QUICK-ADD WATCHES
+    // =========================================================================
+    let currentLang = localStorage.getItem("watchplus_lang") || "uz";
+    let currentTheme = localStorage.getItem("watchplus_theme") || "dark";
+    let cart = JSON.parse(localStorage.getItem("watchplus_cart") || "[]");
+
+    let checkoutState = {
+      deliveryMethod: "VIP Zirhli Kuryer (Toshkent — 2 soatda)",
+      deliveryFee: 0,
+      paymentMethod: "Naqd / Kuryerga (Taqib ko'rgandan so'ng)",
+      promoCode: null,
+      discountRate: 0,
+      discountFlat: 0
+    };
+
+    const QUICK_SUGGESTIONS = [
+      {
+        id: "wp-101",
+        name: "Rolex Submariner Date 41mm",
+        brand: "Rolex",
+        price: 14850,
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        id: "wp-105",
+        name: "Tissot PRX Powermatic 80",
+        brand: "Tissot",
+        price: 745,
+        image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        id: "wp-107",
+        name: "Apple Watch Ultra 2 Titanium",
+        brand: "Apple",
+        price: 890,
+        image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=400&q=80"
+      }
+    ];
+
+    function saveCart() {
+      localStorage.setItem("watchplus_cart", JSON.stringify(cart));
+      renderCheckoutCart();
+      recalculateTotals();
+    }
+
+    function showToast(msg) {
+      const container = document.getElementById("toastContainer");
+      const toast = document.createElement("div");
+      toast.className = "toast";
+      toast.innerHTML = `<span style="color:var(--accent-gold);">✦</span> <span>${msg}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 3200);
+    }
+
+    // =========================================================================
+    // 4. RENDER CART ITEMS & TOTALS ENGINE
+    // =========================================================================
+    function renderCheckoutCart() {
+      const container = document.getElementById("checkoutCartContainer");
+      const totalItems = cart.reduce((s, i) => s + i.qty, 0);
+      document.getElementById("bagHeaderCount").textContent = `(${totalItems})`;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="empty-cart-box">
+            <h3 style="font-size:24px; margin-bottom:6px;">Savatchangiz hozircha bo'sh</h3>
+            <p style="font-size:13px; color:var(--text-secondary);">
+              Katalogdan 320+ soatdan birini tanlang yoki quyidagi mashhur flagmanlardan birini 1-bosishda qo'shib sinab ko'ring:
+            </p>
+            <div class="quick-add-grid">
+              ${QUICK_SUGGESTIONS.map((s) => `
+                <div class="quick-add-card">
+                  <img src="${s.image}" alt="${s.name}" />
+                  <div style="flex:1;">
+                    <strong style="font-size:12px; display:block;">${s.name}</strong>
+                    <span class="mono-font" style="font-size:12px; color:var(--accent-gold);">$${s.price.toLocaleString()}</span>
+                  </div>
+                  <button class="btn-outline" style="padding:6px 12px;" onclick="quickAddWatch('${s.id}')">+</button>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = cart.map((item, idx) => `
+        <div class="checkout-cart-item">
+          <img src="${item.image}" alt="${item.name}" />
+          <div>
+            <span class="item-brand">${item.brand || "SWISS HOROLOGY"}</span>
+            <a href="product.html?id=${item.id}" class="item-title serif-font">${item.name}</a>
+            <span class="item-unit-price mono-font">Donasi: $${item.price.toLocaleString()} • 5 Yil Kafolat</span>
+          </div>
+          <div class="item-controls">
+            <span class="mono-font" style="font-size:18px; font-weight:700; color:var(--accent-gold);">
+              $${(item.price * item.qty).toLocaleString()}
+            </span>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div class="qty-pill mono-font">
+                <button type="button" onclick="updateItemQty(${idx}, -1)">−</button>
+                <span>${item.qty}</span>
+                <button type="button" onclick="updateItemQty(${idx}, 1)">+</button>
+              </div>
+              <button type="button" class="remove-item-btn" onclick="removeCartItem(${idx})">O'chirish</button>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    window.quickAddWatch = function(id) {
+      const found = QUICK_SUGGESTIONS.find((s) => s.id === id);
+      if (!found) return;
+      cart.push({ ...found, qty: 1 });
+      saveCart();
+      showToast(`${found.name} savatchaga qo'shildi!`);
+    };
+
+    window.updateItemQty = function(idx, delta) {
+      if (!cart[idx]) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      saveCart();
+    };
+
+    window.removeCartItem = function(idx) {
+      cart.splice(idx, 1);
+      saveCart();
+      showToast("Mahsulot savatchadan o'chirildi");
+    };
+
+    document.getElementById("clearCartBtn").addEventListener("click", () => {
+      cart = [];
+      saveCart();
+      showToast("Savatcha tozalandi");
+    });
+
+    function getCalculatedTotals() {
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      let discount = 0;
+      if (subtotal > 0) {
+        if (checkoutState.discountRate > 0) {
+          discount = Math.round(subtotal * checkoutState.discountRate);
+        } else if (checkoutState.discountFlat > 0) {
+          discount = Math.min(subtotal, checkoutState.discountFlat);
+        }
+      }
+      const delivery = subtotal > 0 ? checkoutState.deliveryFee : 0;
+      const grandTotal = Math.max(0, subtotal - discount + delivery);
+      return { subtotal, discount, delivery, grandTotal };
+    }
+
+    function recalculateTotals() {
+      const { subtotal, discount, delivery, grandTotal } = getCalculatedTotals();
+
+      document.getElementById("sumSubtotal").textContent = `$${subtotal.toLocaleString()}`;
+      document.getElementById("sumDeliveryFee").textContent = delivery === 0 ? "BEPUL ($0)" : `+$${delivery}`;
+      document.getElementById("sumGrandTotal").textContent = `$${grandTotal.toLocaleString()}`;
+      document.getElementById("sumInstallmentHint").textContent = `yoki 12 oyga $${Math.round(grandTotal / 12).toLocaleString()} / oyiga`;
+
+      const discRow = document.getElementById("sumDiscountRow");
+      if (discount > 0) {
+        discRow.style.display = "flex";
+        document.getElementById("sumDiscountLabel").textContent = `Promo (${checkoutState.promoCode}):`;
+        document.getElementById("sumDiscountAmount").textContent = `-$${discount.toLocaleString()}`;
+      } else {
+        discRow.style.display = "none";
+      }
+    }
+
+    // =========================================================================
+    // 5. PROMO CODE ENGINE (WATCH10, VIP20, SWISS500)
+    // =========================================================================
+    function applyPromoCode(rawCode) {
+      const code = (rawCode || "").trim().toUpperCase();
+      const feedback = document.getElementById("promoFeedback");
+      feedback.style.display = "block";
+
+      if (code === "WATCH10") {
+        checkoutState.promoCode = "WATCH10";
+        checkoutState.discountRate = 0.10;
+        checkoutState.discountFlat = 0;
+        feedback.style.color = "var(--success)";
+        feedback.textContent = "✓ WATCH10 promo-kodi qo'llandi (10% chegirma)!";
+        showToast("10% Promo-kod faollashtirildi!");
+      } else if (code === "VIP20") {
+        checkoutState.promoCode = "VIP20";
+        checkoutState.discountRate = 0.20;
+        checkoutState.discountFlat = 0;
+        feedback.style.color = "var(--success)";
+        feedback.textContent = "✓ VIP20 kolleksioner kodi qo'llandi (20% chegirma)!";
+        showToast("20% VIP chegirma faollashtirildi!");
+      } else if (code === "SWISS500") {
+        checkoutState.promoCode = "SWISS500";
+        checkoutState.discountRate = 0;
+        checkoutState.discountFlat = 500;
+        feedback.style.color = "var(--success)";
+        feedback.textContent = "✓ SWISS500 sertifikati qo'llandi (-$500 chegirma)!";
+        showToast("$500 sertifikat chegirmasi qo'llandi!");
+      } else {
+        checkoutState.promoCode = null;
+        checkoutState.discountRate = 0;
+        checkoutState.discountFlat = 0;
+        feedback.style.color = "var(--danger)";
+        feedback.textContent = "✕ Noto'g'ri promo-kod. WATCH10 yoki VIP20 ni sinab ko'ring.";
+      }
+      recalculateTotals();
+    }
+
+    window.quickApplyPromo = function(code) {
+      document.getElementById("promoCodeInput").value = code;
+      applyPromoCode(code);
+    };
+
+    document.getElementById("applyPromoBtn").addEventListener("click", () => {
+      applyPromoCode(document.getElementById("promoCodeInput").value);
+    });
+
+    // =========================================================================
+    // 6. DELIVERY & PAYMENT METHOD SELECTION
+    // =========================================================================
+    document.querySelectorAll("#deliveryMethodsGrid .radio-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        document.querySelectorAll("#deliveryMethodsGrid .radio-card").forEach((c) => c.classList.remove("active"));
+        card.classList.add("active");
+        checkoutState.deliveryMethod = card.getAttribute("data-delivery");
+        checkoutState.deliveryFee = Number(card.getAttribute("data-fee")) || 0;
+        recalculateTotals();
+      });
+    });
+
+    document.querySelectorAll("#paymentMethodsGrid .radio-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        document.querySelectorAll("#paymentMethodsGrid .radio-card").forEach((c) => c.classList.remove("active"));
+        card.classList.add("active");
+        checkoutState.paymentMethod = card.getAttribute("data-payment");
+      });
+    });
+
+    // =========================================================================
+    // 7. TELEGRAM BOT API FULL CHECKOUT SUBMISSION
+    // =========================================================================
+    async function dispatchCheckoutToTelegram(orderData) {
+      const itemsFormatted = orderData.items
+        .map((item, i) => `${i + 1}. <b>${item.name}</b>\n   └ ${item.qty} dona × $${item.price.toLocaleString()} = <b>$${(item.price * item.qty).toLocaleString()}</b>`)
+        .join("\n");
+
+      const message =
+        `⌚ <b>WATCHPLUS — RASMIY CHECKOUT BUYURTMA!</b>\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `🆔 <b>Buyurtma raqami:</b> #${orderData.orderId}\n` +
+        `👤 <b>Xaridor:</b> ${orderData.fullName}\n` +
+        `📞 <b>Telefon:</b> ${orderData.phone}\n` +
+        `🏙 <b>Hudud:</b> ${orderData.region}\n` +
+        `📍 <b>Manzil:</b> ${orderData.address}\n` +
+        `🕒 <b>Yetkazish vaqti:</b> ${orderData.deliveryTime}\n` +
+        `🚚 <b>Yetkazish xizmati:</b> ${orderData.deliveryMethod}\n` +
+        `💳 <b>To'lov usuli:</b> ${orderData.paymentMethod}\n` +
+        `📝 <b>Izoh:</b> ${orderData.notes || "Yo'q"}\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `🛍 <b>Soatlar ro'yxati:</b>\n${itemsFormatted}\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `💵 <b>Soatlar summasi:</b> $${orderData.subtotal.toLocaleString()}\n` +
+        `🎁 <b>Promo chegirma:</b> -$${orderData.discount.toLocaleString()} ${orderData.promoCode ? "(" + orderData.promoCode + ")" : ""}\n` +
+        `🚚 <b>Yetkazib berish:</b> $${orderData.deliveryFee}\n` +
+        `💰 <b>JAMI TO'LOV:</b> <b>$${orderData.grandTotal.toLocaleString()}</b>`;
+
+      const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: message,
+          parse_mode: "HTML"
+        })
+      });
+      return res.ok;
+    }
+
+    document.getElementById("submitOrderTelegramBtn").addEventListener("click", async () => {
+      if (cart.length === 0) {
+        showToast("Iltimos, avval savatchaga kamida 1 ta soat qo'shing!");
+        return;
+      }
+
+      const nameEl = document.getElementById("chkFullName");
+      const phoneEl = document.getElementById("chkPhone");
+      const addrEl = document.getElementById("chkAddress");
+
+      [nameEl, phoneEl, addrEl].forEach((el) => el.classList.remove("invalid"));
+
+      if (!nameEl.value.trim() || !phoneEl.value.trim() || !addrEl.value.trim()) {
+        if (!nameEl.value.trim()) nameEl.classList.add("invalid");
+        if (!phoneEl.value.trim()) phoneEl.classList.add("invalid");
+        if (!addrEl.value.trim()) addrEl.classList.add("invalid");
+        showToast("Iltimos, ism, telefon raqam va manzilingizni to'ldiring!");
+        return;
+      }
+
+      const btn = document.getElementById("submitOrderTelegramBtn");
+      const lbl = document.getElementById("submitBtnLabel");
+      const origText = lbl.textContent;
+      btn.disabled = true;
+      lbl.textContent = "Telegram Botga yuborilmoqda...";
+
+      const totals = getCalculatedTotals();
+      const orderId = "WP-" + Math.floor(100000 + Math.random() * 900000);
+
+      const orderData = {
+        orderId,
+        fullName: nameEl.value.trim(),
+        phone: phoneEl.value.trim(),
+        region: document.getElementById("chkRegion").value,
+        deliveryTime: document.getElementById("chkDeliveryTime").value,
+        address: addrEl.value.trim(),
+        notes: document.getElementById("chkNotes").value.trim(),
+        deliveryMethod: checkoutState.deliveryMethod,
+        paymentMethod: checkoutState.paymentMethod,
+        promoCode: checkoutState.promoCode,
+        items: [...cart],
+        subtotal: totals.subtotal,
+        discount: totals.discount,
+        deliveryFee: totals.delivery,
+        grandTotal: totals.grandTotal
+      };
+
+      try {
+        const ok = await dispatchCheckoutToTelegram(orderData);
+        if (ok) {
+          document.getElementById("receiptDetailsBox").innerHTML = `
+            <div><span>Buyurtma raqami:</span><strong>#${orderData.orderId}</strong></div>
+            <div><span>Xaridor:</span><strong>${orderData.fullName}</strong></div>
+            <div><span>Telefon:</span><strong>${orderData.phone}</strong></div>
+            <div><span>To'lov turi:</span><strong>${orderData.paymentMethod}</strong></div>
+            <div><span>Jami summa:</span><strong style="color:var(--accent-gold);">$${orderData.grandTotal.toLocaleString()}</strong></div>
+          `;
+          document.getElementById("receiptModal").classList.add("open");
+          cart = [];
+          saveCart();
+          document.getElementById("mainCheckoutForm").reset();
+        } else {
+          showToast("Telegram API xatoligi. Qayta urinib ko'ring.");
+        }
+      } catch (err) {
+        showToast("Tarmoq xatoligi yuz berdi.");
+      } finally {
+        btn.disabled = false;
+        lbl.textContent = origText;
+      }
+    });
+
+    document.getElementById("closeReceiptModalBtn").addEventListener("click", () => {
+      document.getElementById("receiptModal").classList.remove("open");
+    });
+
+    // =========================================================================
+    // 8. THEME, LANGUAGE & CUSTOM CURSOR
+    // =========================================================================
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("watchplus_theme", theme);
+      document.getElementById("themeIcon").textContent = theme === "dark" ? "☀" : "☾";
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem("watchplus_lang", lang);
+      document.querySelectorAll(".lang-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.lang === lang);
+      });
+      const dict = I18N[lang] || I18N.uz;
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const k = el.getAttribute("data-i18n");
+        if (dict[k]) el.textContent = dict[k];
+      });
+    }
+
+    document.getElementById("themeToggleBtn").addEventListener("click", () => {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
+      applyTheme(currentTheme);
+    });
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+    });
+
+    const cursorDot = document.getElementById("cursorDot");
+    const cursorRing = document.getElementById("cursorRing");
+    window.addEventListener("mousemove", (e) => {
+      cursorDot.style.left = `${e.clientX}px`;
+      cursorDot.style.top = `${e.clientY}px`;
+      cursorRing.style.left = `${e.clientX}px`;
+      cursorRing.style.top = `${e.clientY}px`;
+    });
+
+    // Init
+    renderCheckoutCart();
+    recalculateTotals();
+    applyTheme(currentTheme);
+    applyLanguage(currentLang);
+  </script>
+</body>
+</html>

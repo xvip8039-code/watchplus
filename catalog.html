@@ -1,0 +1,2870 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WatchPlus — Katalog (320+ Original Soatlar) | Luxury & Smart Timepieces</title>
+  <meta name="description" content="WatchPlus rasmiy katalogi — 320 dan ortiq Shveytsariya va Yaponiyaning mexanik, kvars, sport va luxury smart soatlari. Real-vaqt filtrlari va tezkor buyurtma." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root[data-theme="dark"] {
+      --bg-primary: #07080a;
+      --bg-secondary: #0f1116;
+      --bg-tertiary: #161922;
+      --bg-elevated: #1c202b;
+      --bg-glass: rgba(18, 21, 28, 0.82);
+      --bg-glass-heavy: rgba(10, 12, 16, 0.96);
+      --text-primary: #f6f4f0;
+      --text-secondary: #a6adbb;
+      --text-muted: #697080;
+      --accent-gold: #d4af37;
+      --accent-gold-light: #f3e5ab;
+      --accent-gold-dark: #9c7a23;
+      --accent-glow: rgba(212, 175, 55, 0.22);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-gold: rgba(212, 175, 55, 0.38);
+      --danger: #ef4444;
+      --success: #10b981;
+      --shadow-card: 0 24px 48px -12px rgba(0, 0, 0, 0.75);
+      --shadow-gold: 0 12px 32px -8px rgba(212, 175, 55, 0.3);
+      --gradient-hero: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.15) 0%, rgba(7, 8, 10, 0) 65%);
+      --gradient-gold: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #9c7a23 100%);
+      --card-surface: linear-gradient(160deg, rgba(26, 30, 41, 0.78) 0%, rgba(13, 15, 20, 0.94) 100%);
+    }
+
+    :root[data-theme="light"] {
+      --bg-primary: #faf8f5;
+      --bg-secondary: #f1ede6;
+      --bg-tertiary: #e6dfd5;
+      --bg-elevated: #ffffff;
+      --bg-glass: rgba(250, 248, 245, 0.86);
+      --bg-glass-heavy: rgba(255, 255, 255, 0.97);
+      --text-primary: #121316;
+      --text-secondary: #4d5360;
+      --text-muted: #7f8694;
+      --accent-gold: #b08926;
+      --accent-gold-light: #d4af37;
+      --accent-gold-dark: #7d5f14;
+      --accent-glow: rgba(176, 137, 38, 0.16);
+      --border-subtle: rgba(18, 19, 22, 0.09);
+      --border-gold: rgba(176, 137, 38, 0.35);
+      --danger: #dc2626;
+      --success: #059669;
+      --shadow-card: 0 20px 40px -15px rgba(18, 19, 22, 0.09);
+      --shadow-gold: 0 12px 28px -6px rgba(176, 137, 38, 0.22);
+      --gradient-hero: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.18) 0%, rgba(250, 248, 245, 0) 65%);
+      --gradient-gold: linear-gradient(135deg, #d4af37 0%, #b08926 55%, #7d5f14 100%);
+      --card-surface: linear-gradient(160deg, rgba(255, 255, 255, 0.96) 0%, rgba(242, 237, 229, 0.92) 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background-color 0.35s ease, color 0.35s ease;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .serif-font {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: -0.01em;
+    }
+
+    .mono-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      border: none;
+      outline: none;
+      background: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* Custom Luxury Cursor */
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent-gold);
+      box-shadow: 0 0 10px var(--accent-gold);
+    }
+
+    .cursor-ring {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border-gold);
+      transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+    }
+
+    .cursor-ring.hovered {
+      width: 54px;
+      height: 54px;
+      background-color: var(--accent-glow);
+      border-color: var(--accent-gold);
+    }
+
+    @media (max-width: 992px) {
+      .cursor-dot, .cursor-ring {
+        display: none;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-gold-dark);
+      border-radius: 4px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Topbar */
+    .topbar {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 12px;
+      padding: 8px 0;
+      z-index: 101;
+      position: relative;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--text-secondary);
+    }
+
+    .topbar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-gold);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: var(--bg-tertiary);
+      padding: 3px;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .lang-btn {
+      padding: 3px 9px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+      color: var(--text-secondary);
+      transition: all 0.25s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--gradient-gold);
+      color: #090a0d;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      gap: 24px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #090a0f;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .brand-logo span {
+      color: var(--accent-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--text-primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      transition: all 0.25s ease;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    .badge-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      min-width: 19px;
+      height: 19px;
+      padding: 0 5px;
+      border-radius: 10px;
+      background: var(--gradient-gold);
+      color: #08090c;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 100px;
+      background: var(--gradient-gold);
+      color: #090a0f;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-gold);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px -6px rgba(212, 175, 55, 0.45);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 100px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-glow);
+      border-color: var(--accent-gold);
+    }
+
+    /* Catalog Hero Banner */
+    .catalog-hero {
+      padding: 48px 0 36px;
+      background-image: var(--gradient-hero);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .catalog-hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .breadcrumb {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .breadcrumb span.gold {
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .catalog-hero h1 {
+      font-size: clamp(34px, 4.5vw, 56px);
+      line-height: 1.08;
+      font-weight: 600;
+    }
+
+    .catalog-kpi-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .kpi-pill {
+      padding: 12px 20px;
+      border-radius: 16px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      flex-direction: column;
+      min-width: 135px;
+    }
+
+    .kpi-pill strong {
+      font-size: 22px;
+      color: var(--accent-gold);
+      line-height: 1.1;
+    }
+
+    .kpi-pill span {
+      font-size: 11px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* Quick Brand Bar */
+    .brand-quick-bar {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+    }
+
+    .brand-quick-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .brand-chip {
+      padding: 9px 18px;
+      border-radius: 100px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      color: var(--text-secondary);
+      transition: all 0.25s ease;
+    }
+
+    .brand-chip:hover,
+    .brand-chip.active {
+      border-color: var(--accent-gold);
+      background: var(--accent-glow);
+      color: var(--text-primary);
+    }
+
+    /* Top Control Toolbar */
+    .catalog-toolbar {
+      position: sticky;
+      top: 80px;
+      z-index: 90;
+      background: var(--bg-glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 16px 0;
+    }
+
+    .toolbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 260px;
+      max-width: 420px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 42px 12px 42px;
+      border-radius: 100px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 13px;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent-gold);
+      font-size: 14px;
+    }
+
+    .search-clear {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 13px;
+      display: none;
+    }
+
+    .category-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .cat-pill {
+      padding: 9px 16px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .cat-pill.active,
+    .cat-pill:hover {
+      background: var(--gradient-gold);
+      color: #090a0f;
+      border-color: transparent;
+    }
+
+    .toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .select-control {
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .select-control:focus {
+      border-color: var(--accent-gold);
+    }
+
+    /* Main Catalog Layout (Sidebar + Grid) */
+    .catalog-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 32px;
+      padding: 40px 0 80px;
+      align-items: start;
+    }
+
+    /* Sidebar Filters */
+    .filter-sidebar {
+      background: var(--card-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 24px;
+      position: sticky;
+      top: 162px;
+      max-height: calc(100vh - 180px);
+      overflow-y: auto;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 20px;
+    }
+
+    .sidebar-header h3 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .reset-btn {
+      font-size: 12px;
+      color: var(--accent-gold);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .filter-group {
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .filter-group:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .filter-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-gold);
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .price-input-box {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 8px 10px;
+    }
+
+    .price-input-box span {
+      font-size: 10px;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .price-input-box input {
+      width: 100%;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .price-presets {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .preset-btn {
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      font-size: 11px;
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .preset-btn:hover,
+    .preset-btn.active {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      background: var(--accent-glow);
+    }
+
+    .checkbox-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      max-height: 220px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.2s ease;
+    }
+
+    .check-item:hover {
+      color: var(--text-primary);
+    }
+
+    .check-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .check-left input[type="checkbox"] {
+      accent-color: var(--accent-gold);
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    .check-count {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Active Filters Bar & Results Summary */
+    .results-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding: 14px 20px;
+      border-radius: 16px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .active-tags {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 100px;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-gold);
+      color: var(--accent-gold);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* Products Grid */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .catalog-grid.compact-grid {
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .product-card {
+      background: var(--card-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 22px;
+      padding: 20px;
+      position: relative;
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-gold);
+      box-shadow: var(--shadow-card);
+    }
+
+    .card-badges {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .badge-origin {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: var(--accent-glow);
+      color: var(--accent-gold);
+      border: 1px solid var(--border-gold);
+    }
+
+    .card-wishlist-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .card-wishlist-btn.active,
+    .card-wishlist-btn:hover {
+      color: var(--danger);
+      border-color: var(--danger);
+    }
+
+    .card-img-wrap {
+      position: relative;
+      height: 205px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      border-radius: 16px;
+      background: radial-gradient(circle, var(--bg-tertiary) 0%, transparent 75%);
+      overflow: hidden;
+    }
+
+    .card-img-wrap img {
+      width: 172px;
+      height: 172px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid var(--border-gold);
+      transition: transform 0.45s ease;
+    }
+
+    .product-card:hover .card-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .card-hover-actions {
+      position: absolute;
+      bottom: 10px;
+      display: flex;
+      gap: 8px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+    }
+
+    .product-card:hover .card-hover-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hover-pill-btn {
+      padding: 7px 13px;
+      border-radius: 100px;
+      background: var(--bg-glass-heavy);
+      border: 1px solid var(--border-gold);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .hover-pill-btn:hover {
+      background: var(--gradient-gold);
+      color: #08090d;
+    }
+
+    .card-ref-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    .card-brand {
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+    }
+
+    .card-ref {
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .card-specs-list {
+      font-size: 11px;
+      color: var(--text-secondary);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .spec-chip {
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+      gap: 8px;
+    }
+
+    .price-old {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      display: block;
+    }
+
+    .price-current {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .btn-add-cart {
+      padding: 9px 15px;
+      border-radius: 100px;
+      background: var(--gradient-gold);
+      color: #090a0f;
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-add-cart:hover {
+      transform: scale(1.04);
+      box-shadow: var(--shadow-gold);
+    }
+
+    /* Pagination */
+    .pagination-bar {
+      margin-top: 44px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding: 18px 24px;
+      border-radius: 20px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .page-buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .page-btn {
+      min-width: 38px;
+      height: 38px;
+      padding: 0 12px;
+      border-radius: 10px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .page-btn:hover:not(:disabled),
+    .page-btn.active {
+      background: var(--gradient-gold);
+      color: #090a0f;
+      border-color: transparent;
+    }
+
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Drawers & Modals */
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.74);
+      backdrop-filter: blur(6px);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 430px;
+      height: 100vh;
+      background: var(--bg-secondary);
+      border-left: 1px solid var(--border-gold);
+      z-index: 201;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .drawer-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 16px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .drawer-item img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--accent-gold);
+    }
+
+    .drawer-footer {
+      padding: 24px;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-primary);
+    }
+
+    .modal-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: 210;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-wrap.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      border-radius: 28px;
+      max-width: 780px;
+      width: 100%;
+      padding: 34px;
+      box-shadow: var(--shadow-card);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .qv-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .qv-img-box {
+      background: radial-gradient(circle, var(--bg-tertiary) 0%, transparent 75%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      height: 310px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qv-img-box img {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-gold);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .qv-specs-table {
+      width: 100%;
+      margin: 16px 0;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .qv-specs-table td {
+      padding: 7px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .qv-specs-table td:first-child {
+      color: var(--text-muted);
+    }
+
+    .qv-specs-table td:last-child {
+      text-align: right;
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 15px;
+      border-radius: 12px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 14px;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-gold);
+    }
+
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      padding: 14px 20px;
+      border-radius: 14px;
+      background: var(--bg-glass-heavy);
+      border: 1px solid var(--accent-gold);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-subtle);
+      padding: 72px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 36px;
+      margin-bottom: 44px;
+    }
+
+    .footer-col h4 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: var(--accent-gold);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 1080px) {
+      .catalog-layout {
+        grid-template-columns: 1fr;
+      }
+      .filter-sidebar {
+        position: static;
+        max-height: none;
+      }
+      .qv-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Custom Luxury Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <span class="topbar-badge">
+          <span>✦</span>
+          <span data-i18n="top_swiss">320+ Original Swiss & Japan Modellari Omborda Mavjud</span>
+        </span>
+        <span data-i18n="top_delivery">VIP Kuryer orqali 2 soatda yetkazib berish</span>
+      </div>
+      <div class="topbar-right">
+        <a href="tel:+998712007788" class="mono-font">+998 (71) 200-77-88</a>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="uz">UZB</button>
+          <button class="lang-btn" data-lang="ru">RUS</button>
+          <button class="lang-btn" data-lang="en">ENG</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-logo-mark">W+</div>
+        <div>Watch<span>Plus</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link" data-i18n="nav_home">Bosh sahifa</a></li>
+        <li><a href="catalog.html" class="nav-link active" data-i18n="nav_catalog">Katalog (320+)</a></li>
+        <li><a href="product.html?id=wp-101" class="nav-link" data-i18n="nav_flagship">Flagman Model</a></li>
+        <li><a href="checkout.html" class="nav-link" data-i18n="nav_checkout">Buyurtma & Savat</a></li>
+        <li><a href="about.html" class="nav-link" data-i18n="nav_about">Brend & Servis</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggleBtn" title="Mavzuni o'zgartirish">
+          <span id="themeIcon">☀</span>
+        </button>
+        <button class="icon-btn" id="openWishlistBtn" title="Sevimlilar">
+          <span>♡</span>
+          <span class="badge-count" id="wishlistCountBadge">0</span>
+        </button>
+        <button class="icon-btn" id="openCartBtn" title="Savatcha">
+          <span>👜</span>
+          <span class="badge-count" id="cartCountBadge">0</span>
+        </button>
+        <button class="btn-primary" id="openVipModalBtn" style="padding: 10px 18px; font-size: 12px;" data-i18n="btn_instant_order">
+          Tezkor Buyurtma
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Catalog Hero Header -->
+  <section class="catalog-hero">
+    <div class="container">
+      <div class="catalog-hero-top">
+        <div>
+          <div class="breadcrumb">
+            <a href="index.html" data-i18n="nav_home">Bosh sahifa</a>
+            <span>/</span>
+            <span class="gold" data-i18n="breadcrumb_catalog">Rasmiy Katalog (320 ta Soat)</span>
+          </div>
+          <h1 data-i18n="cat_hero_title">Jahon Soatsozlik Durdonalari Katalogi</h1>
+        </div>
+
+        <div class="catalog-kpi-row mono-font">
+          <div class="kpi-pill">
+            <strong id="kpiTotalCount">320</strong>
+            <span data-i18n="kpi_models">Original Modellar</span>
+          </div>
+          <div class="kpi-pill">
+            <strong>15</strong>
+            <span data-i18n="kpi_brands">Nufuzli Brendlar</span>
+          </div>
+          <div class="kpi-pill">
+            <strong>COSC</strong>
+            <span data-i18n="kpi_cert">Rasmiy Sertifikat</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Brand Filter Bar -->
+      <div class="brand-quick-bar" id="quickBrandBar"></div>
+    </div>
+  </section>
+
+  <!-- Sticky Search, Category & Sort Toolbar -->
+  <div class="catalog-toolbar">
+    <div class="container toolbar-inner">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Model, brend, kalibr yoki Ref. raqam izlash (320 ta soat)..."
+          data-i18n-placeholder="search_placeholder"
+        />
+        <button class="search-clear" id="clearSearchBtn">✕</button>
+      </div>
+
+      <div class="category-pills" id="categoryPills">
+        <button class="cat-pill active" data-cat="all" data-i18n="cat_all">Barchasi (320)</button>
+        <button class="cat-pill" data-cat="luxury" data-i18n="cat_luxury">Luxury</button>
+        <button class="cat-pill" data-cat="mechanical" data-i18n="cat_mechanical">Mexanik</button>
+        <button class="cat-pill" data-cat="quartz" data-i18n="cat_quartz">Kvars</button>
+        <button class="cat-pill" data-cat="smart" data-i18n="cat_smart">Smart</button>
+        <button class="cat-pill" data-cat="sport" data-i18n="cat_sport">Sport & Dive</button>
+      </div>
+
+      <div class="toolbar-right">
+        <select class="select-control" id="sortSelect">
+          <option value="popular" data-i18n="sort_pop">Saralash: Mashhur flagmanlar</option>
+          <option value="price-asc" data-i18n="sort_asc">Narx: Arzondan qimmatga</option>
+          <option value="price-desc" data-i18n="sort_desc">Narx: Qimmatdan arzonga</option>
+          <option value="rating-desc" data-i18n="sort_rating">Reyting: Yuqori baholangan</option>
+          <option value="name-asc" data-i18n="sort_az">Nomi bo'yicha (A-Z)</option>
+        </select>
+
+        <select class="select-control mono-font" id="perPageSelect" title="Har sahifada">
+          <option value="24">24 / sahifa</option>
+          <option value="48">48 / sahifa</option>
+          <option value="96">96 / sahifa</option>
+          <option value="320">320 (Barchasi)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Catalog Content -->
+  <main class="container catalog-layout">
+    <!-- Multi-Faceted Left Filter Sidebar -->
+    <aside class="filter-sidebar">
+      <div class="sidebar-header">
+        <h3 data-i18n="filter_heading">Aniq Filtrlar</h3>
+        <button class="reset-btn" id="resetFiltersBtn" data-i18n="btn_reset">Tozalash</button>
+      </div>
+
+      <!-- Price Range Filter -->
+      <div class="filter-group">
+        <div class="filter-title">
+          <span data-i18n="filter_price">Narx Diapazoni ($)</span>
+        </div>
+        <div class="price-inputs mono-font">
+          <div class="price-input-box">
+            <span>MIN ($)</span>
+            <input type="number" id="minPriceInput" value="0" min="0" max="100000" />
+          </div>
+          <div class="price-input-box">
+            <span>MAX ($)</span>
+            <input type="number" id="maxPriceInput" value="85000" min="0" max="100000" />
+          </div>
+        </div>
+        <div class="price-presets">
+          <button class="preset-btn" data-min="0" data-max="1500">Up to $1,500</button>
+          <button class="preset-btn" data-min="1500" data-max="7000">$1.5k – $7k</button>
+          <button class="preset-btn" data-min="7000" data-max="20000">$7k – $20k</button>
+          <button class="preset-btn" data-min="20000" data-max="85000">$20,000+</button>
+        </div>
+      </div>
+
+      <!-- Brands Filter -->
+      <div class="filter-group">
+        <div class="filter-title">
+          <span data-i18n="filter_brands">Soat Brendlari (15)</span>
+        </div>
+        <div class="checkbox-list" id="brandCheckboxList"></div>
+      </div>
+
+      <!-- Case Material Filter -->
+      <div class="filter-group">
+        <div class="filter-title">
+          <span data-i18n="filter_material">Korpus Materiali</span>
+        </div>
+        <div class="checkbox-list" id="materialCheckboxList"></div>
+      </div>
+
+      <!-- Water Resistance Filter -->
+      <div class="filter-group">
+        <div class="filter-title">
+          <span data-i18n="filter_water">Suvga Chidamlilik</span>
+        </div>
+        <div class="checkbox-list" id="waterCheckboxList"></div>
+      </div>
+    </aside>
+
+    <!-- Right Catalog Results & Pagination -->
+    <section>
+      <div class="results-topbar">
+        <div>
+          <strong class="mono-font" style="color:var(--accent-gold); font-size:16px;" id="foundCountText">320</strong>
+          <span style="font-size:14px; color:var(--text-secondary);" data-i18n="lbl_watches_found">ta original soat topildi</span>
+        </div>
+        <div class="active-tags" id="activeFilterTags"></div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="catalog-grid" id="catalogGrid"></div>
+
+      <!-- Pagination -->
+      <div class="pagination-bar">
+        <div style="font-size:13px; color:var(--text-secondary);" id="pageSummaryText">
+          Ko'rsatilmoqda: 1–24 / 320
+        </div>
+        <div class="page-buttons" id="paginationControls"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom:14px;">
+            <div class="brand-logo-mark">W+</div>
+            <div>Watch<span>Plus</span></div>
+          </a>
+          <p style="font-size:14px; color:var(--text-secondary);">
+            WatchPlus — 320 dan ortiq sertifikatlangan Shveytsariya va Yaponiya soatlari rasmiy onlayn butigi.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Sahifalar</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Bosh sahifa</a></li>
+            <li><a href="catalog.html">Katalog (320+ Soat)</a></li>
+            <li><a href="product.html?id=wp-101">Flagman Model</a></li>
+            <li><a href="checkout.html">Savatcha va To'lov</a></li>
+            <li><a href="about.html">Brend & Servis</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Top Brendlar</h4>
+          <ul class="footer-links">
+            <li><a href="catalog.html?brand=Rolex">Rolex Geneva</a></li>
+            <li><a href="catalog.html?brand=Patek+Philippe">Patek Philippe</a></li>
+            <li><a href="catalog.html?brand=Omega">Omega Co-Axial</a></li>
+            <li><a href="catalog.html?brand=Tissot">Tissot 1853</a></li>
+            <li><a href="catalog.html?brand=Cartier">Cartier Paris</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>VIP Aloqa Markazi</h4>
+          <p class="mono-font" style="color:var(--accent-gold); margin-bottom:8px;">+998 (71) 200-77-88</p>
+          <p style="font-size:13px; color:var(--text-secondary);">Toshkent sh., Amir Temur shoh ko'chasi, 107B</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 WatchPlus Uzbekistan. 320+ Certified Timepieces.</span>
+        <span>SWISS COSC • OFFICIAL WARRANTY 5 YEARS</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared Backdrop -->
+  <div class="backdrop" id="globalBackdrop"></div>
+
+  <!-- Cart Drawer -->
+  <aside class="drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3 style="font-size:24px;" data-i18n="drawer_cart_title">Savatchangiz</h3>
+      <button class="icon-btn" id="closeCartBtn">✕</button>
+    </div>
+    <div class="drawer-body" id="cartDrawerItems"></div>
+    <div class="drawer-footer">
+      <div style="display:flex; justify-content:space-between; margin-bottom:16px; font-weight:700;">
+        <span data-i18n="lbl_total">Jami summa:</span>
+        <span class="mono-font" style="color:var(--accent-gold); font-size:20px;" id="cartDrawerTotal">$0</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        <a href="checkout.html" class="btn-primary" style="padding:14px 10px; font-size:12px; text-align:center;" data-i18n="btn_go_checkout">
+          Rasmiylashtirish
+        </a>
+        <button class="btn-outline" id="cartInstantTelegramBtn" style="padding:14px 10px; font-size:12px;">
+          1-Click Telegram
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Wishlist Drawer -->
+  <aside class="drawer" id="wishlistDrawer">
+    <div class="drawer-header">
+      <h3 style="font-size:24px;" data-i18n="drawer_wish_title">Sevimli Soatlar</h3>
+      <button class="icon-btn" id="closeWishlistBtn">✕</button>
+    </div>
+    <div class="drawer-body" id="wishlistDrawerItems"></div>
+  </aside>
+
+  <!-- Quick View Modal -->
+  <div class="modal-wrap" id="quickViewModal">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+        <span class="badge-origin" id="qvOrigin">SWISS MADE</span>
+        <button class="icon-btn" id="closeQuickViewBtn">✕</button>
+      </div>
+      <div class="qv-grid">
+        <div class="qv-img-box">
+          <img src="" alt="Quick View Watch" id="qvImage" />
+        </div>
+        <div>
+          <div class="mono-font" style="font-size:12px; color:var(--accent-gold);" id="qvBrandRef">ROLEX • REF. WP-101</div>
+          <h3 style="font-size:28px; margin:4px 0 10px;" id="qvTitle">Rolex Submariner</h3>
+          <div class="mono-font" style="font-size:24px; font-weight:700; color:var(--accent-gold); margin-bottom:12px;" id="qvPrice">$14,850</div>
+          <table class="qv-specs-table">
+            <tr><td>Kalibr / Mexanizm</td><td id="qvMovement">Calibre 3235</td></tr>
+            <tr><td>Korpus Materiali</td><td id="qvMaterial">Oystersteel & 18k Gold</td></tr>
+            <tr><td>Korpus Diametri</td><td id="qvSize">41 mm</td></tr>
+            <tr><td>Suvga Chidamlilik</td><td id="qvWater">300m / 1000ft</td></tr>
+            <tr><td>Siferblat Rangi</td><td id="qvDial">Onyx Black</td></tr>
+          </table>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
+            <button class="btn-primary" id="qvAddCartBtn" style="flex:1;">+ Savatga qo'shish</button>
+            <button class="btn-outline" id="qvTelegramOrderBtn">Telegram Buyurtma</button>
+            <a href="product.html?id=wp-101" class="btn-outline" id="qvFullLink">Batafsil →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Instant Telegram VIP Order Modal -->
+  <div class="modal-wrap" id="vipOrderModal">
+    <div class="modal-card" style="max-width:560px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+        <div>
+          <span style="font-size:11px; color:var(--accent-gold); font-weight:700; letter-spacing:0.12em;">TELEGRAM BOT API</span>
+          <h3 style="font-size:26px;" data-i18n="modal_order_title">Tezkor VIP Buyurtma</h3>
+        </div>
+        <button class="icon-btn" id="closeVipModalBtn">✕</button>
+      </div>
+      <form id="instantTelegramForm">
+        <div class="form-group">
+          <label data-i18n="form_name">Ism va Familiyangiz *</label>
+          <input type="text" class="form-control" id="tgClientName" placeholder="Sardorbek Alimov" required />
+        </div>
+        <div class="form-group">
+          <label data-i18n="form_phone">Telefon raqamingiz *</label>
+          <input type="tel" class="form-control" id="tgClientPhone" placeholder="+998 90 123 45 67" required />
+        </div>
+        <div class="form-group">
+          <label data-i18n="form_model">Tanlangan soat modeli</label>
+          <input type="text" class="form-control" id="tgWatchModel" required />
+        </div>
+        <div class="form-group">
+          <label data-i18n="form_address">Yetkazib berish manzili *</label>
+          <input type="text" class="form-control" id="tgClientAddress" placeholder="Toshkent sh., Mirzo Ulug'bek tumani..." required />
+        </div>
+        <div class="form-group">
+          <label data-i18n="form_payment">To'lov usuli</label>
+          <select class="form-control" id="tgPaymentMethod">
+            <option value="Naqd / Kuryer orqali">Naqd (Kuryer yetkazganda)</option>
+            <option value="Uzcard / Humo">Uzcard / Humo</option>
+            <option value="Visa / Mastercard">Visa / Mastercard</option>
+            <option value="Bo'lib to'lash (12 oy)">Bo'lib to'lash (12 oy)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary" id="tgSubmitBtn" style="width:100%; margin-top:8px;">
+          <span id="tgSubmitText" data-i18n="btn_send_telegram">Buyurtmani Telegram Botga Yuborish</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    // =========================================================================
+    // 1. TELEGRAM BOT API CONFIGURATION
+    // =========================================================================
+    const TELEGRAM_BOT_TOKEN = "9161395610:AAHG3T2Ajp9cbMNvUcQHdlM4-I-Jxh3t-Fg";
+    const TELEGRAM_CHAT_ID = "5749960020";
+
+    // =========================================================================
+    // 2. 320-WATCH HOROLOGY CATALOG GENERATOR ENGINE (REALISTIC & DETERMINISTIC)
+    // =========================================================================
+    const CORE_FLAGSHIPS = [
+      {
+        id: "wp-101",
+        name: "Rolex Submariner Date 41mm",
+        brand: "Rolex",
+        category: "luxury",
+        price: 14850,
+        oldPrice: 16200,
+        origin: "SWISS MADE",
+        movement: "Calibre 3235 Automatic",
+        caseMaterial: "Oystersteel & 18k Gold",
+        waterResistance: "300m",
+        dialColor: "Onyx Black",
+        caseSize: "41 mm",
+        rating: 5.0,
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-102",
+        name: "Patek Philippe Nautilus 5711/1R",
+        brand: "Patek Philippe",
+        category: "luxury",
+        price: 37900,
+        oldPrice: 42500,
+        origin: "GENEVA SEAL",
+        movement: "Calibre 26-330 S C",
+        caseMaterial: "18k Rose Gold",
+        waterResistance: "120m",
+        dialColor: "Chocolate Sunburst",
+        caseSize: "40 mm",
+        rating: 5.0,
+        image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-103",
+        name: "Omega Speedmaster Moonwatch",
+        brand: "Omega",
+        category: "mechanical",
+        price: 7400,
+        oldPrice: 8100,
+        origin: "SWISS CO-AXIAL",
+        movement: "Calibre 3861 Manual",
+        caseMaterial: "316L Stainless Steel",
+        waterResistance: "50m",
+        dialColor: "Step Matte Black",
+        caseSize: "42 mm",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-104",
+        name: "Audemars Piguet Royal Oak 41",
+        brand: "Audemars Piguet",
+        category: "luxury",
+        price: 29500,
+        oldPrice: 32000,
+        origin: "LE BRASSUS",
+        movement: "Calibre 4302 Automatic",
+        caseMaterial: "Grade-5 Titanium",
+        waterResistance: "50m",
+        dialColor: "Grande Tapisserie Blue",
+        caseSize: "41 mm",
+        rating: 5.0,
+        image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-105",
+        name: "Tissot PRX Powermatic 80",
+        brand: "Tissot",
+        category: "mechanical",
+        price: 745,
+        oldPrice: 850,
+        origin: "SWISS 1853",
+        movement: "Powermatic 80.111",
+        caseMaterial: "316L Stainless Steel",
+        waterResistance: "100m",
+        dialColor: "Ice Blue Waffle",
+        caseSize: "40 mm",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-106",
+        name: "Cartier Santos Medium Gold",
+        brand: "Cartier",
+        category: "luxury",
+        price: 11200,
+        oldPrice: 12000,
+        origin: "PARIS / SWISS",
+        movement: "Calibre 1847 MC",
+        caseMaterial: "Oystersteel & 18k Gold",
+        waterResistance: "100m",
+        dialColor: "Roman Silver Opaline",
+        caseSize: "39.8 mm",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1539874754764-5a96559165b0?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-107",
+        name: "Apple Watch Ultra 2 Titanium",
+        brand: "Apple",
+        category: "smart",
+        price: 890,
+        oldPrice: 990,
+        origin: "CUPERTINO",
+        movement: "S9 SiP Dual-Frequency",
+        caseMaterial: "Grade-5 Titanium",
+        waterResistance: "100m",
+        dialColor: "Modular Ultra AMOLED",
+        caseSize: "49 mm",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-108",
+        name: "Tag Heuer Carrera Chronograph",
+        brand: "Tag Heuer",
+        category: "sport",
+        price: 5600,
+        oldPrice: 6150,
+        origin: "SWISS RACING",
+        movement: "Heuer 02 Automatic",
+        caseMaterial: "316L Stainless Steel",
+        waterResistance: "100m",
+        dialColor: "Racing Panda Silver",
+        caseSize: "42 mm",
+        rating: 4.8,
+        image: "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-109",
+        name: "Seiko Presage Cocktail Time",
+        brand: "Seiko",
+        category: "mechanical",
+        price: 490,
+        oldPrice: 560,
+        origin: "JAPAN MADE",
+        movement: "Calibre 4R35 Automatic",
+        caseMaterial: "316L Stainless Steel",
+        waterResistance: "50m",
+        dialColor: "Tokyo Midnight Blue",
+        caseSize: "40.5 mm",
+        rating: 4.8,
+        image: "https://images.unsplash.com/photo-1526045431048-f857369baa09?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-110",
+        name: "Garmin MARQ Adventurer Gen 2",
+        brand: "Garmin",
+        category: "smart",
+        price: 2250,
+        oldPrice: 2490,
+        origin: "TACTICAL LUX",
+        movement: "AMOLED Sapphire GPS",
+        caseMaterial: "Grade-5 Titanium",
+        waterResistance: "100m",
+        dialColor: "Tactical Compass Dark",
+        caseSize: "46 mm",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1517502474097-f9b30659dadb?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-111",
+        name: "Casio G-Shock MR-G Kiwami",
+        brand: "Casio",
+        category: "sport",
+        price: 3100,
+        oldPrice: 3450,
+        origin: "YAMAGATA JAPAN",
+        movement: "Tough Solar Multiband 6",
+        caseMaterial: "Grade-5 Titanium",
+        waterResistance: "200m",
+        dialColor: "Kurogane Obsidian",
+        caseSize: "49.8 mm",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-112",
+        name: "Hublot Big Bang Unico Black",
+        brand: "Hublot",
+        category: "luxury",
+        price: 19400,
+        oldPrice: 21200,
+        origin: "SWISS FUSION",
+        movement: "HUB1280 Flyback",
+        caseMaterial: "Black Ceramic",
+        waterResistance: "100m",
+        dialColor: "Matte Skeleton Open",
+        caseSize: "44 mm",
+        rating: 4.9,
+        image: "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?auto=format&fit=crop&w=800&q=85"
+      }
+    ];
+
+    const BRAND_FAMILIES = [
+      { brand: "Rolex", origin: "SWISS COSC", basePrice: 11800, cat: "luxury", calibres: ["Calibre 3235", "Calibre 4131 Chrono", "Calibre 3285 GMT"], series: ["Cosmograph Daytona", "Datejust 41 Fluted", "GMT-Master II Pepsi", "Sky-Dweller Annual", "Yacht-Master 42", "Day-Date 40 President", "Explorer II Polar"] },
+      { brand: "Patek Philippe", origin: "GENEVA SEAL", basePrice: 32500, cat: "luxury", calibres: ["Calibre 26-330 S C", "Calibre 240 Ultra-Thin", "Calibre CH 28-520"], series: ["Aquanaut 5168G", "Calatrava Clous de Paris", "Nautilus Moonphase 5712", "Grand Complications Perpetual", "Annual Calendar 5205R", "World Time 5230P"] },
+      { brand: "Audemars Piguet", origin: "LE BRASSUS", basePrice: 27400, cat: "luxury", calibres: ["Calibre 4302", "Calibre 4401 Flyback", "Calibre 3120"], series: ["Royal Oak Selfwinding", "Royal Oak Offshore Diver", "Code 11.59 Chronograph", "Royal Oak Concept Tourbillon", "Royal Oak Jumbo Extra-Thin"] },
+      { brand: "Omega", origin: "SWISS CO-AXIAL", basePrice: 6200, cat: "mechanical", calibres: ["Co-Axial Master 8800", "Calibre 3861", "Co-Axial 8900"], series: ["Seamaster Diver 300M", "Seamaster Planet Ocean", "Aqua Terra 150M Shades", "Constellation Globemaster", "Speedmaster Dark Side", "De Ville Prestige"] },
+      { brand: "Cartier", origin: "PARIS / SWISS", basePrice: 7800, cat: "luxury", calibres: ["Calibre 1847 MC", "Swiss High-Autonomy Quartz", "Calibre 1904-PS MC"], series: ["Tank Must Vermeil", "Ballon Bleu 42mm", "Santos-Dumont XL", "Pasha de Cartier Chronograph", "Panthère de Cartier Gold"] },
+      { brand: "Tissot", origin: "SWISS 1853", basePrice: 680, cat: "quartz", calibres: ["Powermatic 80 Silicium", "ETA Swiss Quartz F06", "Valjoux A05.H31"], series: ["PRX Chronograph Automatic", "Le Locle Powermatic 80", "Seastar 1000 Professional", "Gentleman Silicium", "Heritage Visodate", "Chemin des Tourelles"] },
+      { brand: "Tag Heuer", origin: "SWISS RACING", basePrice: 4400, cat: "sport", calibres: ["Calibre Heuer 02", "Calibre 5 Automatic", "TH20-00 Chrono"], series: ["Monaco Gulf Calibre 11", "Aquaracer Professional 300", "Formula 1 Chrono Ceramic", "Carrera Glassbox 39mm", "Autavia Chronometer Flyback"] },
+      { brand: "Seiko", origin: "JAPAN MADE", basePrice: 640, cat: "mechanical", calibres: ["Calibre 6R35 Automatic", "Spring Drive 9R65", "Solar GPS 5X53"], series: ["Prospex Alpinist Green", "Presage Sharp Edged", "Prospex 1965 Diver", "Astron GPS Solar Titanium", "King Seiko KSK Mechanical"] },
+      { brand: "Apple", origin: "CUPERTINO", basePrice: 840, cat: "smart", calibres: ["S10 SiP Neural Engine", "S9 Dual-Frequency GPS"], series: ["Watch Ultra 2 Black Titanium", "Watch Series 10 Hermès", "Watch Series 10 Slate Titanium", "Watch Ultra 2 Ocean Edition", "Watch Edition Ceramic"] },
+      { brand: "Garmin", origin: "TACTICAL LUX", basePrice: 1650, cat: "smart", calibres: ["Multi-Band GNSS Solar", "AMOLED Sapphire OS"], series: ["MARQ Commander Carbon", "MARQ Aviator Gen 2", "Fenix 8 Sapphire Solar 51mm", "Epix Pro Gen 2 Titanium", "Tactix 7 AMOLED Ballistics"] },
+      { brand: "Casio", origin: "YAMAGATA JAPAN", basePrice: 1250, cat: "sport", calibres: ["Tough Solar Bluetooth", "Connected Engine 3-Way"], series: ["G-Shock MT-G Aurora", "G-Shock Full Metal 5000", "Oceanus Manta Sapphire", "Mudmaster Flagship Carbon", "Edifice Honda Racing Limited"] },
+      { brand: "Hublot", origin: "SWISS FUSION", basePrice: 16800, cat: "luxury", calibres: ["HUB1110 Self-Winding", "HUB1280 Unico Manufacture"], series: ["Classic Fusion Titanium", "Spirit of Big Bang King Gold", "Big Bang Sang Bleu II", "Classic Fusion Orlinski", "Square Bang Unico Sapphire"] },
+      { brand: "Vacheron Constantin", origin: "GENEVA 1755", basePrice: 28900, cat: "luxury", calibres: ["Calibre 5100 Overseas", "Calibre 2450 Q6"], series: ["Overseas Dual Time", "Patrimony Self-Winding", "Fiftysix Complete Calendar", "Traditionnelle Tourbillon"] },
+      { brand: "Breitling", origin: "SWISS CHRONO", basePrice: 6900, cat: "sport", calibres: ["Breitling Manufacture B01", "Calibre 17 COSC"], series: ["Navitimer B01 Chronograph 43", "Chronomat Automatic GMT", "Superocean Heritage 57", "Avenger Night Mission"] },
+      { brand: "IWC", origin: "SCHAFFHAUSEN", basePrice: 8200, cat: "mechanical", calibres: ["IWC Calibre 69355", "Calibre 82100 Pellaton"], series: ["Portugieser Chronograph", "Big Pilot's Watch 43", "Ingenieur Automatic 40", "Portofino Moon Phase"] }
+    ];
+
+    const MATERIALS = [
+      "316L Stainless Steel",
+      "Oystersteel & 18k Gold",
+      "18k Rose Gold",
+      "Grade-5 Titanium",
+      "Black Ceramic",
+      "Platinum 950"
+    ];
+
+    const DIAL_COLORS = [
+      "Onyx Black",
+      "Geneva Royal Blue",
+      "Emerald Sunburst",
+      "Champagne Gold",
+      "Meteorite Grey",
+      "Silver Opaline"
+    ];
+
+    const WATER_LEVELS = ["50m", "100m", "200m", "300m"];
+    const CASE_SIZES = ["39 mm", "40 mm", "41 mm", "42 mm", "44 mm"];
+    const WATCH_IMAGES = [
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1539874754764-5a96559165b0?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1526045431048-f857369baa09?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1517502474097-f9b30659dadb?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?auto=format&fit=crop&w=800&q=85"
+    ];
+
+    function build320Catalog() {
+      const catalog = [...CORE_FLAGSHIPS];
+      let counter = 113;
+
+      while (catalog.length < 320) {
+        for (let b = 0; b < BRAND_FAMILIES.length; b++) {
+          const fam = BRAND_FAMILIES[b];
+          for (let s = 0; s < fam.series.length; s++) {
+            if (catalog.length >= 320) break;
+
+            const idx = catalog.length;
+            const seriesName = fam.series[s];
+            const dial = DIAL_COLORS[(idx + s) % DIAL_COLORS.length];
+            const material = MATERIALS[(idx + b) % MATERIALS.length];
+            const size = CASE_SIZES[idx % CASE_SIZES.length];
+            const water = WATER_LEVELS[(idx + s) % WATER_LEVELS.length];
+            const calibre = fam.calibres[idx % fam.calibres.length];
+            const img = WATCH_IMAGES[(idx + b) % WATCH_IMAGES.length];
+
+            // Alternate categories cleanly across luxury, mechanical, quartz, smart, sport
+            let category = fam.cat;
+            if (idx % 7 === 0 && fam.cat !== "smart") category = "quartz";
+            if (idx % 9 === 0 && fam.cat === "luxury") category = "mechanical";
+
+            const materialMultiplier = material.includes("Gold") || material.includes("Platinum") ? 1.35 : 1.0;
+            const rawPrice = Math.round((fam.basePrice * materialMultiplier + (s * 420) + ((idx % 9) * 150)) / 10) * 10;
+            const oldPrice = Math.round(rawPrice * 1.12);
+            const rating = Number((4.7 + ((idx % 4) * 0.1)).toFixed(1));
+
+            catalog.push({
+              id: `wp-${counter}`,
+              name: `${fam.brand} ${seriesName} (${dial.split(" ")[0]})`,
+              brand: fam.brand,
+              category,
+              price: rawPrice,
+              oldPrice,
+              origin: fam.origin,
+              movement: calibre,
+              caseMaterial: material,
+              waterResistance: water,
+              dialColor: dial,
+              caseSize: size,
+              rating,
+              image: img
+            });
+            counter++;
+          }
+        }
+      }
+      return catalog;
+    }
+
+    const WATCHPLUS_320_CATALOG = build320Catalog();
+    localStorage.setItem("watchplus_catalog", JSON.stringify(WATCHPLUS_320_CATALOG));
+
+    // =========================================================================
+    // 3. MULTI-LANGUAGE DICTIONARY (UZB, RUS, ENG)
+    // =========================================================================
+    const I18N = {
+      uz: {
+        top_swiss: "320+ Original Swiss & Japan Modellari Omborda Mavjud",
+        top_delivery: "VIP Kuryer orqali 2 soatda yetkazib berish",
+        nav_home: "Bosh sahifa",
+        nav_catalog: "Katalog (320+)",
+        nav_flagship: "Flagman Model",
+        nav_checkout: "Buyurtma & Savat",
+        nav_about: "Brend & Servis",
+        btn_instant_order: "Tezkor Buyurtma",
+        breadcrumb_catalog: "Rasmiy Katalog (320 ta Soat)",
+        cat_hero_title: "Jahon Soatsozlik Durdonalari Katalogi",
+        kpi_models: "Original Modellar",
+        kpi_brands: "Nufuzli Brendlar",
+        kpi_cert: "Rasmiy Sertifikat",
+        search_placeholder: "Model, brend, kalibr yoki Ref. raqam izlash (320 ta soat)...",
+        cat_all: "Barchasi (320)",
+        cat_luxury: "Luxury",
+        cat_mechanical: "Mexanik",
+        cat_quartz: "Kvars",
+        cat_smart: "Smart",
+        cat_sport: "Sport & Dive",
+        sort_pop: "Saralash: Mashhur flagmanlar",
+        sort_asc: "Narx: Arzondan qimmatga",
+        sort_desc: "Narx: Qimmatdan arzonga",
+        sort_rating: "Reyting: Yuqori baholangan",
+        sort_az: "Nomi bo'yicha (A-Z)",
+        filter_heading: "Aniq Filtrlar",
+        btn_reset: "Tozalash",
+        filter_price: "Narx Diapazoni ($)",
+        filter_brands: "Soat Brendlari (15)",
+        filter_material: "Korpus Materiali",
+        filter_water: "Suvga Chidamlilik",
+        lbl_watches_found: "ta original soat topildi",
+        drawer_cart_title: "Savatchangiz",
+        drawer_wish_title: "Sevimli Soatlar",
+        lbl_total: "Jami summa:",
+        btn_go_checkout: "Rasmiylashtirish",
+        modal_order_title: "Tezkor VIP Buyurtma",
+        form_name: "Ism va Familiyangiz *",
+        form_phone: "Telefon raqamingiz *",
+        form_model: "Tanlangan soat modeli",
+        form_address: "Yetkazib berish manzili *",
+        form_payment: "To'lov usuli",
+        btn_send_telegram: "Buyurtmani Telegram Botga Yuborish",
+        btn_add_cart: "Savatga"
+      },
+      ru: {
+        top_swiss: "320+ Оригинальных моделей из Швейцарии и Японии в наличии",
+        top_delivery: "VIP Экспресс-доставка курьером за 2 часа",
+        nav_home: "Главная",
+        nav_catalog: "Каталог (320+)",
+        nav_flagship: "Флагман",
+        nav_checkout: "Корзина и Заказ",
+        nav_about: "О бренде и Сервис",
+        btn_instant_order: "Быстрый заказ",
+        breadcrumb_catalog: "Официальный Каталог (320 часов)",
+        cat_hero_title: "Каталог Шедевров Мирового Часового Искусства",
+        kpi_models: "Оригинальных моделей",
+        kpi_brands: "Престижных брендов",
+        kpi_cert: "Сертификат COSC",
+        search_placeholder: "Поиск по модели, бренду, калибру или Ref. (320 часов)...",
+        cat_all: "Все (320)",
+        cat_luxury: "Люкс",
+        cat_mechanical: "Механика",
+        cat_quartz: "Кварц",
+        cat_smart: "Смарт",
+        cat_sport: "Спорт и Дайвинг",
+        sort_pop: "Сортировка: Популярные",
+        sort_asc: "Цена: По возрастанию",
+        sort_desc: "Цена: По убыванию",
+        sort_rating: "По высокому рейтингу",
+        sort_az: "По названию (A-Z)",
+        filter_heading: "Точные Фильтры",
+        btn_reset: "Сбросить",
+        filter_price: "Диапазон цен ($)",
+        filter_brands: "Бренды часов (15)",
+        filter_material: "Материал корпуса",
+        filter_water: "Водозащита",
+        lbl_watches_found: "оригинальных часов найдено",
+        drawer_cart_title: "Ваша корзина",
+        drawer_wish_title: "Избранные часы",
+        lbl_total: "Итого:",
+        btn_go_checkout: "Оформить заказ",
+        modal_order_title: "Быстрый VIP Заказ",
+        form_name: "Ваше Имя и Фамилия *",
+        form_phone: "Номер телефона *",
+        form_model: "Выбранная модель часов",
+        form_address: "Адрес доставки *",
+        form_payment: "Способ оплаты",
+        btn_send_telegram: "Отправить заказ в Telegram Бот",
+        btn_add_cart: "В корзину"
+      },
+      en: {
+        top_swiss: "320+ Authentic Swiss & Japanese Timepieces in Vault",
+        top_delivery: "VIP Armored Courier Delivery within 2 Hours",
+        nav_home: "Home",
+        nav_catalog: "Catalog (320+)",
+        nav_flagship: "Flagship",
+        nav_checkout: "Cart & Checkout",
+        nav_about: "Brand & Service",
+        btn_instant_order: "Instant Order",
+        breadcrumb_catalog: "Official Vault (320 Timepieces)",
+        cat_hero_title: "Masterpieces of Global Horology",
+        kpi_models: "Certified Models",
+        kpi_brands: "Prestigious Maisons",
+        kpi_cert: "COSC Certified",
+        search_placeholder: "Search by model, brand, calibre or Ref. (320 watches)...",
+        cat_all: "All (320)",
+        cat_luxury: "Luxury",
+        cat_mechanical: "Mechanical",
+        cat_quartz: "Quartz",
+        cat_smart: "Smart",
+        cat_sport: "Sport & Dive",
+        sort_pop: "Sort: Featured Flagships",
+        sort_asc: "Price: Low to High",
+        sort_desc: "Price: High to Low",
+        sort_rating: "Highest Rated",
+        sort_az: "Alphabetical (A-Z)",
+        filter_heading: "Precision Filters",
+        btn_reset: "Reset All",
+        filter_price: "Price Range ($)",
+        filter_brands: "Watch Maisons (15)",
+        filter_material: "Case Material",
+        filter_water: "Water Resistance",
+        lbl_watches_found: "authentic timepieces found",
+        drawer_cart_title: "Your Shopping Bag",
+        drawer_wish_title: "Saved Timepieces",
+        lbl_total: "Total Amount:",
+        btn_go_checkout: "Proceed to Checkout",
+        modal_order_title: "Instant VIP Order",
+        form_name: "Full Name *",
+        form_phone: "Phone Number *",
+        form_model: "Selected Watch Model",
+        form_address: "Delivery Address *",
+        form_payment: "Payment Method",
+        btn_send_telegram: "Send Order to Telegram Bot",
+        btn_add_cart: "Add to Cart"
+      }
+    };
+
+    // =========================================================================
+    // 4. STATE & FILTER VARIABLES
+    // =========================================================================
+    let currentLang = localStorage.getItem("watchplus_lang") || "uz";
+    let currentTheme = localStorage.getItem("watchplus_theme") || "dark";
+    let cart = JSON.parse(localStorage.getItem("watchplus_cart") || "[]");
+    let wishlist = JSON.parse(localStorage.getItem("watchplus_wishlist") || "[]");
+
+    let filterState = {
+      search: "",
+      category: "all",
+      brands: new Set(),
+      materials: new Set(),
+      water: new Set(),
+      minPrice: 0,
+      maxPrice: 85000,
+      sort: "popular",
+      page: 1,
+      perPage: 24
+    };
+
+    // Parse URL Query Params (e.g. ?cat=luxury or ?brand=Rolex)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("cat")) {
+      filterState.category = urlParams.get("cat").toLowerCase();
+    }
+    if (urlParams.get("brand")) {
+      filterState.brands.add(urlParams.get("brand"));
+    }
+
+    // =========================================================================
+    // 5. BUILD DYNAMIC SIDEBAR CHECKBOXES & QUICK BRAND PILLS
+    // =========================================================================
+    function initFilterCheckboxes() {
+      const brandCounts = {};
+      const materialCounts = {};
+      const waterCounts = {};
+
+      WATCHPLUS_320_CATALOG.forEach((p) => {
+        brandCounts[p.brand] = (brandCounts[p.brand] || 0) + 1;
+        materialCounts[p.caseMaterial] = (materialCounts[p.caseMaterial] || 0) + 1;
+        waterCounts[p.waterResistance] = (waterCounts[p.waterResistance] || 0) + 1;
+      });
+
+      // Quick Brand Bar
+      const quickBar = document.getElementById("quickBrandBar");
+      const allBrands = Object.keys(brandCounts);
+      quickBar.innerHTML = [
+        `<button class="brand-chip ${filterState.brands.size === 0 ? "active" : ""}" data-qbrand="ALL">Barcha Brendlar (320)</button>`,
+        ...allBrands.map((b) => `
+          <button class="brand-chip ${filterState.brands.has(b) ? "active" : ""}" data-qbrand="${b}">
+            ${b} (${brandCounts[b]})
+          </button>
+        `)
+      ].join("");
+
+      quickBar.querySelectorAll(".brand-chip").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          const qb = chip.getAttribute("data-qbrand");
+          filterState.brands.clear();
+          if (qb !== "ALL") filterState.brands.add(qb);
+          filterState.page = 1;
+          syncCheckboxesWithState();
+          applyFiltersAndRender();
+        });
+      });
+
+      // Brand Checkboxes
+      const brandListEl = document.getElementById("brandCheckboxList");
+      brandListEl.innerHTML = allBrands.map((b) => `
+        <label class="check-item">
+          <span class="check-left">
+            <input type="checkbox" class="brand-cb" value="${b}" ${filterState.brands.has(b) ? "checked" : ""} />
+            <span>${b}</span>
+          </span>
+          <span class="check-count">${brandCounts[b]}</span>
+        </label>
+      `).join("");
+
+      // Material Checkboxes
+      const matListEl = document.getElementById("materialCheckboxList");
+      matListEl.innerHTML = Object.keys(materialCounts).map((m) => `
+        <label class="check-item">
+          <span class="check-left">
+            <input type="checkbox" class="mat-cb" value="${m}" />
+            <span>${m}</span>
+          </span>
+          <span class="check-count">${materialCounts[m]}</span>
+        </label>
+      `).join("");
+
+      // Water Checkboxes
+      const waterListEl = document.getElementById("waterCheckboxList");
+      waterListEl.innerHTML = Object.keys(waterCounts).map((w) => `
+        <label class="check-item">
+          <span class="check-left">
+            <input type="checkbox" class="water-cb" value="${w}" />
+            <span>💧 ${w}</span>
+          </span>
+          <span class="check-count">${waterCounts[w]}</span>
+        </label>
+      `).join("");
+
+      document.querySelectorAll(".brand-cb").forEach((cb) => {
+        cb.addEventListener("change", () => {
+          if (cb.checked) filterState.brands.add(cb.value);
+          else filterState.brands.delete(cb.value);
+          filterState.page = 1;
+          syncQuickBrandChips();
+          applyFiltersAndRender();
+        });
+      });
+
+      document.querySelectorAll(".mat-cb").forEach((cb) => {
+        cb.addEventListener("change", () => {
+          if (cb.checked) filterState.materials.add(cb.value);
+          else filterState.materials.delete(cb.value);
+          filterState.page = 1;
+          applyFiltersAndRender();
+        });
+      });
+
+      document.querySelectorAll(".water-cb").forEach((cb) => {
+        cb.addEventListener("change", () => {
+          if (cb.checked) filterState.water.add(cb.value);
+          else filterState.water.delete(cb.value);
+          filterState.page = 1;
+          applyFiltersAndRender();
+        });
+      });
+    }
+
+    function syncCheckboxesWithState() {
+      document.querySelectorAll(".brand-cb").forEach((cb) => {
+        cb.checked = filterState.brands.has(cb.value);
+      });
+      document.querySelectorAll(".mat-cb").forEach((cb) => {
+        cb.checked = filterState.materials.has(cb.value);
+      });
+      document.querySelectorAll(".water-cb").forEach((cb) => {
+        cb.checked = filterState.water.has(cb.value);
+      });
+      syncQuickBrandChips();
+    }
+
+    function syncQuickBrandChips() {
+      document.querySelectorAll("#quickBrandBar .brand-chip").forEach((chip) => {
+        const qb = chip.getAttribute("data-qbrand");
+        if (qb === "ALL") {
+          chip.classList.toggle("active", filterState.brands.size === 0);
+        } else {
+          chip.classList.toggle("active", filterState.brands.has(qb));
+        }
+      });
+    }
+
+    // =========================================================================
+    // 6. FILTER, SORT & PAGINATE 320 WATCHES
+    // =========================================================================
+    function getFilteredWatches() {
+      const q = filterState.search.trim().toLowerCase();
+
+      let list = WATCHPLUS_320_CATALOG.filter((item) => {
+        if (filterState.category !== "all" && item.category !== filterState.category) {
+          return false;
+        }
+        if (filterState.brands.size > 0 && !filterState.brands.has(item.brand)) {
+          return false;
+        }
+        if (filterState.materials.size > 0 && !filterState.materials.has(item.caseMaterial)) {
+          return false;
+        }
+        if (filterState.water.size > 0 && !filterState.water.has(item.waterResistance)) {
+          return false;
+        }
+        if (item.price < filterState.minPrice || item.price > filterState.maxPrice) {
+          return false;
+        }
+        if (q) {
+          const hay = `${item.name} ${item.brand} ${item.id} ${item.movement} ${item.caseMaterial} ${item.dialColor}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+
+      if (filterState.sort === "price-asc") {
+        list.sort((a, b) => a.price - b.price);
+      } else if (filterState.sort === "price-desc") {
+        list.sort((a, b) => b.price - a.price);
+      } else if (filterState.sort === "rating-desc") {
+        list.sort((a, b) => b.rating - a.rating);
+      } else if (filterState.sort === "name-asc") {
+        list.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      return list;
+    }
+
+    function applyFiltersAndRender() {
+      const filtered = getFilteredWatches();
+      const total = filtered.length;
+      document.getElementById("foundCountText").textContent = total;
+
+      // Sync category pills
+      document.querySelectorAll("#categoryPills .cat-pill").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.cat === filterState.category);
+      });
+
+      // Render active filter tags
+      const tagsEl = document.getElementById("activeFilterTags");
+      const tagsHtml = [];
+      if (filterState.category !== "all") {
+        tagsHtml.push(`<span class="filter-tag">${filterState.category.toUpperCase()}</span>`);
+      }
+      filterState.brands.forEach((b) => {
+        tagsHtml.push(`<span class="filter-tag">${b}</span>`);
+      });
+      filterState.materials.forEach((m) => {
+        tagsHtml.push(`<span class="filter-tag">${m}</span>`);
+      });
+      tagsEl.innerHTML = tagsHtml.join("");
+
+      // Pagination calculations
+      const totalPages = Math.max(1, Math.ceil(total / filterState.perPage));
+      if (filterState.page > totalPages) filterState.page = totalPages;
+
+      const startIdx = (filterState.page - 1) * filterState.perPage;
+      const endIdx = Math.min(startIdx + filterState.perPage, total);
+      const pageItems = filtered.slice(startIdx, endIdx);
+
+      document.getElementById("pageSummaryText").textContent =
+        total === 0 ? "0 natija" : `Ko'rsatilmoqda: ${startIdx + 1}–${endIdx} / ${total}`;
+
+      const grid = document.getElementById("catalogGrid");
+      const addLabel = (I18N[currentLang] && I18N[currentLang].btn_add_cart) || "Savatga";
+
+      if (pageItems.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align:center; padding:60px 20px; background:var(--bg-secondary); border-radius:24px; border:1px solid var(--border-subtle);">
+            <h3 style="font-size:28px; margin-bottom:10px;">Tanlangan filtr bo'yicha soat topilmadi</h3>
+            <p style="color:var(--text-secondary); margin-bottom:20px;">Filtrlarni tozalab, barcha 320 ta original modelni ko'rishingiz mumkin.</p>
+            <button class="btn-primary" onclick="resetAllFilters()">Barcha 320 ta soatni ko'rsatish</button>
+          </div>
+        `;
+      } else {
+        grid.innerHTML = pageItems.map((item) => {
+          const isWished = wishlist.includes(item.id);
+          return `
+            <article class="product-card">
+              <div>
+                <div class="card-badges">
+                  <span class="badge-origin">${item.origin}</span>
+                  <button class="card-wishlist-btn ${isWished ? "active" : ""}" onclick="toggleWishlist('${item.id}')">
+                    ${isWished ? "♥" : "♡"}
+                  </button>
+                </div>
+                <div class="card-img-wrap">
+                  <img src="${item.image}" alt="${item.name}" loading="lazy" />
+                  <div class="card-hover-actions">
+                    <button class="hover-pill-btn" onclick="openQuickView('${item.id}')">👁 Quick View</button>
+                    <a href="product.html?id=${item.id}" class="hover-pill-btn">3D Tahlil →</a>
+                  </div>
+                </div>
+                <div class="card-ref-row mono-font">
+                  <span class="card-brand">${item.brand}</span>
+                  <span class="card-ref">Ref. ${item.id.toUpperCase()}</span>
+                </div>
+                <a href="product.html?id=${item.id}" class="card-title serif-font">${item.name}</a>
+                <div class="card-specs-list">
+                  <span class="spec-chip">⚙ ${item.movement}</span>
+                  <span class="spec-chip">🛡 ${item.caseMaterial}</span>
+                  <span class="spec-chip">💧 ${item.waterResistance}</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="mono-font">
+                  <span class="price-old">$${item.oldPrice.toLocaleString()}</span>
+                  <span class="price-current">$${item.price.toLocaleString()}</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('${item.id}')">
+                  <span>+</span>
+                  <span>${addLabel}</span>
+                </button>
+              </div>
+            </article>
+          `;
+        }).join("");
+      }
+
+      renderPaginationControls(totalPages);
+    }
+
+    function renderPaginationControls(totalPages) {
+      const container = document.getElementById("paginationControls");
+      if (totalPages <= 1) {
+        container.innerHTML = "";
+        return;
+      }
+
+      let buttons = [];
+      buttons.push(`
+        <button class="page-btn" ${filterState.page === 1 ? "disabled" : ""} onclick="goToPage(${filterState.page - 1})">
+          ← Oldingi
+        </button>
+      `);
+
+      for (let p = 1; p <= totalPages; p++) {
+        if (p === 1 || p === totalPages || Math.abs(p - filterState.page) <= 2) {
+          buttons.push(`
+            <button class="page-btn mono-font ${p === filterState.page ? "active" : ""}" onclick="goToPage(${p})">
+              ${p}
+            </button>
+          `);
+        } else if (Math.abs(p - filterState.page) === 3) {
+          buttons.push(`<span style="color:var(--text-muted); padding:0 4px;">...</span>`);
+        }
+      }
+
+      buttons.push(`
+        <button class="page-btn" ${filterState.page === totalPages ? "disabled" : ""} onclick="goToPage(${filterState.page + 1})">
+          Keyingi →
+        </button>
+      `);
+
+      container.innerHTML = buttons.join("");
+    }
+
+    window.goToPage = function(pageNum) {
+      filterState.page = pageNum;
+      applyFiltersAndRender();
+      window.scrollTo({ top: 260, behavior: "smooth" });
+    };
+
+    window.resetAllFilters = function() {
+      filterState.search = "";
+      filterState.category = "all";
+      filterState.brands.clear();
+      filterState.materials.clear();
+      filterState.water.clear();
+      filterState.minPrice = 0;
+      filterState.maxPrice = 85000;
+      filterState.page = 1;
+
+      document.getElementById("searchInput").value = "";
+      document.getElementById("minPriceInput").value = "0";
+      document.getElementById("maxPriceInput").value = "85000";
+      syncCheckboxesWithState();
+      applyFiltersAndRender();
+    };
+
+    // =========================================================================
+    // 7. QUICK VIEW MODAL & CART/WISHLIST ENGINE
+    // =========================================================================
+    let currentQuickViewItem = null;
+
+    window.openQuickView = function(productId) {
+      const item = WATCHPLUS_320_CATALOG.find((p) => p.id === productId);
+      if (!item) return;
+      currentQuickViewItem = item;
+
+      document.getElementById("qvOrigin").textContent = item.origin;
+      document.getElementById("qvImage").src = item.image;
+      document.getElementById("qvBrandRef").textContent = `${item.brand.toUpperCase()} • REF. ${item.id.toUpperCase()}`;
+      document.getElementById("qvTitle").textContent = item.name;
+      document.getElementById("qvPrice").textContent = `$${item.price.toLocaleString()}`;
+      document.getElementById("qvMovement").textContent = item.movement;
+      document.getElementById("qvMaterial").textContent = item.caseMaterial;
+      document.getElementById("qvSize").textContent = item.caseSize;
+      document.getElementById("qvWater").textContent = item.waterResistance;
+      document.getElementById("qvDial").textContent = item.dialColor;
+      document.getElementById("qvFullLink").href = `product.html?id=${item.id}`;
+
+      document.getElementById("globalBackdrop").classList.add("open");
+      document.getElementById("quickViewModal").classList.add("open");
+    };
+
+    document.getElementById("qvAddCartBtn").addEventListener("click", () => {
+      if (currentQuickViewItem) {
+        window.addToCart(currentQuickViewItem.id);
+      }
+    });
+
+    document.getElementById("qvTelegramOrderBtn").addEventListener("click", () => {
+      document.getElementById("quickViewModal").classList.remove("open");
+      if (currentQuickViewItem) {
+        openVipModal(`${currentQuickViewItem.name} (Ref. ${currentQuickViewItem.id.toUpperCase()}) — $${currentQuickViewItem.price.toLocaleString()}`);
+      }
+    });
+
+    function saveState() {
+      localStorage.setItem("watchplus_cart", JSON.stringify(cart));
+      localStorage.setItem("watchplus_wishlist", JSON.stringify(wishlist));
+      updateBadgesAndDrawers();
+    }
+
+    function showToast(msg) {
+      const container = document.getElementById("toastContainer");
+      const toast = document.createElement("div");
+      toast.className = "toast";
+      toast.innerHTML = `<span style="color:var(--accent-gold);">✦</span> <span>${msg}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    window.addToCart = function(productId) {
+      const product = WATCHPLUS_320_CATALOG.find((p) => p.id === productId);
+      if (!product) return;
+      const existing = cart.find((c) => c.id === productId);
+      if (existing) existing.qty += 1;
+      else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          brand: product.brand,
+          price: product.price,
+          image: product.image,
+          qty: 1
+        });
+      }
+      saveState();
+      showToast(`${product.name} savatchaga qo'shildi!`);
+    };
+
+    window.changeCartQty = function(productId, delta) {
+      const idx = cart.findIndex((c) => c.id === productId);
+      if (idx === -1) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      saveState();
+    };
+
+    window.toggleWishlist = function(productId) {
+      const idx = wishlist.indexOf(productId);
+      if (idx > -1) {
+        wishlist.splice(idx, 1);
+        showToast("Sevimlilardan o'chirildi");
+      } else {
+        wishlist.push(productId);
+        showToast("Sevimlilarga qo'shildi ♥");
+      }
+      saveState();
+      applyFiltersAndRender();
+    };
+
+    function updateBadgesAndDrawers() {
+      const totalCount = cart.reduce((s, i) => s + i.qty, 0);
+      const totalPrice = cart.reduce((s, i) => s + i.price * i.qty, 0);
+
+      document.getElementById("cartCountBadge").textContent = totalCount;
+      document.getElementById("wishlistCountBadge").textContent = wishlist.length;
+      document.getElementById("cartDrawerTotal").textContent = `$${totalPrice.toLocaleString()}`;
+
+      const cartEl = document.getElementById("cartDrawerItems");
+      if (cart.length === 0) {
+        cartEl.innerHTML = `<p style="color:var(--text-muted); text-align:center; margin-top:40px;">Savatchangiz bo'sh.</p>`;
+      } else {
+        cartEl.innerHTML = cart.map((item) => `
+          <div class="drawer-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div style="flex:1;">
+              <strong style="font-size:13px; display:block;">${item.name}</strong>
+              <span class="mono-font" style="color:var(--accent-gold); font-size:13px;">$${item.price.toLocaleString()}</span>
+              <div style="display:flex; align-items:center; gap:8px; margin-top:6px;">
+                <button class="icon-btn" style="width:25px; height:25px;" onclick="changeCartQty('${item.id}', -1)">-</button>
+                <span class="mono-font" style="font-size:12px;">${item.qty}</span>
+                <button class="icon-btn" style="width:25px; height:25px;" onclick="changeCartQty('${item.id}', 1)">+</button>
+              </div>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      const wishEl = document.getElementById("wishlistDrawerItems");
+      if (wishlist.length === 0) {
+        wishEl.innerHTML = `<p style="color:var(--text-muted); text-align:center; margin-top:40px;">Sevimlilar ro'yxati bo'sh.</p>`;
+      } else {
+        wishEl.innerHTML = wishlist.map((id) => {
+          const item = WATCHPLUS_320_CATALOG.find((p) => p.id === id);
+          if (!item) return "";
+          return `
+            <div class="drawer-item">
+              <img src="${item.image}" alt="${item.name}" />
+              <div style="flex:1;">
+                <a href="product.html?id=${item.id}" style="font-weight:700; font-size:13px; display:block;">${item.name}</a>
+                <span class="mono-font" style="color:var(--accent-gold); font-size:12px;">$${item.price.toLocaleString()}</span>
+              </div>
+              <button class="btn-add-cart" onclick="addToCart('${item.id}')">+</button>
+            </div>
+          `;
+        }).join("");
+      }
+    }
+
+    // =========================================================================
+    // 8. TELEGRAM BOT API DIRECT ORDER SENDER
+    // =========================================================================
+    async function sendCatalogOrderToTelegram(payload) {
+      const orderId = "WP-CAT-" + Math.floor(100000 + Math.random() * 900000);
+      const message =
+        `⌚ <b>WATCHPLUS KATALOG — YANGI BUYURTMA!</b>\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `🆔 <b>Buyurtma raqami:</b> #${orderId}\n` +
+        `👤 <b>Mijoz:</b> ${payload.name}\n` +
+        `📞 <b>Telefon:</b> ${payload.phone}\n` +
+        `📍 <b>Manzil:</b> ${payload.address}\n` +
+        `💳 <b>To'lov usuli:</b> ${payload.payment}\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `🛍 <b>Tanlangan model:</b>\n${payload.model}\n` +
+        `🌐 <b>Sahifa:</b> catalog.html (320+ Katalog)`;
+
+      const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: message,
+          parse_mode: "HTML"
+        })
+      });
+      return response.ok;
+    }
+
+    document.getElementById("instantTelegramForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById("tgSubmitBtn");
+      const txt = document.getElementById("tgSubmitText");
+      const orig = txt.textContent;
+      btn.disabled = true;
+      txt.textContent = "Yuborilmoqda...";
+
+      try {
+        const ok = await sendCatalogOrderToTelegram({
+          name: document.getElementById("tgClientName").value.trim(),
+          phone: document.getElementById("tgClientPhone").value.trim(),
+          model: document.getElementById("tgWatchModel").value.trim(),
+          address: document.getElementById("tgClientAddress").value.trim(),
+          payment: document.getElementById("tgPaymentMethod").value
+        });
+        if (ok) {
+          showToast("Buyurtmangiz Telegram Botga yuborildi!");
+          document.getElementById("instantTelegramForm").reset();
+          closeAllModals();
+        } else {
+          showToast("Xatolik yuz berdi. Qayta urinib ko'ring.");
+        }
+      } catch (err) {
+        showToast("Tarmoq xatoligi yuz berdi.");
+      } finally {
+        btn.disabled = false;
+        txt.textContent = orig;
+      }
+    });
+
+    // =========================================================================
+    // 9. EVENT LISTENERS, THEME, I18N & CURSOR
+    // =========================================================================
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("watchplus_theme", theme);
+      document.getElementById("themeIcon").textContent = theme === "dark" ? "☀" : "☾";
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem("watchplus_lang", lang);
+      document.querySelectorAll(".lang-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.lang === lang);
+      });
+      const dict = I18N[lang] || I18N.uz;
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const k = el.getAttribute("data-i18n");
+        if (dict[k]) el.textContent = dict[k];
+      });
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+        const k = el.getAttribute("data-i18n-placeholder");
+        if (dict[k]) el.setAttribute("placeholder", dict[k]);
+      });
+      applyFiltersAndRender();
+      updateBadgesAndDrawers();
+    }
+
+    // Search & Filter Events
+    const searchInput = document.getElementById("searchInput");
+    const clearSearchBtn = document.getElementById("clearSearchBtn");
+
+    searchInput.addEventListener("input", (e) => {
+      filterState.search = e.target.value;
+      clearSearchBtn.style.display = filterState.search ? "block" : "none";
+      filterState.page = 1;
+      applyFiltersAndRender();
+    });
+
+    clearSearchBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      filterState.search = "";
+      clearSearchBtn.style.display = "none";
+      filterState.page = 1;
+      applyFiltersAndRender();
+    });
+
+    document.querySelectorAll("#categoryPills .cat-pill").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterState.category = btn.dataset.cat;
+        filterState.page = 1;
+        applyFiltersAndRender();
+      });
+    });
+
+    document.getElementById("sortSelect").addEventListener("change", (e) => {
+      filterState.sort = e.target.value;
+      filterState.page = 1;
+      applyFiltersAndRender();
+    });
+
+    document.getElementById("perPageSelect").addEventListener("change", (e) => {
+      filterState.perPage = parseInt(e.target.value, 10);
+      filterState.page = 1;
+      applyFiltersAndRender();
+    });
+
+    document.getElementById("minPriceInput").addEventListener("input", (e) => {
+      filterState.minPrice = Number(e.target.value) || 0;
+      filterState.page = 1;
+      applyFiltersAndRender();
+    });
+
+    document.getElementById("maxPriceInput").addEventListener("input", (e) => {
+      filterState.maxPrice = Number(e.target.value) || 85000;
+      filterState.page = 1;
+      applyFiltersAndRender();
+    });
+
+    document.querySelectorAll(".preset-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".preset-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        filterState.minPrice = Number(btn.dataset.min);
+        filterState.maxPrice = Number(btn.dataset.max);
+        document.getElementById("minPriceInput").value = filterState.minPrice;
+        document.getElementById("maxPriceInput").value = filterState.maxPrice;
+        filterState.page = 1;
+        applyFiltersAndRender();
+      });
+    });
+
+    document.getElementById("resetFiltersBtn").addEventListener("click", window.resetAllFilters);
+
+    // Modals & Drawers
+    const backdrop = document.getElementById("globalBackdrop");
+    const cartDrawer = document.getElementById("cartDrawer");
+    const wishlistDrawer = document.getElementById("wishlistDrawer");
+    const vipModal = document.getElementById("vipOrderModal");
+    const qvModal = document.getElementById("quickViewModal");
+
+    function closeAllModals() {
+      backdrop.classList.remove("open");
+      cartDrawer.classList.remove("open");
+      wishlistDrawer.classList.remove("open");
+      vipModal.classList.remove("open");
+      qvModal.classList.remove("open");
+    }
+
+    function openVipModal(prefill = "") {
+      if (prefill) {
+        document.getElementById("tgWatchModel").value = prefill;
+      } else if (cart.length > 0) {
+        document.getElementById("tgWatchModel").value = cart.map((c) => `${c.name} x${c.qty}`).join(", ");
+      } else {
+        document.getElementById("tgWatchModel").value = "Katalogdan VIP tanlov (320+ model)";
+      }
+      backdrop.classList.add("open");
+      vipModal.classList.add("open");
+    }
+
+    document.getElementById("openCartBtn").addEventListener("click", () => {
+      backdrop.classList.add("open");
+      cartDrawer.classList.add("open");
+    });
+    document.getElementById("openWishlistBtn").addEventListener("click", () => {
+      backdrop.classList.add("open");
+      wishlistDrawer.classList.add("open");
+    });
+    document.getElementById("openVipModalBtn").addEventListener("click", () => openVipModal());
+    document.getElementById("cartInstantTelegramBtn").addEventListener("click", () => {
+      cartDrawer.classList.remove("open");
+      openVipModal();
+    });
+
+    document.getElementById("closeCartBtn").addEventListener("click", closeAllModals);
+    document.getElementById("closeWishlistBtn").addEventListener("click", closeAllModals);
+    document.getElementById("closeVipModalBtn").addEventListener("click", closeAllModals);
+    document.getElementById("closeQuickViewBtn").addEventListener("click", closeAllModals);
+    backdrop.addEventListener("click", closeAllModals);
+
+    document.getElementById("themeToggleBtn").addEventListener("click", () => {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
+      applyTheme(currentTheme);
+    });
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+    });
+
+    // Custom Luxury Cursor
+    const cursorDot = document.getElementById("cursorDot");
+    const cursorRing = document.getElementById("cursorRing");
+    window.addEventListener("mousemove", (e) => {
+      cursorDot.style.left = `${e.clientX}px`;
+      cursorDot.style.top = `${e.clientY}px`;
+      cursorRing.style.left = `${e.clientX}px`;
+      cursorRing.style.top = `${e.clientY}px`;
+    });
+
+    // Initialize Page
+    initFilterCheckboxes();
+    applyTheme(currentTheme);
+    applyLanguage(currentLang);
+  </script>
+</body>
+</html>

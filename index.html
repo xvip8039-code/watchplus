@@ -1,0 +1,2858 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WatchPlus — Premium & Luxury Timepieces | Bosh sahifa</title>
+  <meta name="description" content="WatchPlus — Shveytsariya, Yaponiya va jahonning eng nufuzli brendlariga mansub original soatlar onlayn butigi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root[data-theme="dark"] {
+      --bg-primary: #07080a;
+      --bg-secondary: #0f1116;
+      --bg-tertiary: #161922;
+      --bg-glass: rgba(18, 21, 28, 0.76);
+      --bg-glass-heavy: rgba(10, 12, 16, 0.94);
+      --text-primary: #f6f4f0;
+      --text-secondary: #a6adbb;
+      --text-muted: #697080;
+      --accent-gold: #d4af37;
+      --accent-gold-light: #f3e5ab;
+      --accent-gold-dark: #9c7a23;
+      --accent-glow: rgba(212, 175, 55, 0.25);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-gold: rgba(212, 175, 55, 0.35);
+      --danger: #ef4444;
+      --success: #10b981;
+      --shadow-card: 0 24px 48px -12px rgba(0, 0, 0, 0.7);
+      --shadow-gold: 0 12px 32px -8px rgba(212, 175, 55, 0.28);
+      --gradient-hero: radial-gradient(circle at 75% 30%, rgba(212, 175, 55, 0.14) 0%, rgba(7, 8, 10, 0) 60%);
+      --gradient-gold: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #9c7a23 100%);
+      --card-surface: linear-gradient(160deg, rgba(26, 30, 41, 0.75) 0%, rgba(13, 15, 20, 0.9) 100%);
+    }
+
+    :root[data-theme="light"] {
+      --bg-primary: #faf8f5;
+      --bg-secondary: #f1ede6;
+      --bg-tertiary: #e6dfd5;
+      --bg-glass: rgba(250, 248, 245, 0.82);
+      --bg-glass-heavy: rgba(255, 255, 255, 0.96);
+      --text-primary: #121316;
+      --text-secondary: #4d5360;
+      --text-muted: #7f8694;
+      --accent-gold: #b08926;
+      --accent-gold-light: #d4af37;
+      --accent-gold-dark: #7d5f14;
+      --accent-glow: rgba(176, 137, 38, 0.18);
+      --border-subtle: rgba(18, 19, 22, 0.09);
+      --border-gold: rgba(176, 137, 38, 0.35);
+      --danger: #dc2626;
+      --success: #059669;
+      --shadow-card: 0 20px 40px -15px rgba(18, 19, 22, 0.09);
+      --shadow-gold: 0 12px 28px -6px rgba(176, 137, 38, 0.22);
+      --gradient-hero: radial-gradient(circle at 75% 30%, rgba(212, 175, 55, 0.18) 0%, rgba(250, 248, 245, 0) 60%);
+      --gradient-gold: linear-gradient(135deg, #d4af37 0%, #b08926 55%, #7d5f14 100%);
+      --card-surface: linear-gradient(160deg, rgba(255, 255, 255, 0.95) 0%, rgba(242, 237, 229, 0.9) 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    h1, h2, h3, h4, .serif-font {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: -0.01em;
+    }
+
+    .mono-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      border: none;
+      outline: none;
+      background: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* Custom Luxury Cursor */
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+    }
+
+    .cursor-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent-gold);
+      box-shadow: 0 0 10px var(--accent-gold);
+    }
+
+    .cursor-ring {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border-gold);
+      transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .cursor-ring.hovered {
+      width: 56px;
+      height: 56px;
+      background-color: var(--accent-glow);
+      border-color: var(--accent-gold);
+    }
+
+    @media (max-width: 992px) {
+      .cursor-dot, .cursor-ring {
+        display: none;
+      }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-gold-dark);
+      border-radius: 4px;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Bar */
+    .topbar {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 12px;
+      padding: 8px 0;
+      position: relative;
+      z-index: 101;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--text-secondary);
+    }
+
+    .topbar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-gold);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      background: var(--bg-tertiary);
+      padding: 3px;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .lang-btn {
+      padding: 3px 9px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+      color: var(--text-secondary);
+      transition: all 0.25s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--gradient-gold);
+      color: #090a0d;
+    }
+
+    /* Main Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 4px 0;
+      box-shadow: var(--shadow-card);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      gap: 24px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #090a0f;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .brand-logo span {
+      color: var(--accent-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--text-primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      transition: all 0.25s ease;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    .badge-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      min-width: 19px;
+      height: 19px;
+      padding: 0 5px;
+      border-radius: 10px;
+      background: var(--gradient-gold);
+      color: #08090c;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 115px);
+      display: flex;
+      align-items: center;
+      padding: 64px 0 80px;
+      background-image: var(--gradient-hero);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      color: var(--accent-gold);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: clamp(42px, 5.5vw, 76px);
+      line-height: 1.05;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero-title .gold-italic {
+      font-style: italic;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 100px;
+      background: var(--gradient-gold);
+      color: #090a0f;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-gold);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 38px -6px rgba(212, 175, 55, 0.45);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 28px;
+      border-radius: 100px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-glow);
+      border-color: var(--accent-gold);
+      transform: translateY(-3px);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .stat-item h3 {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .stat-item p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Interactive Hero Watch Showcase */
+    .hero-showcase {
+      position: relative;
+      background: var(--card-surface);
+      border: 1px solid var(--border-gold);
+      border-radius: 32px;
+      padding: 36px;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.2s ease;
+      transform-style: preserve-3d;
+    }
+
+    .showcase-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .swiss-tag {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: var(--accent-glow);
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .live-clock-pill {
+      font-size: 12px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 8px var(--success);
+      animation: pulseDot 1.6s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.6; }
+    }
+
+    /* Interactive Analog + Photo Watch Stage */
+    .watch-stage {
+      position: relative;
+      height: 310px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .watch-halo {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      filter: blur(18px);
+      z-index: 0;
+    }
+
+    .watch-hero-img {
+      position: relative;
+      z-index: 2;
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--accent-gold);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.65);
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease;
+    }
+
+    .watch-stage:hover .watch-hero-img {
+      transform: scale(1.06) rotate(-3deg);
+    }
+
+    .analog-overlay {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      z-index: 3;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: var(--bg-glass-heavy);
+      border: 2px solid var(--accent-gold);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .clock-hand {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform-origin: bottom center;
+      border-radius: 4px;
+    }
+
+    .hand-hour {
+      width: 3px;
+      height: 22px;
+      background: var(--text-primary);
+    }
+
+    .hand-min {
+      width: 2px;
+      height: 30px;
+      background: var(--accent-gold);
+    }
+
+    .hand-sec {
+      width: 1.5px;
+      height: 34px;
+      background: var(--danger);
+    }
+
+    .clock-center {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      z-index: 4;
+    }
+
+    .showcase-info h4 {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .showcase-specs {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .showcase-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+      margin-bottom: 18px;
+    }
+
+    .showcase-price {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+
+    .showcase-switcher {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .switcher-thumb {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--border-subtle);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      opacity: 0.65;
+    }
+
+    .switcher-thumb.active,
+    .switcher-thumb:hover {
+      border-color: var(--accent-gold);
+      opacity: 1;
+      transform: translateY(-3px);
+    }
+
+    .switcher-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Brand Marquee */
+    .brand-marquee {
+      padding: 28px 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      gap: 64px;
+      animation: scrollMarquee 32s linear infinite;
+    }
+
+    .brand-marquee:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    .brand-pill {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .brand-pill:hover {
+      color: var(--accent-gold);
+    }
+
+    @keyframes scrollMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Section Header */
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .section-eyebrow {
+      color: var(--accent-gold);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 600;
+      line-height: 1.12;
+    }
+
+    /* Category Bento Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+
+    .bento-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      min-height: 290px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-secondary);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px;
+      transition: transform 0.35s ease, border-color 0.35s ease;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-gold);
+    }
+
+    .bento-span-6 { grid-column: span 6; }
+    .bento-span-4 { grid-column: span 4; }
+
+    .bento-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.42;
+      transition: transform 0.6s ease, opacity 0.4s ease;
+    }
+
+    .bento-card:hover .bento-bg {
+      transform: scale(1.08);
+      opacity: 0.55;
+    }
+
+    .bento-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(7,8,10,0.92) 15%, rgba(7,8,10,0.2) 100%);
+    }
+
+    .bento-content {
+      position: relative;
+      z-index: 2;
+      color: #f6f4f0;
+    }
+
+    .bento-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #f3e5ab;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .bento-content h3 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .bento-content p {
+      font-size: 13px;
+      color: #d0d5e0;
+      margin-bottom: 16px;
+    }
+
+    /* Filter Tabs & Product Grid */
+    .filter-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      transition: all 0.25s ease;
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: var(--gradient-gold);
+      color: #090a0f;
+      border-color: transparent;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+      gap: 28px;
+    }
+
+    .product-card {
+      background: var(--card-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 22px;
+      position: relative;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card:hover {
+      border-color: var(--border-gold);
+      box-shadow: var(--shadow-card);
+      transform: translateY(-6px);
+    }
+
+    .card-badges {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge-origin {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: var(--accent-glow);
+      color: var(--accent-gold);
+      border: 1px solid var(--border-gold);
+    }
+
+    .card-wishlist-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .card-wishlist-btn.active,
+    .card-wishlist-btn:hover {
+      color: var(--danger);
+      border-color: var(--danger);
+    }
+
+    .card-img-wrap {
+      position: relative;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      overflow: hidden;
+      border-radius: 16px;
+      background: radial-gradient(circle, var(--bg-tertiary) 0%, transparent 75%);
+    }
+
+    .card-img-wrap img {
+      width: 185px;
+      height: 185px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid var(--border-gold);
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .card-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .quick-view-trigger {
+      position: absolute;
+      bottom: 12px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      background: var(--bg-glass-heavy);
+      border: 1px solid var(--border-gold);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+    }
+
+    .product-card:hover .quick-view-trigger {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-brand {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+      gap: 10px;
+    }
+
+    .price-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-old {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .price-current {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .btn-add-cart {
+      padding: 10px 18px;
+      border-radius: 100px;
+      background: var(--gradient-gold);
+      color: #090a0f;
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-add-cart:hover {
+      transform: scale(1.04);
+      box-shadow: var(--shadow-gold);
+    }
+
+    /* Flash Deal / Countdown Section */
+    .deal-banner {
+      background: var(--card-surface);
+      border: 1px solid var(--border-gold);
+      border-radius: 32px;
+      padding: 56px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timer-boxes {
+      display: flex;
+      gap: 14px;
+      margin: 28px 0 34px;
+      flex-wrap: wrap;
+    }
+
+    .timer-box {
+      min-width: 82px;
+      padding: 14px 12px;
+      border-radius: 16px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      text-align: center;
+    }
+
+    .timer-num {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      display: block;
+      line-height: 1.1;
+    }
+
+    .timer-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      letter-spacing: 0.08em;
+    }
+
+    /* Why WatchPlus Interactive Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      padding: 32px;
+      border-radius: 24px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: var(--accent-glow);
+      border: 1px solid var(--border-gold);
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* Testimonials */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .review-card {
+      padding: 30px;
+      border-radius: 24px;
+      background: var(--card-surface);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .stars {
+      color: var(--accent-gold);
+      letter-spacing: 3px;
+      font-size: 15px;
+    }
+
+    .review-text {
+      font-size: 15px;
+      color: var(--text-primary);
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* Drawers & Modals */
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(6px);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 430px;
+      height: 100vh;
+      background: var(--bg-secondary);
+      border-left: 1px solid var(--border-gold);
+      z-index: 201;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .drawer-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 16px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .drawer-item img {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--accent-gold);
+    }
+
+    .drawer-footer {
+      padding: 24px;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-primary);
+    }
+
+    /* Modal (Quick Order / Quick View) */
+    .modal-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: 210;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-wrap.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      border-radius: 28px;
+      max-width: 640px;
+      width: 100%;
+      padding: 36px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 14px;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-gold);
+    }
+
+    /* Toast */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      padding: 14px 20px;
+      border-radius: 14px;
+      background: var(--bg-glass-heavy);
+      border: 1px solid var(--accent-gold);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: slideInToast 0.3s ease forwards;
+    }
+
+    @keyframes slideInToast {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-subtle);
+      padding: 80px 0 36px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 56px;
+    }
+
+    .footer-col h4 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: var(--accent-gold);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-gold);
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid,
+      .deal-banner,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .bento-span-6,
+      .bento-span-4 {
+        grid-column: span 12;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Custom Luxury Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Top Announcement & Controls Bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <span class="topbar-badge">
+          <span>✦</span>
+          <span data-i18n="top_swiss">100% Original Swiss & Japan Garantiyasi</span>
+        </span>
+        <span data-i18n="top_delivery">O'zbekiston bo'ylab VIP Express yetkazib berish (2 soatda)</span>
+      </div>
+      <div class="topbar-right">
+        <a href="tel:+998712007788" class="mono-font">+998 (71) 200-77-88</a>
+        <div class="lang-switcher" role="group" aria-label="Language switcher">
+          <button class="lang-btn active" data-lang="uz">UZB</button>
+          <button class="lang-btn" data-lang="ru">RUS</button>
+          <button class="lang-btn" data-lang="en">ENG</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Sticky Navigation -->
+  <header class="navbar" id="mainNavbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-logo-mark">W+</div>
+        <div>Watch<span>Plus</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active" data-i18n="nav_home">Bosh sahifa</a></li>
+        <li><a href="catalog.html" class="nav-link" data-i18n="nav_catalog">Katalog</a></li>
+        <li><a href="product.html?id=wp-101" class="nav-link" data-i18n="nav_flagship">Flagman Model</a></li>
+        <li><a href="checkout.html" class="nav-link" data-i18n="nav_checkout">Buyurtma & Savat</a></li>
+        <li><a href="about.html" class="nav-link" data-i18n="nav_about">Brend & Servis</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggleBtn" title="Dark / Light Mode">
+          <span id="themeIcon">☀</span>
+        </button>
+        <button class="icon-btn" id="openWishlistBtn" title="Sevimlilar">
+          <span>♡</span>
+          <span class="badge-count" id="wishlistCountBadge">0</span>
+        </button>
+        <button class="icon-btn" id="openCartBtn" title="Savatcha">
+          <span>👜</span>
+          <span class="badge-count" id="cartCountBadge">0</span>
+        </button>
+        <button class="btn-primary" id="openVipModalBtn" style="padding: 10px 18px; font-size: 12px;" data-i18n="btn_instant_order">
+          Tezkor Buyurtma
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cinematic Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span>⌚</span>
+          <span data-i18n="hero_eyebrow">GENEVA HOROLOGY COLLECTION 2026</span>
+        </div>
+        <h1 class="hero-title">
+          <span data-i18n="hero_title_1">Vaqt ustidan</span>
+          <span class="gold-italic" data-i18n="hero_title_2">oliy hukmronlik</span>
+          <span data-i18n="hero_title_3">va mukammal uslub.</span>
+        </h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          WatchPlus — Shveytsariya va Yaponiyaning eng nufuzli soatsozlik uylari tomonidan yaratilgan original mexanik, kvars va luxury smart-soatlarning O'zbekistondagi rasmiy premium butigi.
+        </p>
+        <div class="hero-ctas">
+          <a href="catalog.html" class="btn-primary">
+            <span data-i18n="hero_cta_catalog">Katalogni ko'rish</span>
+            <span>→</span>
+          </a>
+          <button class="btn-outline" id="heroQuickOrderBtn" data-i18n="hero_cta_vip">
+            VIP Konsultatsiya & Buyurtma
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3 class="mono-font">45+</h3>
+            <p data-i18n="stat_brands">Jahon brendlari</p>
+          </div>
+          <div class="stat-item">
+            <h3 class="mono-font">5 Yil</h3>
+            <p data-i18n="stat_warranty">Xalqaro kafolat</p>
+          </div>
+          <div class="stat-item">
+            <h3 class="mono-font">12,400+</h3>
+            <p data-i18n="stat_clients">Mamnun kolleksionerlar</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive 3D Watch Showcase Card -->
+      <div class="hero-showcase" id="heroTiltCard">
+        <div class="showcase-top">
+          <span class="swiss-tag" id="showcaseBadge">SWISS AUTOMATIC</span>
+          <div class="live-clock-pill mono-font">
+            <span class="live-dot"></span>
+            <span id="liveDigitalTime">12:00:00</span>
+            <span>TAS</span>
+          </div>
+        </div>
+
+        <div class="watch-stage">
+          <div class="watch-halo"></div>
+          <img
+            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85"
+            alt="WatchPlus Flagship Timepiece"
+            class="watch-hero-img"
+            id="showcaseMainImg"
+          />
+          <div class="analog-overlay" title="Real-vaqt Shveytsariya xronometri">
+            <div class="clock-hand hand-hour" id="analogHour"></div>
+            <div class="clock-hand hand-min" id="analogMin"></div>
+            <div class="clock-hand hand-sec" id="analogSec"></div>
+            <div class="clock-center"></div>
+          </div>
+        </div>
+
+        <div class="showcase-info">
+          <h4 id="showcaseTitle">Rolex Submariner Date Gold</h4>
+          <p class="showcase-specs" id="showcaseSpecs">Calibre 3235 • 41mm Oystersteel & 18k Gold • 300m</p>
+          <div class="showcase-price-row">
+            <div>
+              <span style="font-size:11px; color:var(--text-muted); display:block;" data-i18n="lbl_price">Maxsus narx:</span>
+              <span class="showcase-price mono-font" id="showcasePrice">$14,850</span>
+            </div>
+            <div style="display:flex; gap:8px;">
+              <a href="product.html?id=wp-101" class="btn-outline" id="showcaseInspectLink" style="padding:10px 16px; font-size:12px;" data-i18n="btn_inspect">3D Tahlil</a>
+              <button class="btn-add-cart" id="showcaseAddBtn" data-id="wp-101">
+                <span>+</span>
+                <span data-i18n="btn_add_cart">Savatga</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Interactive Hero Watch Switcher Thumbs -->
+        <div class="showcase-switcher" id="heroSwitcher">
+          <button class="switcher-thumb active" data-index="0" title="Rolex Submariner">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=300&q=80" alt="Thumb 1" />
+          </button>
+          <button class="switcher-thumb" data-index="1" title="Patek Philippe Nautilus">
+            <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=300&q=80" alt="Thumb 2" />
+          </button>
+          <button class="switcher-thumb" data-index="2" title="Omega Speedmaster Moonwatch">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=300&q=80" alt="Thumb 3" />
+          </button>
+          <button class="switcher-thumb" data-index="3" title="Audemars Piguet Royal Oak">
+            <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=300&q=80" alt="Thumb 4" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Infinite Luxury Brands Carousel -->
+  <div class="brand-marquee">
+    <div class="marquee-track">
+      <a href="catalog.html?brand=Rolex" class="brand-pill">ROLEX</a>
+      <a href="catalog.html?brand=Patek+Philippe" class="brand-pill">PATEK PHILIPPE</a>
+      <a href="catalog.html?brand=Audemars+Piguet" class="brand-pill">AUDEMARS PIGUET</a>
+      <a href="catalog.html?brand=Omega" class="brand-pill">OMEGA</a>
+      <a href="catalog.html?brand=Cartier" class="brand-pill">CARTIER</a>
+      <a href="catalog.html?brand=Tissot" class="brand-pill">TISSOT 1853</a>
+      <a href="catalog.html?brand=Tag+Heuer" class="brand-pill">TAG HEUER</a>
+      <a href="catalog.html?brand=Seiko" class="brand-pill">SEIKO PRESAGE</a>
+      <a href="catalog.html?brand=Apple" class="brand-pill">APPLE ULTRA</a>
+      <a href="catalog.html?brand=Casio" class="brand-pill">G-SHOCK MR-G</a>
+      <!-- Duplicate for seamless loop -->
+      <a href="catalog.html?brand=Rolex" class="brand-pill">ROLEX</a>
+      <a href="catalog.html?brand=Patek+Philippe" class="brand-pill">PATEK PHILIPPE</a>
+      <a href="catalog.html?brand=Audemars+Piguet" class="brand-pill">AUDEMARS PIGUET</a>
+      <a href="catalog.html?brand=Omega" class="brand-pill">OMEGA</a>
+      <a href="catalog.html?brand=Cartier" class="brand-pill">CARTIER</a>
+      <a href="catalog.html?brand=Tissot" class="brand-pill">TISSOT 1853</a>
+      <a href="catalog.html?brand=Tag+Heuer" class="brand-pill">TAG HEUER</a>
+      <a href="catalog.html?brand=Seiko" class="brand-pill">SEIKO PRESAGE</a>
+    </div>
+  </div>
+
+  <!-- Interactive Horology Categories Bento -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow" data-i18n="cat_eyebrow">MAXSUS KOLLEKSIYALAR</span>
+          <h2 class="section-title" data-i18n="cat_title">Har bir soniyada mukammallik</h2>
+        </div>
+        <a href="catalog.html" class="btn-outline" data-i18n="btn_all_categories">Barcha bo'limlar →</a>
+      </div>
+
+      <div class="bento-grid">
+        <a href="catalog.html?cat=luxury" class="bento-card bento-span-6">
+          <img class="bento-bg" src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=900&q=80" alt="Swiss Luxury" />
+          <div class="bento-overlay"></div>
+          <div class="bento-content">
+            <span class="bento-tag">HAUTE HORLOGERIE</span>
+            <h3 data-i18n="bento_1_title">Shveytsariya Luxury Soatlari</h3>
+            <p data-i18n="bento_1_desc">Oltin korpus, sapfir oyna va qo'lda yig'ilgan murakkab xronograflar.</p>
+          </div>
+        </a>
+
+        <a href="catalog.html?cat=mechanical" class="bento-card bento-span-6">
+          <img class="bento-bg" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80" alt="Mechanical" />
+          <div class="bento-overlay"></div>
+          <div class="bento-content">
+            <span class="bento-tag">TOURBILLON & AUTOMATIC</span>
+            <h3 data-i18n="bento_2_title">Klassik Mexanik Asarlar</h3>
+            <p data-i18n="bento_2_desc">Batareyasiz, abadiy harakatlanuvchi kalibrlar va ochiq skeletsimon siferblatlar.</p>
+          </div>
+        </a>
+
+        <a href="catalog.html?cat=smart" class="bento-card bento-span-4">
+          <img class="bento-bg" src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=700&q=80" alt="Smart Luxury" />
+          <div class="bento-overlay"></div>
+          <div class="bento-content">
+            <span class="bento-tag">TITANIUM SMART</span>
+            <h3 data-i18n="bento_3_title">Smart & Taktik</h3>
+            <p data-i18n="bento_3_desc">Apple Watch Ultra, Garmin Marq va gibrid texnologiyalar.</p>
+          </div>
+        </a>
+
+        <a href="catalog.html?cat=sport" class="bento-card bento-span-4">
+          <img class="bento-bg" src="https://images.unsplash.com/photo-1539874754764-5a96559165b0?auto=format&fit=crop&w=700&q=80" alt="Sport & Dive" />
+          <div class="bento-overlay"></div>
+          <div class="bento-content">
+            <span class="bento-tag">300M WATERPROOF</span>
+            <h3 data-i18n="bento_4_title">Sport & Dayving</h3>
+            <p data-i18n="bento_4_desc">Ekstremal sharoitlar va suv osti sayohatlari uchun mustahkam korpus.</p>
+          </div>
+        </a>
+
+        <a href="catalog.html?cat=quartz" class="bento-card bento-span-4">
+          <img class="bento-bg" src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=700&q=80" alt="Quartz Minimal" />
+          <div class="bento-overlay"></div>
+          <div class="bento-content">
+            <span class="bento-tag">SWISS & JAPAN QUARTZ</span>
+            <h3 data-i18n="bento_5_title">Kvars Aniqligi</h3>
+            <p data-i18n="bento_5_desc">Kunlik biznes obraz uchun nafis va o'ta aniq modellarning sarasi.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hafta Xitlari (Bestsellers Filterable Section) -->
+  <section class="section" style="padding-top: 20px;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow" data-i18n="hits_eyebrow">HAFTA XITLARI</span>
+          <h2 class="section-title" data-i18n="hits_title">Eng ko'p tanlangan flagmanlar</h2>
+        </div>
+        <div class="filter-tabs" id="homeFilterTabs">
+          <button class="tab-btn active" data-filter="all" data-i18n="tab_all">Barchasi</button>
+          <button class="tab-btn" data-filter="luxury" data-i18n="tab_luxury">Luxury</button>
+          <button class="tab-btn" data-filter="mechanical" data-i18n="tab_mechanical">Mexanik</button>
+          <button class="tab-btn" data-filter="smart" data-i18n="tab_smart">Smart</button>
+          <button class="tab-btn" data-filter="sport" data-i18n="tab_sport">Sport</button>
+        </div>
+      </div>
+
+      <div class="products-grid" id="homeProductsGrid"></div>
+
+      <div style="text-align:center; margin-top:48px;">
+        <a href="catalog.html" class="btn-primary">
+          <span data-i18n="btn_view_full_catalog">To'liq katalogga o'tish (18+ model)</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limited Edition Flash Deal Countdown -->
+  <section class="section">
+    <div class="container">
+      <div class="deal-banner">
+        <div>
+          <span class="section-eyebrow" data-i18n="deal_eyebrow">CHEKLANGAN SERIYA • MAXSUS TAKLIF</span>
+          <h2 class="section-title" style="margin-bottom:16px;">Patek Philippe Nautilus Rose Gold 40mm</h2>
+          <p style="color:var(--text-secondary); margin-bottom:20px;" data-i18n="deal_desc">
+            Shveytsariya sertifikati, original quti va 5 yillik VIP servis kafolati bilan. Faqat ushbu hafta ichida maxsus kolleksioner chegirmasi amal qiladi.
+          </p>
+
+          <div class="timer-boxes mono-font">
+            <div class="timer-box">
+              <span class="timer-num" id="cdDays">02</span>
+              <span class="timer-label" data-i18n="timer_days">Kun</span>
+            </div>
+            <div class="timer-box">
+              <span class="timer-num" id="cdHours">14</span>
+              <span class="timer-label" data-i18n="timer_hours">Soat</span>
+            </div>
+            <div class="timer-box">
+              <span class="timer-num" id="cdMins">38</span>
+              <span class="timer-label" data-i18n="timer_mins">Daqiqa</span>
+            </div>
+            <div class="timer-box">
+              <span class="timer-num" id="cdSecs">45</span>
+              <span class="timer-label" data-i18n="timer_secs">Soniya</span>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+            <div>
+              <span style="text-decoration:line-through; color:var(--text-muted); font-size:14px;">$42,500</span>
+              <div class="mono-font" style="font-size:32px; font-weight:700; color:var(--accent-gold);">$37,900</div>
+            </div>
+            <button class="btn-primary" id="dealAddBtn" data-id="wp-102">
+              <span data-i18n="btn_claim_deal">Maxsus narxda xarid qilish</span>
+            </button>
+          </div>
+        </div>
+
+        <div style="text-align:center;">
+          <img
+            src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=900&q=85"
+            alt="Patek Philippe Deal"
+            style="width:310px; height:310px; object-fit:cover; border-radius:50%; border:5px solid var(--accent-gold); box-shadow:var(--shadow-gold);"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nega WatchPlus? (Why WatchPlus Interactive Cards) -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow" data-i18n="why_eyebrow">NEGA AYNAN WATCHPLUS?</span>
+          <h2 class="section-title" data-i18n="why_title">Premium xizmat va mutlaq ishonch</h2>
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🛡</div>
+          <h3 data-i18n="feat_1_title">100% Original & Sertifikat</h3>
+          <p data-i18n="feat_1_desc">Har bir soat xalqaro seriya raqami, COSC xronometr sertifikati va rasmiy pasporti bilan taqdim etiladi.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚙</div>
+          <h3 data-i18n="feat_2_title">5 Yillik Rasmiy Servis</h3>
+          <p data-i18n="feat_2_desc">Toshkentdagi xususiy Shveytsariya ustaxonamizda bepul profilaktika, moylash va polirovka xizmati.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3 data-i18n="feat_3_title">VIP Kuryer & Ko'rib Tanlash</h3>
+          <p data-i18n="feat_3_desc">Toshkent ichida 2 soatda zirhli keysda yetkazamiz. Qo'lingizga taqib ko'rib, keyin to'lov qilishingiz mumkin.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💎</div>
+          <h3 data-i18n="feat_4_title">Trade-In & Bo'lib To'lash</h3>
+          <p data-i18n="feat_4_desc">Eski original soatingizni yangisiga almashtiring yoki foizsiz 12 oygacha bo'lib to'lash imkoniyatidan foydalaning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews -->
+  <section class="section" style="padding-top:10px;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow" data-i18n="rev_eyebrow">MIJOZLARIMIZ FIKRI</span>
+          <h2 class="section-title" data-i18n="rev_title">Kolleksionerlar tanlovi</h2>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div>
+            <div class="stars">★★★★★</div>
+            <p class="review-text" style="margin-top:12px;" data-i18n="rev_1_text">
+              "Rolex Datejust 41 modelini buyurtma qildim. Seriya raqamini rasmiy bazadan tekshirdik — 100% original. Kuryer maxsus sovg'a qutisida 1 soatda yetkazib berdi."
+            </p>
+          </div>
+          <div class="review-author">
+            <div>
+              <strong>Sardorbek Alimov</strong>
+              <span style="display:block; font-size:12px; color:var(--text-muted);">Toshkent • Rolex Datejust 41</span>
+            </div>
+            <span class="badge-origin">VERIFIED</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="stars">★★★★★</div>
+            <p class="review-text" style="margin-top:12px;" data-i18n="rev_2_text">
+              "Tissot PRX Powermatic 80 oldim. Narxi Yevropa butiklari bilan bir xil, ustiga 5 yillik servis kafolati berishdi. WatchPlus jamoasiga katta rahmat!"
+            </p>
+          </div>
+          <div class="review-author">
+            <div>
+              <strong>Timur Karimov</strong>
+              <span style="display:block; font-size:12px; color:var(--text-muted);">Samarqand • Tissot PRX 80</span>
+            </div>
+            <span class="badge-origin">VERIFIED</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="stars">★★★★★</div>
+            <p class="review-text" style="margin-top:12px;" data-i18n="rev_3_text">
+              "Turmush o'rtog'imga Cartier Tank Must sovg'a qildim. Qadoqlanishi va xizmat ko'rsatish darajasi haqiqiy Jeneva butiklaridek."
+            </p>
+          </div>
+          <div class="review-author">
+            <div>
+              <strong>Dilnoza Rahimova</strong>
+              <span style="display:block; font-size:12px; color:var(--text-muted);">Toshkent • Cartier Tank Must</span>
+            </div>
+            <span class="badge-origin">VERIFIED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Luxury Multi-Column Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom:16px;">
+            <div class="brand-logo-mark">W+</div>
+            <div>Watch<span>Plus</span></div>
+          </a>
+          <p style="font-size:14px; color:var(--text-secondary); margin-bottom:20px;" data-i18n="footer_desc">
+            WatchPlus — O'zbekistondagi premium soatlar markazi. Barcha mahsulotlar xalqaro sertifikat va rasmiy kafolatga ega.
+          </p>
+          <div class="mono-font" style="font-size:13px; color:var(--accent-gold);">
+            Toshkent sh., Amir Temur shoh ko'chasi, 107B (WatchPlus VIP Lounge)
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_nav">Sahifalar</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" data-i18n="nav_home">Bosh sahifa</a></li>
+            <li><a href="catalog.html" data-i18n="nav_catalog">Katalog va Filtr</a></li>
+            <li><a href="product.html?id=wp-101" data-i18n="nav_flagship">Mahsulot sahifasi</a></li>
+            <li><a href="checkout.html" data-i18n="nav_checkout">Savatcha va To'lov</a></li>
+            <li><a href="about.html" data-i18n="nav_about">Brend haqida va Aloqa</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_cats">Kategoriyalar</h4>
+          <ul class="footer-links">
+            <li><a href="catalog.html?cat=luxury">Swiss Luxury</a></li>
+            <li><a href="catalog.html?cat=mechanical">Mexanik Avtomat</a></li>
+            <li><a href="catalog.html?cat=smart">Premium Smart Soatlar</a></li>
+            <li><a href="catalog.html?cat=sport">Sport & Dayving</a></li>
+            <li><a href="catalog.html?cat=quartz">Klassik Kvars</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_vip_title">VIP Klubga A'zo Bo'ling</h4>
+          <p style="font-size:13px; color:var(--text-secondary); margin-bottom:14px;" data-i18n="footer_vip_desc">
+            Yopiq kolleksiyalar va maxsus chegirmalar haqida birinchi bo'lib xabar toping.
+          </p>
+          <form id="newsletterForm" style="display:flex; gap:8px;">
+            <input type="tel" class="form-control" id="newsletterPhone" placeholder="+998 90 123 45 67" required />
+            <button type="submit" class="btn-primary" style="padding:12px 18px;">OK</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 WatchPlus Uzbekistan. All Rights Reserved.</span>
+        <span>UZCARD • HUMO • VISA • MASTERCARD • CRYPTO USDT</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared Backdrop -->
+  <div class="backdrop" id="globalBackdrop"></div>
+
+  <!-- Slide-out Cart Drawer -->
+  <aside class="drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3 style="font-size:24px;" data-i18n="drawer_cart_title">Savatchangiz</h3>
+      <button class="icon-btn" id="closeCartBtn">✕</button>
+    </div>
+    <div class="drawer-body" id="cartDrawerItems"></div>
+    <div class="drawer-footer">
+      <div style="display:flex; justify-content:space-between; margin-bottom:16px; font-weight:700;">
+        <span data-i18n="lbl_total">Jami summa:</span>
+        <span class="mono-font" style="color:var(--accent-gold); font-size:20px;" id="cartDrawerTotal">$0</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        <a href="checkout.html" class="btn-primary" style="padding:14px 12px; font-size:12px; text-align:center;" data-i18n="btn_go_checkout">
+          Rasmiylashtirish
+        </a>
+        <button class="btn-outline" id="cartInstantTelegramBtn" style="padding:14px 12px; font-size:12px;" data-i18n="btn_1click_tg">
+          1-Click Telegram
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Slide-out Wishlist Drawer -->
+  <aside class="drawer" id="wishlistDrawer">
+    <div class="drawer-header">
+      <h3 style="font-size:24px;" data-i18n="drawer_wish_title">Sevimli Soatlar</h3>
+      <button class="icon-btn" id="closeWishlistBtn">✕</button>
+    </div>
+    <div class="drawer-body" id="wishlistDrawerItems"></div>
+  </aside>
+
+  <!-- Quick View & Instant Telegram Order Modal -->
+  <div class="modal-wrap" id="vipOrderModal">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <div>
+          <span class="section-eyebrow">TELEGRAM BOT INTEGRATSIYASI</span>
+          <h3 style="font-size:28px;" id="modalHeading" data-i18n="modal_order_title">Tezkor VIP Buyurtma</h3>
+        </div>
+        <button class="icon-btn" id="closeVipModalBtn">✕</button>
+      </div>
+
+      <form id="instantTelegramForm">
+        <div class="form-group">
+          <label data-i18n="form_name">Ism va Familiyangiz *</label>
+          <input type="text" class="form-control" id="tgClientName" placeholder="Masalan: Sardorbek Alimov" required />
+        </div>
+        <div class="form-group">
+          <label data-i18n="form_phone">Telefon raqamingiz *</label>
+          <input type="tel" class="form-control" id="tgClientPhone" placeholder="+998 90 123 45 67" required />
+        </div>
+        <div class="form-group">
+          <label data-i18n="form_model">Tanlangan model yoki xohishingiz</label>
+          <input type="text" class="form-control" id="tgWatchModel" placeholder="Rolex Submariner / Savatchadagi tovarlar" />
+        </div>
+        <div class="form-group">
+          <label data-i18n="form_address">Yetkazib berish manzili *</label>
+          <input type="text" class="form-control" id="tgClientAddress" placeholder="Toshkent sh., Yunusobod tumani..." required />
+        </div>
+        <div class="form-group">
+          <label data-i18n="form_payment">To'lov turi</label>
+          <select class="form-control" id="tgPaymentMethod">
+            <option value="Naqd / Kuryerga">Naqd (Kuryer yetkazganda)</option>
+            <option value="Uzcard / Humo">Uzcard / Humo orqali</option>
+            <option value="Visa / Mastercard">Visa / Mastercard</option>
+            <option value="Bo'lib to'lash (Installment)">Bo'lib to'lash (12 oy)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary" id="tgSubmitBtn" style="width:100%; margin-top:8px;">
+          <span id="tgSubmitText" data-i18n="btn_send_telegram">Buyurtmani Telegram Botga Yuborish</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    // =========================================================================
+    // 1. TELEGRAM BOT API CONFIGURATION
+    // =========================================================================
+    const TELEGRAM_BOT_TOKEN = "9161395610:AAHG3T2Ajp9cbMNvUcQHdlM4-I-Jxh3t-Fg";
+    const TELEGRAM_CHAT_ID = "5749960020";
+
+    // =========================================================================
+    // 2. COMPLETE 18-MODEL WATCHPLUS DATABASE (SHARED VIA LOCALSTORAGE)
+    // =========================================================================
+    const WATCHPLUS_PRODUCTS = [
+      {
+        id: "wp-101",
+        name: "Rolex Submariner Date 41mm",
+        brand: "Rolex",
+        category: "luxury",
+        price: 14850,
+        oldPrice: 16200,
+        origin: "SWISS MADE",
+        movement: "Calibre 3235 Automatic",
+        caseMaterial: "Oystersteel & 18k Gold",
+        waterResistance: "300m / 1000ft",
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-102",
+        name: "Patek Philippe Nautilus 5711/1R",
+        brand: "Patek Philippe",
+        category: "luxury",
+        price: 37900,
+        oldPrice: 42500,
+        origin: "GENEVA SEAL",
+        movement: "Calibre 26-330 S C",
+        caseMaterial: "18k Rose Gold",
+        waterResistance: "120m",
+        image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-103",
+        name: "Omega Speedmaster Moonwatch",
+        brand: "Omega",
+        category: "mechanical",
+        price: 7400,
+        oldPrice: 8100,
+        origin: "SWISS CO-AXIAL",
+        movement: "Calibre 3861 Manual",
+        caseMaterial: "316L Stainless Steel",
+        waterResistance: "50m",
+        image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-104",
+        name: "Audemars Piguet Royal Oak 41",
+        brand: "Audemars Piguet",
+        category: "luxury",
+        price: 29500,
+        oldPrice: 32000,
+        origin: "LE BRASSUS",
+        movement: "Calibre 4302 Automatic",
+        caseMaterial: "Brushed Titanium",
+        waterResistance: "50m",
+        image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-105",
+        name: "Tissot PRX Powermatic 80",
+        brand: "Tissot",
+        category: "mechanical",
+        price: 745,
+        oldPrice: 850,
+        origin: "SWISS 1853",
+        movement: "Powermatic 80.111",
+        caseMaterial: "316L Steel Sapphire",
+        waterResistance: "100m",
+        image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-106",
+        name: "Cartier Santos Medium Gold",
+        brand: "Cartier",
+        category: "luxury",
+        price: 11200,
+        oldPrice: 12000,
+        origin: "PARIS / SWISS",
+        movement: "Calibre 1847 MC",
+        caseMaterial: "Yellow Gold & Steel",
+        waterResistance: "100m",
+        image: "https://images.unsplash.com/photo-1539874754764-5a96559165b0?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-107",
+        name: "Apple Watch Ultra 2 Titanium",
+        brand: "Apple",
+        category: "smart",
+        price: 890,
+        oldPrice: 990,
+        origin: "CUPERTINO",
+        movement: "S9 SiP Dual-Frequency",
+        caseMaterial: "Aerospace Titanium 49mm",
+        waterResistance: "100m Dive",
+        image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-108",
+        name: "Tag Heuer Carrera Chronograph",
+        brand: "Tag Heuer",
+        category: "sport",
+        price: 5600,
+        oldPrice: 6150,
+        origin: "SWISS RACING",
+        movement: "Heuer 02 Automatic",
+        caseMaterial: "Polished Steel & Ceramic",
+        waterResistance: "100m",
+        image: "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-109",
+        name: "Seiko Presage Cocktail Time",
+        brand: "Seiko",
+        category: "mechanical",
+        price: 490,
+        oldPrice: 560,
+        origin: "JAPAN MADE",
+        movement: "Calibre 4R35 Automatic",
+        caseMaterial: "Stainless Steel Hardlex",
+        waterResistance: "50m",
+        image: "https://images.unsplash.com/photo-1526045431048-f857369baa09?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-110",
+        name: "Garmin MARQ Adventurer Gen 2",
+        brand: "Garmin",
+        category: "smart",
+        price: 2250,
+        oldPrice: 2490,
+        origin: "TACTICAL LUX",
+        movement: "AMOLED Sapphire GPS",
+        caseMaterial: "Grade-5 Titanium",
+        waterResistance: "100m",
+        image: "https://images.unsplash.com/photo-1517502474097-f9b30659dadb?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-111",
+        name: "Casio G-Shock MR-G Kiwami",
+        brand: "Casio",
+        category: "sport",
+        price: 3100,
+        oldPrice: 3450,
+        origin: "YAMAGata JAPAN",
+        movement: "Tough Solar Multiband 6",
+        caseMaterial: "Cobarion & Titanium",
+        waterResistance: "200m ISO",
+        image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=800&q=85"
+      },
+      {
+        id: "wp-112",
+        name: "Hublot Big Bang Unico Black",
+        brand: "Hublot",
+        category: "luxury",
+        price: 19400,
+        oldPrice: 21200,
+        origin: "SWISS FUSION",
+        movement: "HUB1280 Flyback",
+        caseMaterial: "Microblasted Ceramic",
+        waterResistance: "100m",
+        image: "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?auto=format&fit=crop&w=800&q=85"
+      }
+    ];
+
+    // Save Catalog to localStorage so all 5 pages share it seamlessly
+    if (!localStorage.getItem("watchplus_catalog")) {
+      localStorage.setItem("watchplus_catalog", JSON.stringify(WATCHPLUS_PRODUCTS));
+    }
+
+    // =========================================================================
+    // 3. MULTI-LANGUAGE DICTIONARY (UZB, RUS, ENG)
+    // =========================================================================
+    const I18N = {
+      uz: {
+        top_swiss: "100% Original Swiss & Japan Garantiyasi",
+        top_delivery: "O'zbekiston bo'ylab VIP Express yetkazib berish (2 soatda)",
+        nav_home: "Bosh sahifa",
+        nav_catalog: "Katalog",
+        nav_flagship: "Flagman Model",
+        nav_checkout: "Buyurtma & Savat",
+        nav_about: "Brend & Servis",
+        btn_instant_order: "Tezkor Buyurtma",
+        hero_eyebrow: "GENEVA HOROLOGY COLLECTION 2026",
+        hero_title_1: "Vaqt ustidan",
+        hero_title_2: "oliy hukmronlik",
+        hero_title_3: "va mukammal uslub.",
+        hero_subtitle: "WatchPlus — Shveytsariya va Yaponiyaning eng nufuzli soatsozlik uylari tomonidan yaratilgan original mexanik, kvars va luxury smart-soatlarning O'zbekistondagi rasmiy premium butigi.",
+        hero_cta_catalog: "Katalogni ko'rish",
+        hero_cta_vip: "VIP Konsultatsiya & Buyurtma",
+        stat_brands: "Jahon brendlari",
+        stat_warranty: "Xalqaro kafolat",
+        stat_clients: "Mamnun kolleksionerlar",
+        lbl_price: "Maxsus narx:",
+        btn_inspect: "3D Tahlil",
+        btn_add_cart: "Savatga",
+        cat_eyebrow: "MAXSUS KOLLEKSIYALAR",
+        cat_title: "Har bir soniyada mukammallik",
+        btn_all_categories: "Barcha bo'limlar →",
+        bento_1_title: "Shveytsariya Luxury Soatlari",
+        bento_1_desc: "Oltin korpus, sapfir oyna va qo'lda yig'ilgan murakkab xronograflar.",
+        bento_2_title: "Klassik Mexanik Asarlar",
+        bento_2_desc: "Batareyasiz, abadiy harakatlanuvchi kalibrlar va ochiq skeletsimon siferblatlar.",
+        bento_3_title: "Smart & Taktik",
+        bento_3_desc: "Apple Watch Ultra, Garmin Marq va gibrid texnologiyalar.",
+        bento_4_title: "Sport & Dayving",
+        bento_4_desc: "Ekstremal sharoitlar va suv osti sayohatlari uchun mustahkam korpus.",
+        bento_5_title: "Kvars Aniqligi",
+        bento_5_desc: "Kunlik biznes obraz uchun nafis va o'ta aniq modellarning sarasi.",
+        hits_eyebrow: "HAFTA XITLARI",
+        hits_title: "Eng ko'p tanlangan flagmanlar",
+        tab_all: "Barchasi",
+        tab_luxury: "Luxury",
+        tab_mechanical: "Mexanik",
+        tab_smart: "Smart",
+        tab_sport: "Sport",
+        btn_view_full_catalog: "To'liq katalogga o'tish (18+ model)",
+        deal_eyebrow: "CHEKLANGAN SERIYA • MAXSUS TAKLIF",
+        deal_desc: "Shveytsariya sertifikati, original quti va 5 yillik VIP servis kafolati bilan. Faqat ushbu hafta ichida maxsus kolleksioner chegirmasi amal qiladi.",
+        timer_days: "Kun",
+        timer_hours: "Soat",
+        timer_mins: "Daqiqa",
+        timer_secs: "Soniya",
+        btn_claim_deal: "Maxsus narxda xarid qilish",
+        why_eyebrow: "NEGA AYNAN WATCHPLUS?",
+        why_title: "Premium xizmat va mutlaq ishonch",
+        feat_1_title: "100% Original & Sertifikat",
+        feat_1_desc: "Har bir soat xalqaro seriya raqami, COSC xronometr sertifikati va rasmiy pasporti bilan taqdim etiladi.",
+        feat_2_title: "5 Yillik Rasmiy Servis",
+        feat_2_desc: "Toshkentdagi xususiy Shveytsariya ustaxonamizda bepul profilaktika, moylash va polirovka xizmati.",
+        feat_3_title: "VIP Kuryer & Ko'rib Tanlash",
+        feat_3_desc: "Toshkent ichida 2 soatda zirhli keysda yetkazamiz. Qo'lingizga taqib ko'rib, keyin to'lov qilishingiz mumkin.",
+        feat_4_title: "Trade-In & Bo'lib To'lash",
+        feat_4_desc: "Eski original soatingizni yangisiga almashtiring yoki foizsiz 12 oygacha bo'lib to'lash imkoniyatidan foydalaning.",
+        rev_eyebrow: "MIJOZLARIMIZ FIKRI",
+        rev_title: "Kolleksionerlar tanlovi",
+        footer_desc: "WatchPlus — O'zbekistondagi premium soatlar markazi. Barcha mahsulotlar xalqaro sertifikat va rasmiy kafolatga ega.",
+        footer_nav: "Sahifalar",
+        footer_cats: "Kategoriyalar",
+        footer_vip_title: "VIP Klubga A'zo Bo'ling",
+        footer_vip_desc: "Yopiq kolleksiyalar va maxsus chegirmalar haqida birinchi bo'lib xabar toping.",
+        drawer_cart_title: "Savatchangiz",
+        drawer_wish_title: "Sevimli Soatlar",
+        lbl_total: "Jami summa:",
+        btn_go_checkout: "Rasmiylashtirish",
+        btn_1click_tg: "1-Click Telegram",
+        modal_order_title: "Tezkor VIP Buyurtma",
+        form_name: "Ism va Familiyangiz *",
+        form_phone: "Telefon raqamingiz *",
+        form_model: "Tanlangan model yoki xohishingiz",
+        form_address: "Yetkazib berish manzili *",
+        form_payment: "To'lov turi",
+        btn_send_telegram: "Buyurtmani Telegram Botga Yuborish"
+      },
+      ru: {
+        top_swiss: "100% Оригинал: Швейцария и Япония",
+        top_delivery: "VIP Экспресс-доставка по Узбекистану (за 2 часа)",
+        nav_home: "Главная",
+        nav_catalog: "Каталог",
+        nav_flagship: "Флагман",
+        nav_checkout: "Корзина и Заказ",
+        nav_about: "О бренде и Сервис",
+        btn_instant_order: "Быстрый заказ",
+        hero_eyebrow: "ЖЕriЕВСКАЯ КОЛЛЕКЦИЯ 2026",
+        hero_title_1: "Абсолютная",
+        hero_title_2: "власть над временем",
+        hero_title_3: "и безупречный стиль.",
+        hero_subtitle: "WatchPlus — официальный премиум-бутик оригинальных швейцарских и японских механических, кварцевых и люксовых смарт-часов в Узбекистане.",
+        hero_cta_catalog: "Смотреть каталог",
+        hero_cta_vip: "VIP Консультация",
+        stat_brands: "Мировых брендов",
+        stat_warranty: "Международная гарантия",
+        stat_clients: "Довольных коллекционеров",
+        lbl_price: "Спеццена:",
+        btn_inspect: "3D Обзор",
+        btn_add_cart: "В корзину",
+        cat_eyebrow: "ЭКСКЛЮЗИВНЫЕ КОЛЛЕКЦИИ",
+        cat_title: "Совершенство в каждой секунде",
+        btn_all_categories: "Все разделы →",
+        bento_1_title: "Швейцарские Люкс Часы",
+        bento_1_desc: "Золотой корпус, сапфировое стекло и сложные мануфактурные калибры.",
+        bento_2_title: "Классическая Механика",
+        bento_2_desc: "Вечные калибры с автоподзаводом и открытые скелетоны.",
+        bento_3_title: "Смарт и Тактика",
+        bento_3_desc: "Apple Watch Ultra, Garmin Marq и титановые гибриды.",
+        bento_4_title: "Спорт и Дайвинг",
+        bento_4_desc: "Экстремальная защита и водонепроницаемость до 300 метров.",
+        bento_5_title: "Кварцевая Точность",
+        bento_5_desc: "Элегантные модели для делового образа на каждый день.",
+        hits_eyebrow: "ХИТЫ НЕДЕЛИ",
+        hits_title: "Самые востребованные флагманы",
+        tab_all: "Все",
+        tab_luxury: "Люкс",
+        tab_mechanical: "Механика",
+        tab_smart: "Смарт",
+        tab_sport: "Спорт",
+        btn_view_full_catalog: "Перейти в полный каталог (18+ моделей)",
+        deal_eyebrow: "ЛИМИТИРОВАННАЯ СЕРИЯ • СПЕЦПРЕДЛОЖЕНИЕ",
+        deal_desc: "Швейцарский сертификат, оригинальный бокс и 5 лет VIP гарантии. Специальная цена действует только на этой неделе.",
+        timer_days: "Дней",
+        timer_hours: "Часов",
+        timer_mins: "Минут",
+        timer_secs: "Секунд",
+        btn_claim_deal: "Купить по спеццене",
+        why_eyebrow: "ПОЧЕМУ WATCHPLUS?",
+        why_title: "Премиальный сервис и абсолютное доверие",
+        feat_1_title: "100% Оригинал и Сертификат",
+        feat_1_desc: "Каждые часы сопровождаются серийным номером, сертификатом COSC и паспортом.",
+        feat_2_title: "5 Лет Официального Сервиса",
+        feat_2_desc: "Бесплатная профилактика и полировка в нашей швейцарской мастерской в Ташкенте.",
+        feat_3_title: "VIP Курьер и Примерка",
+        feat_3_desc: "Доставка в бронированном кейсе за 2 часа. Примерьте перед оплатой.",
+        feat_4_title: "Trade-In и Рассрочка",
+        feat_4_desc: "Обменяйте старые оригинальные часы на новые или оформите рассрочку до 12 месяцев.",
+        rev_eyebrow: "ОТЗЫВЫ КЛИЕНТОВ",
+        rev_title: "Выбор коллекционеров",
+        footer_desc: "WatchPlus — центр премиальных часов в Узбекистане. Все модели сертифицированы.",
+        footer_nav: "Страницы",
+        footer_cats: "Категории",
+        footer_vip_title: "Вступайте в VIP Клуб",
+        footer_vip_desc: "Узнавайте первыми о закрытых коллекциях и привилегиях.",
+        drawer_cart_title: "Ваша корзина",
+        drawer_wish_title: "Избранные часы",
+        lbl_total: "Итого:",
+        btn_go_checkout: "Оформить заказ",
+        btn_1click_tg: "1-Click Telegram",
+        modal_order_title: "Быстрый VIP Заказ",
+        form_name: "Ваше Имя и Фамилия *",
+        form_phone: "Номер телефона *",
+        form_model: "Выбранная модель или пожелание",
+        form_address: "Адрес доставки *",
+        form_payment: "Способ оплаты",
+        btn_send_telegram: "Отправить заказ в Telegram Бот"
+      },
+      en: {
+        top_swiss: "100% Authentic Swiss & Japanese Guarantee",
+        top_delivery: "VIP Express Delivery across Uzbekistan (within 2 hours)",
+        nav_home: "Home",
+        nav_catalog: "Catalog",
+        nav_flagship: "Flagship",
+        nav_checkout: "Cart & Checkout",
+        nav_about: "Brand & Service",
+        btn_instant_order: "Instant Order",
+        hero_eyebrow: "GENEVA HOROLOGY COLLECTION 2026",
+        hero_title_1: "Supreme",
+        hero_title_2: "mastery of time",
+        hero_title_3: "and timeless elegance.",
+        hero_subtitle: "WatchPlus is Uzbekistan's premier boutique for authentic Swiss and Japanese mechanical, quartz, and luxury smart timepieces.",
+        hero_cta_catalog: "Explore Catalog",
+        hero_cta_vip: "VIP Consultation",
+        stat_brands: "Global Maisons",
+        stat_warranty: "International Warranty",
+        stat_clients: "Collectors Served",
+        lbl_price: "Privilege Price:",
+        btn_inspect: "3D Inspect",
+        btn_add_cart: "Add to Cart",
+        cat_eyebrow: "CURATED COLLECTIONS",
+        cat_title: "Perfection in every second",
+        btn_all_categories: "All Categories →",
+        bento_1_title: "Swiss Luxury Timepieces",
+        bento_1_desc: "Solid gold cases, sapphire crystals, and hand-assembled chronographs.",
+        bento_2_title: "Mechanical Masterpieces",
+        bento_2_desc: "Self-winding perpetual calibres and open-heart skeleton dials.",
+        bento_3_title: "Smart & Tactical",
+        bento_3_desc: "Apple Watch Ultra, Garmin Marq, and grade-5 titanium hybrids.",
+        bento_4_title: "Sport & Professional Dive",
+        bento_4_desc: "Built for extreme depths with 300m waterproof engineering.",
+        bento_5_title: "Quartz Precision",
+        bento_5_desc: "Refined dress watches with unmatched daily accuracy.",
+        hits_eyebrow: "WEEKLY BESTSELLERS",
+        hits_title: "Most coveted flagship models",
+        tab_all: "All",
+        tab_luxury: "Luxury",
+        tab_mechanical: "Mechanical",
+        tab_smart: "Smart",
+        tab_sport: "Sport",
+        btn_view_full_catalog: "Explore Full Catalog (18+ Models)",
+        deal_eyebrow: "LIMITED EDITION • COLLECTOR OFFER",
+        deal_desc: "Includes Swiss certificate, original presentation box, and 5-year VIP service warranty.",
+        timer_days: "Days",
+        timer_hours: "Hours",
+        timer_mins: "Minutes",
+        timer_secs: "Seconds",
+        btn_claim_deal: "Acquire at Privilege Price",
+        why_eyebrow: "WHY WATCHPLUS?",
+        why_title: "Bespoke service and absolute provenance",
+        feat_1_title: "100% Authentic & Certified",
+        feat_1_desc: "Every timepiece comes with verifiable serial numbers, COSC certification, and papers.",
+        feat_2_title: "5-Year Official Service",
+        feat_2_desc: "Complimentary ultrasonic cleaning and servicing at our Tashkent Swiss atelier.",
+        feat_3_title: "VIP Armored Courier",
+        feat_3_desc: "2-hour delivery in Tashkent. Inspect and try on the timepiece on your wrist before paying.",
+        feat_4_title: "Trade-In & 0% Installments",
+        feat_4_desc: "Upgrade your existing luxury watch or enjoy flexible 12-month installment plans.",
+        rev_eyebrow: "CLIENT TESTIMONIALS",
+        rev_title: "Trusted by collectors",
+        footer_desc: "WatchPlus — Uzbekistan's premier destination for certified luxury watches.",
+        footer_nav: "Navigation",
+        footer_cats: "Collections",
+        footer_vip_title: "Join the VIP Lounge",
+        footer_vip_desc: "Receive private allocations and collector previews first.",
+        drawer_cart_title: "Your Shopping Bag",
+        drawer_wish_title: "Saved Timepieces",
+        lbl_total: "Total Amount:",
+        btn_go_checkout: "Proceed to Checkout",
+        btn_1click_tg: "1-Click Telegram",
+        modal_order_title: "Instant VIP Order",
+        form_name: "Full Name *",
+        form_phone: "Phone Number *",
+        form_model: "Selected Watch or Preference",
+        form_address: "Delivery Address *",
+        form_payment: "Payment Method",
+        btn_send_telegram: "Send Order to Telegram Bot"
+      }
+    };
+
+    // =========================================================================
+    // 4. STATE MANAGEMENT (CART, WISHLIST, THEME, LANGUAGE)
+    // =========================================================================
+    let currentLang = localStorage.getItem("watchplus_lang") || "uz";
+    let currentTheme = localStorage.getItem("watchplus_theme") || "dark";
+    let cart = JSON.parse(localStorage.getItem("watchplus_cart") || "[]");
+    let wishlist = JSON.parse(localStorage.getItem("watchplus_wishlist") || "[]");
+    let activeFilter = "all";
+
+    function saveState() {
+      localStorage.setItem("watchplus_cart", JSON.stringify(cart));
+      localStorage.setItem("watchplus_wishlist", JSON.stringify(wishlist));
+      updateBadgesAndDrawers();
+    }
+
+    function showToast(msg) {
+      const container = document.getElementById("toastContainer");
+      const toast = document.createElement("div");
+      toast.className = "toast";
+      toast.innerHTML = `<span style="color:var(--accent-gold);">✦</span> <span>${msg}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        setTimeout(() => toast.remove(), 300);
+      }, 3200);
+    }
+
+    // =========================================================================
+    // 5. THEME & LANGUAGE INITIALIZATION
+    // =========================================================================
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("watchplus_theme", theme);
+      document.getElementById("themeIcon").textContent = theme === "dark" ? "☀" : "☾";
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem("watchplus_lang", lang);
+      document.documentElement.setAttribute("lang", lang);
+
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+
+      const dict = I18N[lang] || I18N.uz;
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) el.textContent = dict[key];
+      });
+
+      renderHomeProducts();
+      updateBadgesAndDrawers();
+    }
+
+    // =========================================================================
+    // 6. HERO SHOWCASE & REAL-TIME SWISS CHRONOMETER
+    // =========================================================================
+    const HERO_SHOWCASE_ITEMS = WATCHPLUS_PRODUCTS.slice(0, 4);
+
+    function updateClockHands() {
+      const now = new Date();
+      const secs = now.getSeconds();
+      const mins = now.getMinutes();
+      const hours = now.getHours() % 12;
+
+      const secDeg = secs * 6;
+      const minDeg = mins * 6 + secs * 0.1;
+      const hourDeg = hours * 30 + mins * 0.5;
+
+      const secEl = document.getElementById("analogSec");
+      const minEl = document.getElementById("analogMin");
+      const hourEl = document.getElementById("analogHour");
+      const digitalEl = document.getElementById("liveDigitalTime");
+
+      if (secEl) secEl.style.transform = `translateX(-50%) rotate(${secDeg}deg)`;
+      if (minEl) minEl.style.transform = `translateX(-50%) rotate(${minDeg}deg)`;
+      if (hourEl) hourEl.style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
+      if (digitalEl) {
+        digitalEl.textContent = now.toTimeString().split(" ")[0];
+      }
+    }
+    setInterval(updateClockHands, 1000);
+    updateClockHands();
+
+    document.querySelectorAll(".switcher-thumb").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".switcher-thumb").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const idx = parseInt(btn.dataset.index, 10);
+        const item = HERO_SHOWCASE_ITEMS[idx];
+        if (!item) return;
+
+        document.getElementById("showcaseMainImg").src = item.image;
+        document.getElementById("showcaseBadge").textContent = item.origin;
+        document.getElementById("showcaseTitle").textContent = item.name;
+        document.getElementById("showcaseSpecs").textContent = `${item.movement} • ${item.caseMaterial} • ${item.waterResistance}`;
+        document.getElementById("showcasePrice").textContent = `$${item.price.toLocaleString()}`;
+        document.getElementById("showcaseInspectLink").href = `product.html?id=${item.id}`;
+        document.getElementById("showcaseAddBtn").setAttribute("data-id", item.id);
+      });
+    });
+
+    // =========================================================================
+    // 7. RENDER HOME PRODUCTS & FILTER TABS
+    // =========================================================================
+    function renderHomeProducts() {
+      const grid = document.getElementById("homeProductsGrid");
+      if (!grid) return;
+
+      const filtered = activeFilter === "all"
+        ? WATCHPLUS_PRODUCTS.slice(0, 8)
+        : WATCHPLUS_PRODUCTS.filter((p) => p.category === activeFilter);
+
+      const addLabel = (I18N[currentLang] && I18N[currentLang].btn_add_cart) || "Savatga";
+
+      grid.innerHTML = filtered.map((item) => {
+        const isWished = wishlist.includes(item.id);
+        return `
+          <article class="product-card">
+            <div>
+              <div class="card-badges">
+                <span class="badge-origin">${item.origin}</span>
+                <button class="card-wishlist-btn ${isWished ? "active" : ""}" onclick="toggleWishlist('${item.id}')" title="Wishlist">
+                  ${isWished ? "♥" : "♡"}
+                </button>
+              </div>
+              <div class="card-img-wrap">
+                <img src="${item.image}" alt="${item.name}" loading="lazy" />
+                <a href="product.html?id=${item.id}" class="quick-view-trigger">3D Inspect →</a>
+              </div>
+              <div class="card-brand">${item.brand}</div>
+              <a href="product.html?id=${item.id}" class="card-title serif-font">${item.name}</a>
+              <div class="card-meta">
+                <span>⚙ ${item.movement}</span>
+                <span>💧 ${item.waterResistance}</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="price-wrap mono-font">
+                <span class="price-old">$${item.oldPrice.toLocaleString()}</span>
+                <span class="price-current">$${item.price.toLocaleString()}</span>
+              </div>
+              <button class="btn-add-cart" onclick="addToCart('${item.id}')">
+                <span>+</span>
+                <span>${addLabel}</span>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    document.querySelectorAll("#homeFilterTabs .tab-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#homeFilterTabs .tab-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeFilter = btn.dataset.filter;
+        renderHomeProducts();
+      });
+    });
+
+    // =========================================================================
+    // 8. CART & WISHLIST FUNCTIONS
+    // =========================================================================
+    window.addToCart = function(productId) {
+      const product = WATCHPLUS_PRODUCTS.find((p) => p.id === productId);
+      if (!product) return;
+
+      const existing = cart.find((c) => c.id === productId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          brand: product.brand,
+          price: product.price,
+          image: product.image,
+          qty: 1
+        });
+      }
+      saveState();
+      showToast(`${product.name} savatchaga qo'shildi!`);
+    };
+
+    window.changeCartQty = function(productId, delta) {
+      const idx = cart.findIndex((c) => c.id === productId);
+      if (idx === -1) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      saveState();
+    };
+
+    window.toggleWishlist = function(productId) {
+      const idx = wishlist.indexOf(productId);
+      if (idx > -1) {
+        wishlist.splice(idx, 1);
+        showToast("Sevimlilardan olib tashlandi");
+      } else {
+        wishlist.push(productId);
+        showToast("Sevimlilarga saqlandi ♥");
+      }
+      saveState();
+      renderHomeProducts();
+    };
+
+    function updateBadgesAndDrawers() {
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+      document.getElementById("cartCountBadge").textContent = totalCount;
+      document.getElementById("wishlistCountBadge").textContent = wishlist.length;
+      document.getElementById("cartDrawerTotal").textContent = `$${totalPrice.toLocaleString()}`;
+
+      const cartContainer = document.getElementById("cartDrawerItems");
+      if (cart.length === 0) {
+        cartContainer.innerHTML = `<p style="color:var(--text-muted); text-align:center; margin-top:40px;">Savatchangiz hozircha bo'sh.</p>`;
+      } else {
+        cartContainer.innerHTML = cart.map((item) => `
+          <div class="drawer-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div style="flex:1;">
+              <strong style="font-size:14px; display:block;">${item.name}</strong>
+              <span class="mono-font" style="color:var(--accent-gold); font-size:13px;">$${item.price.toLocaleString()}</span>
+              <div style="display:flex; align-items:center; gap:8px; margin-top:6px;">
+                <button class="icon-btn" style="width:26px; height:26px;" onclick="changeCartQty('${item.id}', -1)">-</button>
+                <span class="mono-font" style="font-size:13px;">${item.qty}</span>
+                <button class="icon-btn" style="width:26px; height:26px;" onclick="changeCartQty('${item.id}', 1)">+</button>
+              </div>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      const wishContainer = document.getElementById("wishlistDrawerItems");
+      if (wishlist.length === 0) {
+        wishContainer.innerHTML = `<p style="color:var(--text-muted); text-align:center; margin-top:40px;">Sevimli soatlar ro'yxati bo'sh.</p>`;
+      } else {
+        wishContainer.innerHTML = wishlist.map((id) => {
+          const item = WATCHPLUS_PRODUCTS.find((p) => p.id === id);
+          if (!item) return "";
+          return `
+            <div class="drawer-item">
+              <img src="${item.image}" alt="${item.name}" />
+              <div style="flex:1;">
+                <a href="product.html?id=${item.id}" style="font-weight:700; font-size:14px; display:block;">${item.name}</a>
+                <span class="mono-font" style="color:var(--accent-gold); font-size:13px;">$${item.price.toLocaleString()}</span>
+              </div>
+              <button class="btn-add-cart" onclick="addToCart('${item.id}')">+</button>
+            </div>
+          `;
+        }).join("");
+      }
+    }
+
+    // =========================================================================
+    // 9. TELEGRAM BOT API ORDER SENDER
+    // =========================================================================
+    async function sendOrderToTelegram(payload) {
+      const orderId = "WP-" + Math.floor(100000 + Math.random() * 900000);
+      const itemsText = payload.items && payload.items.length > 0
+        ? payload.items.map((i, idx) => `${idx + 1}. <b>${i.name}</b> (${i.qty} dona) — $${(i.price * i.qty).toLocaleString()}`).join("\n")
+        : `• <b>${payload.customModel || "VIP Konsultatsiya / Tanlov"}</b>`;
+
+      const message =
+        `⌚ <b>WATCHPLUS — YANGI BUYURTMA!</b>\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `🆔 <b>Buyurtma raqami:</b> #${orderId}\n` +
+        `👤 <b>Mijoz:</b> ${payload.name}\n` +
+        `📞 <b>Telefon:</b> ${payload.phone}\n` +
+        `📍 <b>Manzil:</b> ${payload.address}\n` +
+        `💳 <b>To'lov turi:</b> ${payload.payment}\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `🛍 <b>Tanlangan soatlar:</b>\n${itemsText}\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `💰 <b>Umumiy summa:</b> $${payload.total.toLocaleString()}\n` +
+        `🌐 <b>Sahifa:</b> index.html (${currentLang.toUpperCase()})`;
+
+      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: message,
+          parse_mode: "HTML"
+        })
+      });
+      return response.ok;
+    }
+
+    document.getElementById("instantTelegramForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById("tgSubmitBtn");
+      const submitText = document.getElementById("tgSubmitText");
+      const originalText = submitText.textContent;
+
+      submitBtn.disabled = true;
+      submitText.textContent = "Yuborilmoqda...";
+
+      const totalCart = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+      const payload = {
+        name: document.getElementById("tgClientName").value.trim(),
+        phone: document.getElementById("tgClientPhone").value.trim(),
+        customModel: document.getElementById("tgWatchModel").value.trim(),
+        address: document.getElementById("tgClientAddress").value.trim(),
+        payment: document.getElementById("tgPaymentMethod").value,
+        items: cart,
+        total: totalCart > 0 ? totalCart : 14850
+      };
+
+      try {
+        const ok = await sendOrderToTelegram(payload);
+        if (ok) {
+          showToast("Buyurtmangiz Telegram botga muvaffaqiyatli yuborildi!");
+          document.getElementById("instantTelegramForm").reset();
+          closeAllModals();
+        } else {
+          showToast("Xatolik yuz berdi. Qayta urinib ko'ring.");
+        }
+      } catch (err) {
+        showToast("Tarmoq xatoligi: Telegram API bilan bog'lanib bo'lmadi.");
+      } finally {
+        submitBtn.disabled = false;
+        submitText.textContent = originalText;
+      }
+    });
+
+    // Newsletter VIP form also notifies Telegram Bot
+    document.getElementById("newsletterForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const phone = document.getElementById("newsletterPhone").value.trim();
+      if (!phone) return;
+      await sendOrderToTelegram({
+        name: "VIP Klub Obunachisi",
+        phone,
+        address: "Obuna formasi (Footer)",
+        payment: "-",
+        customModel: "VIP Obuna so'rovi",
+        items: [],
+        total: 0
+      });
+      document.getElementById("newsletterForm").reset();
+      showToast("VIP Klubga muvaffaqiyatli qo'shildingiz!");
+    });
+
+    // =========================================================================
+    // 10. UI INTERACTIONS, MODALS, DRAWERS, COUNTDOWN & CURSOR
+    // =========================================================================
+    const backdrop = document.getElementById("globalBackdrop");
+    const cartDrawer = document.getElementById("cartDrawer");
+    const wishlistDrawer = document.getElementById("wishlistDrawer");
+    const vipModal = document.getElementById("vipOrderModal");
+
+    function closeAllModals() {
+      backdrop.classList.remove("open");
+      cartDrawer.classList.remove("open");
+      wishlistDrawer.classList.remove("open");
+      vipModal.classList.remove("open");
+    }
+
+    document.getElementById("openCartBtn").addEventListener("click", () => {
+      backdrop.classList.add("open");
+      cartDrawer.classList.add("open");
+    });
+
+    document.getElementById("openWishlistBtn").addEventListener("click", () => {
+      backdrop.classList.add("open");
+      wishlistDrawer.classList.add("open");
+    });
+
+    function openVipModal(prefillText = "") {
+      if (prefillText) {
+        document.getElementById("tgWatchModel").value = prefillText;
+      } else if (cart.length > 0) {
+        document.getElementById("tgWatchModel").value = cart.map((c) => `${c.name} x${c.qty}`).join(", ");
+      }
+      backdrop.classList.add("open");
+      vipModal.classList.add("open");
+    }
+
+    document.getElementById("openVipModalBtn").addEventListener("click", () => openVipModal());
+    document.getElementById("heroQuickOrderBtn").addEventListener("click", () => openVipModal("VIP Konsultatsiya va Tanlov"));
+    document.getElementById("cartInstantTelegramBtn").addEventListener("click", () => {
+      cartDrawer.classList.remove("open");
+      openVipModal();
+    });
+
+    document.getElementById("closeCartBtn").addEventListener("click", closeAllModals);
+    document.getElementById("closeWishlistBtn").addEventListener("click", closeAllModals);
+    document.getElementById("closeVipModalBtn").addEventListener("click", closeAllModals);
+    backdrop.addEventListener("click", closeAllModals);
+
+    document.getElementById("showcaseAddBtn").addEventListener("click", (e) => {
+      const id = e.currentTarget.getAttribute("data-id") || "wp-101";
+      window.addToCart(id);
+    });
+
+    document.getElementById("dealAddBtn").addEventListener("click", () => {
+      window.addToCart("wp-102");
+      openVipModal("Patek Philippe Nautilus 5711/1R (Maxsus Aksiya)");
+    });
+
+    // Theme & Language Listeners
+    document.getElementById("themeToggleBtn").addEventListener("click", () => {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
+      applyTheme(currentTheme);
+    });
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+    });
+
+    // Countdown Timer Logic
+    let remainingSeconds = 2 * 86400 + 14 * 3600 + 38 * 60 + 45;
+    setInterval(() => {
+      if (remainingSeconds > 0) remainingSeconds--;
+      const d = Math.floor(remainingSeconds / 86400);
+      const h = Math.floor((remainingSeconds % 86400) / 3600);
+      const m = Math.floor((remainingSeconds % 3600) / 60);
+      const s = remainingSeconds % 60;
+      document.getElementById("cdDays").textContent = String(d).padStart(2, "0");
+      document.getElementById("cdHours").textContent = String(h).padStart(2, "0");
+      document.getElementById("cdMins").textContent = String(m).padStart(2, "0");
+      document.getElementById("cdSecs").textContent = String(s).padStart(2, "0");
+    }, 1000);
+
+    // Custom Cursor & 3D Hero Tilt
+    const cursorDot = document.getElementById("cursorDot");
+    const cursorRing = document.getElementById("cursorRing");
+    window.addEventListener("mousemove", (e) => {
+      cursorDot.style.left = `${e.clientX}px`;
+      cursorDot.style.top = `${e.clientY}px`;
+      cursorRing.style.left = `${e.clientX}px`;
+      cursorRing.style.top = `${e.clientY}px`;
+    });
+
+    document.querySelectorAll("a, button").forEach((el) => {
+      el.addEventListener("mouseenter", () => cursorRing.classList.add("hovered"));
+      el.addEventListener("mouseleave", () => cursorRing.classList.remove("hovered"));
+    });
+
+    const heroTilt = document.getElementById("heroTiltCard");
+    heroTilt.addEventListener("mousemove", (e) => {
+      const rect = heroTilt.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      heroTilt.style.transform = `perspective(1000px) rotateY(${x / 28}deg) rotateX(${-y / 28}deg)`;
+    });
+    heroTilt.addEventListener("mouseleave", () => {
+      heroTilt.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg)";
+    });
+
+    // Init
+    applyTheme(currentTheme);
+    applyLanguage(currentLang);
+  </script>
+</body>
+</html>
